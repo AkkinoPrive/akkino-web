@@ -13,1356 +13,1169 @@
 <style>
 
 *{
-margin:0;
-padding:0;
-box-sizing:border-box;
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
 body{
 
-background:
-linear-gradient(rgba(8,8,8,.82),rgba(8,8,8,.82)),
-url("fondo.png");
+    background:
+    linear-gradient(rgba(8,8,8,.82),rgba(8,8,8,.82)),
+    url("fondo.png");
 
-background-size:cover;
-background-position:center;
-background-repeat:no-repeat;
-background-attachment:fixed;
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+    background-attachment:fixed;
 
-font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
 
-color:white;
+    color:white;
 
-padding:30px;
-
-padding-bottom:110px;
-
+    padding:30px;
+    padding-bottom:110px;
 }
 
 
-/* =========================
+/* =========================================================
 HEADER
-========================= */
+========================================================= */
 
 .header{
 
-display:flex;
-flex-direction:column;
-align-items:center;
-justify-content:center;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
 
-margin-bottom:25px;
-
+    margin-bottom:25px;
 }
-
 
 .logo{
 
-width:180px;
-height:auto;
-
-display:block;
-
+    width:180px;
+    height:auto;
+    display:block;
 }
-
 
 .subtitulo{
 
-margin-top:10px;
+    margin-top:10px;
 
-color:#c89d38;
+    color:#c89d38;
 
-font-size:13px;
+    font-size:13px;
 
-letter-spacing:4px;
+    letter-spacing:4px;
 
-font-weight:bold;
+    font-weight:bold;
 
-text-transform:uppercase;
-
+    text-transform:uppercase;
 }
 
 
-/* =========================
+/* =========================================================
 MODOS
-========================= */
+========================================================= */
 
 .modos{
 
-display:flex;
+    display:flex;
 
-justify-content:center;
+    justify-content:center;
 
-gap:10px;
+    gap:10px;
 
-margin:0 auto 25px;
+    margin:0 auto 25px;
 
-max-width:500px;
-
+    max-width:500px;
 }
-
 
 .modo{
 
-flex:1;
+    flex:1;
 
-padding:13px 10px;
+    padding:13px 10px;
 
-border-radius:12px;
+    border-radius:12px;
 
-border:1px solid #333;
+    border:1px solid #333;
 
-background:#181818;
+    background:#181818;
 
-color:#aaa;
+    color:#aaa;
 
-font-size:14px;
+    font-size:14px;
 
-font-weight:bold;
+    font-weight:bold;
 
-cursor:pointer;
+    cursor:pointer;
 
-transition:.2s;
-
+    transition:.2s;
 }
-
 
 .modo:hover{
 
-border-color:#c89d38;
+    border-color:#c89d38;
 
-color:white;
-
+    color:white;
 }
-
 
 .modo.activo{
 
-background:#c89d38;
+    background:#c89d38;
 
-color:#111;
+    color:#111;
 
-border-color:#c89d38;
-
+    border-color:#c89d38;
 }
 
 
-/* =========================
+/* =========================================================
 BUSCADOR
-========================= */
+========================================================= */
 
-input{
+#buscar{
 
-width:100%;
+    width:100%;
 
-max-width:700px;
+    max-width:700px;
 
-margin:0 auto 35px;
+    margin:0 auto 25px;
 
-display:block;
+    display:block;
 
-padding:16px;
+    padding:16px;
 
-background:#181818;
+    background:#181818;
 
-color:white;
+    color:white;
 
-border:1px solid #333;
+    border:1px solid #333;
 
-border-radius:12px;
+    border-radius:12px;
 
-font-size:16px;
+    font-size:16px;
 
-outline:none;
+    outline:none;
+}
 
+#buscar:focus{
+
+    border-color:#c89d38;
 }
 
 
-input:focus{
+/* =========================================================
+CATEGORÍAS
+========================================================= */
 
-border-color:#c89d38;
+.categorias{
 
+    max-width:1200px;
+
+    margin:0 auto 30px;
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:8px;
+
+    flex-wrap:wrap;
+}
+
+.categoria-btn{
+
+    border:1px solid #333;
+
+    background:#181818;
+
+    color:#aaa;
+
+    padding:9px 13px;
+
+    border-radius:20px;
+
+    cursor:pointer;
+
+    font-size:12px;
+
+    transition:.2s;
+}
+
+.categoria-btn:hover{
+
+    border-color:#c89d38;
+
+    color:white;
+}
+
+.categoria-btn.activa{
+
+    background:#c89d38;
+
+    border-color:#c89d38;
+
+    color:#111;
+
+    font-weight:bold;
 }
 
 
-/* =========================
+/* =========================================================
 PRODUCTOS
-========================= */
+========================================================= */
 
 #productos{
 
-display:grid;
+    display:grid;
 
-grid-template-columns:repeat(6,minmax(0,1fr));
+    grid-template-columns:repeat(6,minmax(0,1fr));
 
-gap:18px;
+    gap:18px;
 
-max-width:1800px;
+    max-width:1800px;
 
-margin:0 auto;
-
+    margin:0 auto;
 }
-
 
 .card{
 
-background:#171717;
+    background:#171717;
 
-border-radius:18px;
+    border-radius:18px;
 
-overflow:hidden;
+    overflow:hidden;
 
-border:1px solid #262626;
+    border:1px solid #262626;
 
-transition:.25s;
+    transition:.25s;
 
-min-width:0;
-
+    min-width:0;
 }
-
 
 .card:hover{
 
-transform:translateY(-6px);
+    transform:translateY(-6px);
 
-border-color:#c89d38;
-
+    border-color:#c89d38;
 }
-
 
 .card img{
 
-width:100%;
+    width:100%;
 
-height:270px;
+    height:270px;
 
-object-fit:cover;
+    object-fit:cover;
 
-background:#222;
+    background:#222;
 
-display:block;
-
+    display:block;
 }
 
 
-/* =========================
+/* =========================================================
 INFO
-========================= */
+========================================================= */
 
 .info{
 
-padding:15px;
-
+    padding:15px;
 }
-
 
 .nombre{
 
-font-size:16px;
+    font-size:16px;
 
-font-weight:bold;
+    font-weight:bold;
 
-line-height:1.35;
+    line-height:1.35;
 
-min-height:65px;
+    min-height:55px;
 
-overflow-wrap:anywhere;
+    overflow-wrap:anywhere;
+}
 
+.categoria-producto{
+
+    margin-top:7px;
+
+    color:#aaa;
+
+    font-size:11px;
+
+    min-height:16px;
 }
 
 
-/* =========================
-PRECIOS
-========================= */
-
-.precio-anterior{
-
-font-size:18px;
-
-color:#9d9d9d;
-
-text-decoration:line-through;
-
-margin-top:10px;
-
-}
-
+/* =========================================================
+PRECIO PARTICULAR
+========================================================= */
 
 .precio{
 
-margin-top:12px;
+    margin-top:12px;
 
-font-size:25px;
+    font-size:25px;
 
-font-weight:bold;
+    font-weight:bold;
 
-color:#ffcc66;
+    color:#ffcc66;
+}
 
+.precio-label{
+
+    margin-top:10px;
+
+    font-size:11px;
+
+    color:#999;
+
+    text-transform:uppercase;
+
+    letter-spacing:.5px;
+}
+
+.promos{
+
+    margin-top:12px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:6px;
+}
+
+.promo{
+
+    padding:7px;
+
+    border-radius:8px;
+
+    text-align:center;
+
+    font-size:12px;
+
+    font-weight:bold;
+
+    color:#3ddc84;
+
+    background:rgba(61,220,132,.10);
+
+    border:1px solid rgba(61,220,132,.30);
 }
 
 
-.descuento{
-
-margin-top:8px;
-
-font-size:12px;
-
-font-weight:bold;
-
-color:#3ddc84;
-
-line-height:1.4;
-
-background:rgba(61,220,132,.12);
-
-border:1px solid rgba(61,220,132,.35);
-
-padding:6px;
-
-border-radius:8px;
-
-text-align:center;
-
-}
-
-
-/* =========================
+/* =========================================================
 MAYORISTA
-========================= */
+========================================================= */
 
 .mayorista-titulo{
 
-margin-top:12px;
+    margin-top:12px;
 
-font-size:13px;
+    font-size:12px;
 
-font-weight:bold;
+    font-weight:bold;
 
-color:#c89d38;
+    color:#c89d38;
 
+    text-transform:uppercase;
 }
-
 
 .mayorista-precio{
 
-margin-top:5px;
+    margin-top:6px;
 
-font-size:23px;
+    font-size:24px;
 
-font-weight:bold;
+    font-weight:bold;
 
-color:#ffcc66;
+    color:#ffcc66;
+}
 
+.mayorista-unidad{
+
+    margin-top:3px;
+
+    font-size:11px;
+
+    color:#aaa;
+}
+
+.nivel-mayorista{
+
+    margin-top:10px;
+
+    padding:7px;
+
+    border-radius:8px;
+
+    text-align:center;
+
+    font-size:11px;
+
+    line-height:1.4;
+
+    background:rgba(200,157,56,.10);
+
+    border:1px solid rgba(200,157,56,.25);
+
+    color:#ddd;
 }
 
 
-.mayorista-info{
-
-margin-top:5px;
-
-font-size:11px;
-
-color:#999;
-
-line-height:1.5;
-
-}
-
-
-/* =========================
+/* =========================================================
 STOCK
-========================= */
+========================================================= */
 
 .stock{
 
-margin-top:12px;
+    margin-top:12px;
 
-font-size:14px;
+    font-size:13px;
 
-font-weight:bold;
+    font-weight:bold;
 
-min-height:20px;
-
+    min-height:20px;
 }
-
 
 .stock.disponible{
 
-color:#3ddc84;
-
+    color:#3ddc84;
 }
-
 
 .stock.apedido{
 
-color:#f5c542;
-
+    color:#f5c542;
 }
-
 
 .stock.sinstock{
 
-color:#ff5a5a;
-
+    color:#ff5a5a;
 }
 
 
-/* =========================
+/* =========================================================
 WHATSAPP
-========================= */
+========================================================= */
 
 .whatsapp{
 
-display:block;
+    display:block;
 
-margin-top:16px;
+    margin-top:16px;
 
-padding:12px 8px;
+    padding:12px 8px;
 
-background:#25D366;
+    background:#25D366;
 
-border-radius:10px;
+    border-radius:10px;
 
-text-align:center;
+    text-align:center;
 
-text-decoration:none;
+    text-decoration:none;
 
-color:white;
+    color:white;
 
-font-size:14px;
+    font-size:14px;
 
-font-weight:bold;
+    font-weight:bold;
 
-transition:.2s;
-
+    transition:.2s;
 }
-
 
 .whatsapp:hover{
 
-background:#1fb85a;
-
+    background:#1fb85a;
 }
 
 
-/* =========================
+/* =========================================================
 AGREGAR
-========================= */
+========================================================= */
 
 .agregar{
 
-display:block;
+    display:block;
 
-width:100%;
+    width:100%;
 
-margin-top:14px;
+    margin-top:14px;
 
-padding:12px 8px;
+    padding:12px 8px;
 
-background:#c89d38;
+    background:#c89d38;
 
-border:none;
+    border:none;
 
-border-radius:10px;
+    border-radius:10px;
 
-text-align:center;
+    text-align:center;
 
-color:#111;
+    color:#111;
 
-font-size:13px;
+    font-size:13px;
 
-font-weight:bold;
+    font-weight:bold;
 
-cursor:pointer;
+    cursor:pointer;
 
-transition:.2s;
-
+    transition:.2s;
 }
-
 
 .agregar:hover{
 
-background:#e0b653;
-
+    background:#e0b653;
 }
-
 
 .agregar:disabled{
 
-background:#333;
+    background:#333;
 
-color:#777;
+    color:#777;
 
-cursor:not-allowed;
-
+    cursor:not-allowed;
 }
 
 
-/* =========================
+/* =========================================================
 CANTIDAD
-========================= */
+========================================================= */
 
 .cantidad{
 
-display:flex;
+    display:flex;
 
-align-items:center;
+    align-items:center;
 
-justify-content:center;
+    justify-content:center;
 
-gap:8px;
+    gap:8px;
 
-margin-top:14px;
-
+    margin-top:14px;
 }
-
 
 .cantidad button{
 
-width:35px;
+    width:35px;
 
-height:35px;
+    height:35px;
 
-border-radius:8px;
+    border-radius:8px;
 
-border:1px solid #444;
+    border:1px solid #444;
 
-background:#222;
+    background:#222;
 
-color:white;
+    color:white;
 
-font-size:20px;
+    font-size:20px;
 
-cursor:pointer;
-
+    cursor:pointer;
 }
-
 
 .cantidad button:hover{
 
-border-color:#c89d38;
-
+    border-color:#c89d38;
 }
-
 
 .cantidad span{
 
-min-width:35px;
+    min-width:35px;
 
-text-align:center;
+    text-align:center;
 
-font-size:16px;
+    font-size:16px;
 
-font-weight:bold;
-
+    font-weight:bold;
 }
 
 
-/* =========================
+/* =========================================================
 PAGINACIÓN
-========================= */
+========================================================= */
 
 .paginacion{
 
-display:flex;
+    display:flex;
 
-justify-content:center;
+    justify-content:center;
 
-align-items:center;
+    align-items:center;
 
-gap:7px;
+    gap:7px;
 
-margin:35px auto 20px;
+    margin:35px auto 20px;
 
-flex-wrap:wrap;
-
+    flex-wrap:wrap;
 }
-
 
 .pagina-btn{
 
-min-width:40px;
+    min-width:40px;
 
-height:40px;
+    height:40px;
 
-padding:0 12px;
+    padding:0 12px;
 
-border-radius:9px;
+    border-radius:9px;
 
-border:1px solid #333;
+    border:1px solid #333;
 
-background:#181818;
+    background:#181818;
 
-color:#aaa;
+    color:#aaa;
 
-font-weight:bold;
+    font-weight:bold;
 
-cursor:pointer;
+    cursor:pointer;
 
-transition:.2s;
-
+    transition:.2s;
 }
-
 
 .pagina-btn:hover{
 
-border-color:#c89d38;
+    border-color:#c89d38;
 
-color:white;
-
+    color:white;
 }
-
 
 .pagina-btn.activa{
 
-background:#c89d38;
+    background:#c89d38;
 
-color:#111;
+    color:#111;
 
-border-color:#c89d38;
-
+    border-color:#c89d38;
 }
-
 
 .pagina-btn:disabled{
 
-opacity:.35;
+    opacity:.35;
 
-cursor:not-allowed;
-
+    cursor:not-allowed;
 }
-
 
 .paginacion-info{
 
-text-align:center;
+    text-align:center;
 
-font-size:12px;
+    font-size:12px;
 
-color:#777;
+    color:#777;
 
-margin-bottom:20px;
-
+    margin-bottom:20px;
 }
 
 
-/* =========================
+/* =========================================================
 BARRA CARRITO
-========================= */
+========================================================= */
 
 .carrito-barra{
 
-position:fixed;
+    position:fixed;
 
-bottom:0;
+    bottom:0;
 
-left:0;
+    left:0;
 
-right:0;
+    right:0;
 
-z-index:1000;
+    z-index:1000;
 
-background:rgba(15,15,15,.97);
+    background:rgba(15,15,15,.97);
 
-border-top:1px solid #333;
+    border-top:1px solid #333;
 
-padding:12px 20px;
+    padding:12px 20px;
 
-display:none;
+    display:none;
 
-box-shadow:0 -5px 20px rgba(0,0,0,.4);
-
+    box-shadow:0 -5px 20px rgba(0,0,0,.4);
 }
-
 
 .carrito-contenido{
 
-max-width:1000px;
+    max-width:1000px;
 
-margin:auto;
+    margin:auto;
 
-display:flex;
+    display:flex;
 
-align-items:center;
+    align-items:center;
 
-justify-content:space-between;
+    justify-content:space-between;
 
-gap:20px;
-
+    gap:20px;
 }
-
 
 .carrito-info{
 
-font-size:14px;
-
+    font-size:14px;
 }
-
 
 .carrito-info strong{
 
-color:#ffcc66;
-
+    color:#ffcc66;
 }
-
 
 .carrito-boton{
 
-background:#25D366;
+    background:#25D366;
 
-color:white;
+    color:white;
 
-border:none;
+    border:none;
 
-border-radius:10px;
+    border-radius:10px;
 
-padding:13px 20px;
+    padding:13px 20px;
 
-font-weight:bold;
+    font-weight:bold;
 
-cursor:pointer;
+    cursor:pointer;
 
-font-size:14px;
-
+    font-size:14px;
 }
 
 
-.carrito-boton:hover{
-
-background:#1fb85a;
-
-}
-
-
-/* =========================
+/* =========================================================
 MODAL
-========================= */
+========================================================= */
 
 .modal{
 
-display:none;
+    display:none;
 
-position:fixed;
+    position:fixed;
 
-z-index:2000;
+    z-index:2000;
 
-inset:0;
+    inset:0;
 
-background:rgba(0,0,0,.75);
+    background:rgba(0,0,0,.75);
 
-padding:20px;
+    padding:20px;
 
-align-items:center;
+    align-items:center;
 
-justify-content:center;
-
+    justify-content:center;
 }
-
 
 .modal.activo{
 
-display:flex;
-
+    display:flex;
 }
-
 
 .modal-contenido{
 
-width:100%;
+    width:100%;
 
-max-width:600px;
+    max-width:600px;
 
-max-height:90vh;
+    max-height:90vh;
 
-overflow-y:auto;
+    overflow-y:auto;
 
-background:#171717;
+    background:#171717;
 
-border:1px solid #333;
+    border:1px solid #333;
 
-border-radius:18px;
+    border-radius:18px;
 
-padding:22px;
+    padding:22px;
 
-box-shadow:0 20px 50px rgba(0,0,0,.6);
-
+    box-shadow:0 20px 50px rgba(0,0,0,.6);
 }
-
 
 .modal-header{
 
-display:flex;
+    display:flex;
 
-align-items:center;
+    align-items:center;
 
-justify-content:space-between;
+    justify-content:space-between;
 
-margin-bottom:20px;
-
+    margin-bottom:20px;
 }
-
 
 .modal-header h2{
 
-font-size:20px;
-
+    font-size:20px;
 }
-
 
 .cerrar{
 
-background:none;
+    background:none;
 
-border:none;
+    border:none;
 
-color:#aaa;
+    color:#aaa;
 
-font-size:28px;
+    font-size:28px;
 
-cursor:pointer;
-
+    cursor:pointer;
 }
 
 
-.cerrar:hover{
-
-color:white;
-
-}
-
-
-/* =========================
+/* =========================================================
 ITEM CARRITO
-========================= */
+========================================================= */
 
 .item-carrito{
 
-display:flex;
+    display:flex;
 
-align-items:center;
+    align-items:center;
 
-justify-content:space-between;
+    justify-content:space-between;
 
-gap:12px;
+    gap:12px;
 
-padding:14px 0;
+    padding:14px 0;
 
-border-bottom:1px solid #292929;
-
+    border-bottom:1px solid #292929;
 }
-
 
 .item-nombre{
 
-flex:1;
+    flex:1;
 
-font-size:14px;
+    font-size:14px;
 
-font-weight:bold;
-
+    font-weight:bold;
 }
-
 
 .item-precio{
 
-font-size:13px;
+    font-size:13px;
 
-color:#aaa;
+    color:#aaa;
 
-margin-top:4px;
-
+    margin-top:4px;
 }
-
 
 .item-subtotal{
 
-font-size:12px;
+    font-size:12px;
 
-color:#c89d38;
+    color:#c89d38;
 
-margin-top:4px;
-
+    margin-top:4px;
 }
-
 
 .item-controles{
 
-display:flex;
+    display:flex;
 
-align-items:center;
+    align-items:center;
 
-gap:7px;
-
+    gap:7px;
 }
-
 
 .item-controles button{
 
-width:30px;
+    width:30px;
 
-height:30px;
+    height:30px;
 
-border:1px solid #444;
+    border:1px solid #444;
 
-background:#222;
+    background:#222;
 
-color:white;
+    color:white;
 
-border-radius:7px;
+    border-radius:7px;
 
-cursor:pointer;
-
+    cursor:pointer;
 }
-
 
 .item-controles span{
 
-min-width:25px;
+    min-width:25px;
 
-text-align:center;
+    text-align:center;
 
-font-weight:bold;
-
+    font-weight:bold;
 }
 
 
-/* =========================
+/* =========================================================
 RESUMEN
-========================= */
+========================================================= */
 
 .carrito-resumen{
 
-margin-top:20px;
+    margin-top:20px;
 
-padding-top:15px;
+    padding-top:15px;
 
-border-top:1px solid #444;
-
+    border-top:1px solid #444;
 }
-
 
 .resumen-linea{
 
-display:flex;
+    display:flex;
 
-justify-content:space-between;
+    justify-content:space-between;
 
-margin-bottom:8px;
+    margin-bottom:8px;
 
-font-size:14px;
-
+    font-size:14px;
 }
-
 
 .resumen-total{
 
-display:flex;
+    display:flex;
 
-justify-content:space-between;
+    justify-content:space-between;
 
-margin-top:12px;
+    margin-top:12px;
 
-padding-top:12px;
+    padding-top:12px;
 
-border-top:1px solid #333;
+    border-top:1px solid #333;
 
-font-size:20px;
+    font-size:20px;
 
-font-weight:bold;
+    font-weight:bold;
 
-color:#ffcc66;
-
+    color:#ffcc66;
 }
-
 
 .proximo-nivel{
 
-margin-top:15px;
+    margin-top:15px;
 
-padding:10px;
+    padding:10px;
 
-border-radius:10px;
+    border-radius:10px;
 
-background:rgba(200,157,56,.10);
+    background:rgba(200,157,56,.10);
 
-border:1px solid rgba(200,157,56,.25);
+    border:1px solid rgba(200,157,56,.25);
 
-color:#ddd;
+    color:#ddd;
 
-font-size:12px;
+    font-size:12px;
 
-text-align:center;
+    text-align:center;
 
-line-height:1.5;
-
+    line-height:1.5;
 }
 
 
-/* =========================
+/* =========================================================
 ENVIAR WHATSAPP
-========================= */
+========================================================= */
 
 .enviar-whatsapp{
 
-width:100%;
+    width:100%;
 
-margin-top:18px;
+    margin-top:18px;
 
-padding:15px;
+    padding:15px;
 
-background:#25D366;
+    background:#25D366;
 
-color:white;
+    color:white;
 
-border:none;
+    border:none;
 
-border-radius:10px;
+    border-radius:10px;
 
-font-size:15px;
+    font-size:15px;
 
-font-weight:bold;
+    font-weight:bold;
 
-cursor:pointer;
-
+    cursor:pointer;
 }
 
 
-.enviar-whatsapp:hover{
-
-background:#1fb85a;
-
-}
-
-
-/* =========================
+/* =========================================================
 VACÍO
-========================= */
+========================================================= */
 
 .vacio{
 
-text-align:center;
+    text-align:center;
 
-color:#888;
+    color:#888;
 
-padding:30px 10px;
-
+    padding:30px 10px;
 }
 
 
-/* =========================
+/* =========================================================
 RESPONSIVE
-========================= */
+========================================================= */
 
 @media(max-width:1450px){
 
-#productos{
+    #productos{
 
-grid-template-columns:repeat(5,minmax(0,1fr));
-
+        grid-template-columns:repeat(5,minmax(0,1fr));
+    }
 }
-
-}
-
 
 @media(max-width:1150px){
 
-#productos{
+    #productos{
 
-grid-template-columns:repeat(4,minmax(0,1fr));
-
+        grid-template-columns:repeat(4,minmax(0,1fr));
+    }
 }
-
-}
-
 
 @media(max-width:900px){
 
-#productos{
+    #productos{
 
-grid-template-columns:repeat(3,minmax(0,1fr));
+        grid-template-columns:repeat(3,minmax(0,1fr));
 
-gap:14px;
+        gap:14px;
+    }
 
+    .card img{
+
+        height:250px;
+    }
 }
-
-.card img{
-
-height:250px;
-
-}
-
-}
-
 
 @media(max-width:600px){
 
-body{
+    body{
 
-padding:10px;
+        padding:10px;
 
-padding-bottom:90px;
+        padding-bottom:90px;
+    }
 
-}
+    .logo{
 
-.header{
+        width:145px;
+    }
 
-margin-bottom:18px;
+    .subtitulo{
 
-}
+        font-size:11px;
 
-.logo{
+        letter-spacing:3px;
+    }
 
-width:145px;
+    .modos{
 
-}
+        gap:7px;
 
-.subtitulo{
+        margin-bottom:18px;
+    }
 
-font-size:11px;
+    .modo{
 
-letter-spacing:3px;
+        font-size:11px;
 
-}
+        padding:11px 5px;
+    }
 
-.modos{
+    #buscar{
 
-gap:7px;
+        margin-bottom:15px;
 
-margin-bottom:18px;
+        padding:13px;
 
-}
+        font-size:14px;
+    }
 
-.modo{
+    .categorias{
 
-font-size:11px;
+        justify-content:flex-start;
 
-padding:11px 5px;
+        flex-wrap:nowrap;
 
-}
+        overflow-x:auto;
 
-input{
+        padding-bottom:5px;
 
-margin-bottom:22px;
+        margin-bottom:20px;
+    }
 
-padding:13px;
+    .categoria-btn{
 
-font-size:14px;
+        flex:none;
+    }
 
-}
+    #productos{
 
-#productos{
+        grid-template-columns:repeat(2,minmax(0,1fr));
 
-grid-template-columns:repeat(2,minmax(0,1fr));
+        gap:10px;
+    }
 
-gap:10px;
+    .card{
 
-}
+        border-radius:12px;
+    }
 
-.card{
+    .card:hover{
 
-border-radius:12px;
+        transform:none;
+    }
 
-}
+    .card img{
 
-.card:hover{
+        height:190px;
+    }
 
-transform:none;
+    .info{
 
-}
+        padding:10px;
+    }
 
-.card img{
+    .nombre{
 
-height:190px;
+        font-size:13px;
 
-}
+        min-height:48px;
+    }
 
-.info{
+    .precio{
 
-padding:10px;
+        font-size:20px;
+    }
 
-}
+    .mayorista-precio{
 
-.nombre{
+        font-size:19px;
+    }
 
-font-size:13px;
+    .stock{
 
-line-height:1.3;
+        font-size:12px;
+    }
 
-min-height:52px;
+    .agregar,
+    .whatsapp{
 
-}
+        font-size:11px;
 
-.precio{
+        padding:10px 5px;
+    }
 
-margin-top:8px;
+    .modal{
 
-font-size:20px;
+        padding:10px;
+    }
 
-}
+    .modal-contenido{
 
-.precio-anterior{
-
-font-size:14px;
-
-}
-
-.mayorista-precio{
-
-font-size:18px;
-
-}
-
-.stock{
-
-margin-top:8px;
-
-font-size:12px;
-
-min-height:30px;
-
-}
-
-.agregar{
-
-margin-top:10px;
-
-padding:10px 5px;
-
-font-size:11px;
-
-}
-
-.cantidad button{
-
-width:30px;
-
-height:30px;
-
-}
-
-.whatsapp{
-
-margin-top:10px;
-
-padding:10px 5px;
-
-font-size:11px;
-
-}
-
-.carrito-contenido{
-
-gap:10px;
-
-}
-
-.carrito-info{
-
-font-size:12px;
-
-}
-
-.carrito-boton{
-
-padding:11px 12px;
-
-font-size:12px;
-
-}
-
-.modal{
-
-padding:10px;
-
-}
-
-.modal-contenido{
-
-padding:15px;
-
-}
-
-.item-carrito{
-
-align-items:flex-start;
-
-}
-
-.paginacion{
-
-margin-top:25px;
-
-gap:5px;
-
-}
-
-.pagina-btn{
-
-min-width:35px;
-
-height:35px;
-
-padding:0 8px;
-
-font-size:12px;
-
-}
-
-}
-
-
-@media(max-width:360px){
-
-body{
-
-padding:7px;
-
-}
-
-#productos{
-
-gap:7px;
-
-}
-
-.card img{
-
-height:165px;
-
-}
-
-.info{
-
-padding:8px;
-
-}
-
-.nombre{
-
-font-size:12px;
-
-min-height:48px;
-
-}
-
-.precio{
-
-font-size:18px;
-
-}
-
-.stock{
-
-font-size:11px;
-
-}
-
-.whatsapp{
-
-font-size:10px;
-
-}
-
+        padding:15px;
+    }
 }
 
 </style>
@@ -1373,153 +1186,162 @@ font-size:10px;
 <body>
 
 
-<!-- =========================
+<!-- =========================================================
 HEADER
-========================= -->
+========================================================= -->
 
 <div class="header">
 
-<img
-src="logo%20neros.png"
-class="logo"
-alt="AKKINO">
+    <img
+        src="logo%20neros.png"
+        class="logo"
+        alt="AKKINO">
 
-<div class="subtitulo">
-CATÁLOGO OFICIAL
+    <div class="subtitulo">
+        CATÁLOGO OFICIAL
+    </div>
+
 </div>
 
-</div>
 
-
-<!-- =========================
+<!-- =========================================================
 MODOS
-========================= -->
+========================================================= -->
 
 <div class="modos">
 
-<button
-id="modoParticular"
-class="modo activo"
-onclick="cambiarModo('particular')">
+    <button
+        id="modoParticular"
+        class="modo activo"
+        onclick="cambiarModo('particular')">
 
-🛍️ PARTICULAR
+        🛍️ PARTICULAR
 
-</button>
+    </button>
 
 
-<button
-id="modoMayorista"
-class="modo"
-onclick="cambiarModo('mayorista')">
+    <button
+        id="modoMayorista"
+        class="modo"
+        onclick="cambiarModo('mayorista')">
 
-📦 MAYORISTA
+        📦 MAYORISTA
 
-</button>
+    </button>
 
 </div>
 
 
-<!-- =========================
+<!-- =========================================================
 BUSCADOR
-========================= -->
+========================================================= -->
 
 <input
-id="buscar"
-placeholder="🔍 Buscar perfume...">
+    id="buscar"
+    placeholder="🔍 Buscar perfume...">
 
 
-<!-- =========================
+<!-- =========================================================
+CATEGORÍAS
+========================================================= -->
+
+<div
+    id="categorias"
+    class="categorias">
+</div>
+
+
+<!-- =========================================================
 PRODUCTOS
-========================= -->
+========================================================= -->
 
 <div id="productos"></div>
 
 
-<!-- =========================
+<!-- =========================================================
 PAGINACIÓN
-========================= -->
+========================================================= -->
 
 <div id="paginacion"></div>
 
 
-<!-- =========================
+<!-- =========================================================
 BARRA CARRITO
-========================= -->
+========================================================= -->
 
 <div
-id="carritoBarra"
-class="carrito-barra">
+    id="carritoBarra"
+    class="carrito-barra">
 
-<div class="carrito-contenido">
+    <div class="carrito-contenido">
 
-<div
-id="carritoInfo"
-class="carrito-info">
+        <div
+            id="carritoInfo"
+            class="carrito-info">
 
-🛒 <strong>0</strong> unidades
+            🛒 <strong>0</strong> unidades
+
+        </div>
+
+
+        <button
+            class="carrito-boton"
+            onclick="abrirCarrito()">
+
+            VER PEDIDO
+
+        </button>
+
+    </div>
 
 </div>
 
 
-<button
-class="carrito-boton"
-onclick="abrirCarrito()">
-
-VER PEDIDO
-
-</button>
-
-</div>
-
-</div>
-
-
-<!-- =========================
+<!-- =========================================================
 MODAL CARRITO
-========================= -->
+========================================================= -->
 
 <div
-id="modalCarrito"
-class="modal">
+    id="modalCarrito"
+    class="modal">
 
-<div class="modal-contenido">
-
-
-<div class="modal-header">
-
-<h2>🛒 Pedido mayorista</h2>
-
-<button
-class="cerrar"
-onclick="cerrarCarrito()">
-
-×
-
-</button>
-
-</div>
+    <div class="modal-contenido">
 
 
-<div id="listaCarrito"></div>
+        <div class="modal-header">
+
+            <h2>🛒 Pedido mayorista</h2>
+
+            <button
+                class="cerrar"
+                onclick="cerrarCarrito()">
+
+                ×
+
+            </button>
+
+        </div>
 
 
-<div
-id="resumenCarrito"
-class="carrito-resumen">
-
-</div>
+        <div id="listaCarrito"></div>
 
 
-<button
-class="enviar-whatsapp"
-onclick="enviarPedidoWhatsApp()">
-
-💬 ENVIAR PEDIDO POR WHATSAPP
-
-</button>
+        <div
+            id="resumenCarrito"
+            class="carrito-resumen">
+        </div>
 
 
-</div>
+        <button
+            class="enviar-whatsapp"
+            onclick="enviarPedidoWhatsApp()">
+
+            💬 ENVIAR PEDIDO POR WHATSAPP
+
+        </button>
+
+
+    </div>
 
 </div>
 
@@ -1528,31 +1350,123 @@ onclick="enviarPedidoWhatsApp()">
 
 
 /* =========================================================
-CONFIGURACIÓN AKKINO
+CONFIGURACIÓN
 ========================================================= */
 
-const API="https://script.google.com/macros/s/AKfycbxBlyQl5bl8QEHTyt4oAMSQKEqY8-kmptZg7-_mogkjwtvB0SklyqSli0t0xyFrrNQ/exec";
+const API =
+"https://script.google.com/macros/s/AKfycbxBlyQl5bl8QEHTyt4oAMSQKEqY8-kmptZg7-_mogkjwtvB0SklyqSli0t0xyFrrNQ/exec";
 
-const WHATSAPP="5493417830300";
 
-const MINIMO_MAYORISTA=10;
+const WHATSAPP =
+"5493417830300";
 
-const PRODUCTOS_POR_PAGINA=30;
+
+const MINIMO_MAYORISTA =
+5;
+
+
+const PRODUCTOS_POR_PAGINA =
+30;
 
 
 /* =========================================================
 VARIABLES
 ========================================================= */
 
-let perfumes=[];
+let perfumes = [];
 
-let carrito=[];
+let carrito = [];
 
-let modoActual="particular";
+let modoActual = "particular";
 
-let paginaActual=1;
+let paginaActual = 1;
 
-let productosFiltrados=[];
+let productosFiltrados = [];
+
+let categoriaActual = "TODOS";
+
+
+/* =========================================================
+CONVERTIR NÚMERO
+========================================================= */
+
+function convertirNumero(valor){
+
+    if(
+        valor === null ||
+        valor === undefined ||
+        valor === ""
+    ){
+
+        return 0;
+    }
+
+
+    if(typeof valor === "number"){
+
+        return valor;
+    }
+
+
+    let texto =
+        String(valor)
+        .trim()
+        .replace(/ARS/gi,"")
+        .replace(/\$/g,"")
+        .replace(/\s/g,"");
+
+
+    /*
+    Ejemplo argentino:
+
+    15.000,00
+    */
+
+    if(
+        texto.includes(".") &&
+        texto.includes(",")
+    ){
+
+        texto =
+            texto
+            .replace(/\./g,"")
+            .replace(",",".");
+    }
+
+    else if(texto.includes(",")){
+
+        texto =
+            texto.replace(",",".");
+    }
+
+
+    const numero =
+        Number(texto);
+
+
+    return isNaN(numero)
+        ? 0
+        : numero;
+}
+
+
+/* =========================================================
+FORMATEAR PRECIO
+========================================================= */
+
+function formatearPrecio(valor){
+
+    const numero =
+        convertirNumero(valor);
+
+    return numero.toLocaleString(
+        "es-AR",
+        {
+            minimumFractionDigits:0,
+            maximumFractionDigits:0
+        }
+    );
+}
 
 
 /* =========================================================
@@ -1561,103 +1475,177 @@ CARGAR PRODUCTOS
 
 fetch(API)
 
-.then(r=>r.json())
+.then(respuesta => {
 
-.then(data=>{
+    if(!respuesta.ok){
 
-perfumes=data;
+        throw new Error(
+            "Error HTTP " +
+            respuesta.status
+        );
+    }
 
-productosFiltrados=data;
+    return respuesta.json();
+})
 
-paginaActual=1;
+.then(data => {
 
-mostrarPagina();
+    if(!Array.isArray(data)){
+
+        console.error(
+            "Respuesta API:",
+            data
+        );
+
+        throw new Error(
+            data.error ||
+            "La API no devolvió una lista de productos."
+        );
+    }
+
+
+    perfumes = data;
+
+    productosFiltrados = data;
+
+
+    crearCategorias();
+
+
+    paginaActual = 1;
+
+    aplicarFiltros();
 
 })
 
-.catch(error=>{
+.catch(error => {
 
-console.error("Error cargando productos:",error);
+    console.error(
+        "Error cargando productos:",
+        error
+    );
 
-document.getElementById("productos").innerHTML=`
 
-<div style="
-grid-column:1/-1;
-text-align:center;
-padding:40px;
-color:#ff5a5a;
-">
+    document
+    .getElementById("productos")
+    .innerHTML = `
 
-No se pudieron cargar los productos.
+        <div style="
+        grid-column:1/-1;
+        text-align:center;
+        padding:50px;
+        color:#ff5a5a;
+        ">
 
-</div>
+            No se pudieron cargar los perfumes.<br><br>
 
-`;
+            <span style="
+            font-size:12px;
+            color:#888;
+            ">
 
+            Revisá la conexión con Google Sheets.
+
+            </span>
+
+        </div>
+
+    `;
 });
 
 
 /* =========================================================
-CAMBIAR MODO
+CREAR CATEGORÍAS
 ========================================================= */
 
-function cambiarModo(modo){
+function crearCategorias(){
 
-modoActual=modo;
+    const contenedor =
+        document.getElementById(
+            "categorias"
+        );
 
-document
-.getElementById("modoParticular")
-.classList
-.toggle("activo",modo==="particular");
 
-document
-.getElementById("modoMayorista")
-.classList
-.toggle("activo",modo==="mayorista");
+    const categorias =
+        [
+            ...new Set(
 
-if(modo==="particular"){
+                perfumes
 
-carrito=[];
+                .map(p =>
+                    String(
+                        p.categoria || ""
+                    ).trim()
+                )
 
-actualizarCarrito();
+                .filter(Boolean)
+            )
+        ];
 
-}
 
-paginaActual=1;
+    let html = `
 
-mostrarPagina();
+        <button
+            class="categoria-btn activa"
+            data-categoria="TODOS"
+            onclick="seleccionarCategoria('TODOS')">
 
+            TODOS
+
+        </button>
+
+    `;
+
+
+    categorias.forEach(categoria => {
+
+        html += `
+
+            <button
+                class="categoria-btn"
+                data-categoria="${escapeHTML(categoria)}"
+                onclick="seleccionarCategoria('${escapeJS(categoria)}')">
+
+                ${escapeHTML(categoria)}
+
+            </button>
+
+        `;
+
+    });
+
+
+    contenedor.innerHTML = html;
 }
 
 
 /* =========================================================
-FILTRAR PRODUCTOS
+SELECCIONAR CATEGORÍA
 ========================================================= */
 
-function filtrarProductos(){
+function seleccionarCategoria(categoria){
 
-const texto=
-document
-.getElementById("buscar")
-.value
-.toLowerCase()
-.trim();
+    categoriaActual =
+        categoria;
 
 
-productosFiltrados=
-perfumes.filter(p=>
+    document
+    .querySelectorAll(
+        ".categoria-btn"
+    )
+    .forEach(btn => {
 
-(p.perfume || "")
-.toLowerCase()
-.includes(texto)
+        btn.classList.toggle(
+            "activa",
+            btn.dataset.categoria === categoria
+        );
 
-);
+    });
 
 
-paginaActual=1;
+    paginaActual = 1;
 
-mostrarPagina();
-
+    aplicarFiltros();
 }
 
 
@@ -1667,11 +1655,122 @@ BUSCADOR
 
 document
 .getElementById("buscar")
-.addEventListener("input",()=>{
+.addEventListener(
+    "input",
+    () => {
 
-filtrarProductos();
+        paginaActual = 1;
 
-});
+        aplicarFiltros();
+    }
+);
+
+
+/* =========================================================
+APLICAR FILTROS
+========================================================= */
+
+function aplicarFiltros(){
+
+    const texto =
+
+        document
+        .getElementById("buscar")
+        .value
+        .toLowerCase()
+        .trim();
+
+
+    productosFiltrados =
+
+        perfumes.filter(p => {
+
+
+            const nombre =
+
+                String(
+                    p.perfume || ""
+                )
+                .toLowerCase();
+
+
+            const categoria =
+
+                String(
+                    p.categoria || ""
+                );
+
+
+            const coincideTexto =
+
+                nombre.includes(texto);
+
+
+            const coincideCategoria =
+
+                categoriaActual === "TODOS" ||
+
+                categoria === categoriaActual;
+
+
+            return (
+
+                coincideTexto &&
+                coincideCategoria
+
+            );
+
+        });
+
+
+    mostrarPagina();
+}
+
+
+/* =========================================================
+CAMBIAR MODO
+========================================================= */
+
+function cambiarModo(modo){
+
+    modoActual =
+        modo;
+
+
+    document
+    .getElementById(
+        "modoParticular"
+    )
+    .classList
+    .toggle(
+        "activo",
+        modo === "particular"
+    );
+
+
+    document
+    .getElementById(
+        "modoMayorista"
+    )
+    .classList
+    .toggle(
+        "activo",
+        modo === "mayorista"
+    );
+
+
+    if(modo === "particular"){
+
+        carrito = [];
+
+        actualizarCarrito();
+    }
+
+
+    paginaActual = 1;
+
+    mostrarPagina();
+}
 
 
 /* =========================================================
@@ -1680,24 +1779,266 @@ MOSTRAR PÁGINA
 
 function mostrarPagina(){
 
-const inicio=
-(paginaActual-1) *
-PRODUCTOS_POR_PAGINA;
+    const inicio =
+
+        (paginaActual - 1) *
+        PRODUCTOS_POR_PAGINA;
 
 
-const fin=
-inicio +
-PRODUCTOS_POR_PAGINA;
+    const fin =
+
+        inicio +
+        PRODUCTOS_POR_PAGINA;
 
 
-const productosPagina=
-productosFiltrados.slice(inicio,fin);
+    const productosPagina =
+
+        productosFiltrados
+        .slice(
+            inicio,
+            fin
+        );
 
 
-mostrar(productosPagina);
+    mostrar(
+        productosPagina
+    );
 
-mostrarPaginacion();
 
+    mostrarPaginacion();
+}
+
+
+/* =========================================================
+OBTENER ESCALA MAYORISTA
+========================================================= */
+
+function obtenerEscalaMayorista(
+    producto,
+    total
+){
+
+    /*
+    Soportamos distintos nombres
+    por si después el Apps Script
+    cambia levemente.
+    */
+
+
+    if(total >= 500){
+
+        return {
+
+            minimo:500,
+
+            titulo:"500+ unidades",
+
+            precio:
+                convertirNumero(
+                    producto.precio500 ??
+                    producto.precioMayorista500 ??
+                    producto.precioMas500
+                )
+        };
+    }
+
+
+    if(total >= 250){
+
+        return {
+
+            minimo:250,
+
+            titulo:"250+ unidades",
+
+            precio:
+                convertirNumero(
+                    producto.precio250 ??
+                    producto.precioMayorista250
+                )
+        };
+    }
+
+
+    if(total >= 100){
+
+        return {
+
+            minimo:100,
+
+            titulo:"100+ unidades",
+
+            precio:
+                convertirNumero(
+                    producto.precio100 ??
+                    producto.precioMayorista100
+                )
+        };
+    }
+
+
+    if(total >= 50){
+
+        return {
+
+            minimo:50,
+
+            titulo:"50+ unidades",
+
+            precio:
+                convertirNumero(
+                    producto.precio50 ??
+                    producto.precioMayorista50
+                )
+        };
+    }
+
+
+    if(total >= 30){
+
+        return {
+
+            minimo:30,
+
+            titulo:"30+ unidades",
+
+            precio:
+                convertirNumero(
+                    producto.precio30 ??
+                    producto.precioMayorista30
+                )
+        };
+    }
+
+
+    if(total >= 20){
+
+        return {
+
+            minimo:20,
+
+            titulo:"20+ unidades",
+
+            precio:
+                convertirNumero(
+                    producto.precio20 ??
+                    producto.precioMayorista20
+                )
+        };
+    }
+
+
+    if(total >= 10){
+
+        return {
+
+            minimo:10,
+
+            titulo:"10+ unidades",
+
+            precio:
+                convertirNumero(
+                    producto.precio10 ??
+                    producto.precioMayorista10
+                )
+        };
+    }
+
+
+    return {
+
+        minimo:5,
+
+        titulo:"5+ unidades",
+
+        precio:
+            convertirNumero(
+                producto.precio5 ??
+                producto.precioMayorista5
+            )
+    };
+}
+
+
+/* =========================================================
+PRÓXIMO NIVEL
+========================================================= */
+
+function obtenerProximoNivel(total){
+
+    if(total < 5){
+
+        return {
+            cantidad:5,
+            faltan:5-total
+        };
+    }
+
+
+    if(total < 10){
+
+        return {
+            cantidad:10,
+            faltan:10-total
+        };
+    }
+
+
+    if(total < 20){
+
+        return {
+            cantidad:20,
+            faltan:20-total
+        };
+    }
+
+
+    if(total < 30){
+
+        return {
+            cantidad:30,
+            faltan:30-total
+        };
+    }
+
+
+    if(total < 50){
+
+        return {
+            cantidad:50,
+            faltan:50-total
+        };
+    }
+
+
+    if(total < 100){
+
+        return {
+            cantidad:100,
+            faltan:100-total
+        };
+    }
+
+
+    if(total < 250){
+
+        return {
+            cantidad:250,
+            faltan:250-total
+        };
+    }
+
+
+    if(total < 500){
+
+        return {
+            cantidad:500,
+            faltan:500-total
+        };
+    }
+
+
+    return null;
 }
 
 
@@ -1707,410 +2048,539 @@ MOSTRAR PRODUCTOS
 
 function mostrar(lista){
 
-const cont=
-document.getElementById("productos");
+    const cont =
 
-cont.innerHTML="";
+        document
+        .getElementById(
+            "productos"
+        );
 
 
-if(lista.length===0){
+    cont.innerHTML = "";
 
-cont.innerHTML=`
 
-<div style="
-grid-column:1/-1;
-text-align:center;
-padding:50px;
-color:#888;
-">
+    if(lista.length === 0){
 
-No encontramos perfumes con esa búsqueda.
+        cont.innerHTML = `
 
-</div>
+            <div style="
+            grid-column:1/-1;
+            text-align:center;
+            padding:50px;
+            color:#888;
+            ">
 
-`;
+                No encontramos perfumes
+                con esa búsqueda.
 
-return;
+            </div>
 
-}
+        `;
 
+        return;
+    }
 
-lista.forEach(p=>{
 
+    lista.forEach(p => {
 
-/* =========================
-STOCK
-========================= */
 
-let claseStock="";
+        /* =================================================
+        STOCK
+        ================================================= */
 
-let textoStock=
-(p.stock || "")
-.toString()
-.toLowerCase();
+        const textoStock =
 
+            String(
+                p.stock ||
+                "Disponible"
+            )
+            .toLowerCase();
 
-if(textoStock.includes("disponible")){
 
-claseStock="disponible";
+        let claseStock =
+            "disponible";
 
-}else if(textoStock.includes("pedido")){
 
-claseStock="apedido";
+        if(
+            textoStock
+            .includes("pedido")
+        ){
 
-}else{
+            claseStock =
+                "apedido";
+        }
 
-claseStock="sinstock";
+        else if(
+            textoStock
+            .includes("sin stock")
+        ){
 
-}
+            claseStock =
+                "sinstock";
+        }
 
 
-/* =========================
-PRECIOS
-========================= */
+        /* =================================================
+        PARTICULAR
+        ================================================= */
 
-const precioLista=
-Number(p.precio) || 0;
+        const precioParticular =
 
-/*
-Usamos directamente el precio de efectivo
-que viene de la planilla.
-Si estuviera vacío, calculamos 10% OFF.
-*/
+            convertirNumero(
 
-const precioEfectivo=
-Number(p.precioEfectivo) ||
-(precioLista * 0.90);
+                p.precioParticular ??
 
+                p.valorReal ??
 
-const precioMayorista10=
-Number(p.precioMayorista10) || 0;
+                p.precio ??
 
+                p.valor
+            );
 
-const precioMayorista20=
-Number(p.precioMayorista20) || 0;
 
+        const promo2 =
 
-const precioMayorista30=
-Number(p.precioMayorista30) || 0;
+            convertirNumero(
 
+                p.promo2 ??
 
-/* =========================
-FORMATO
-========================= */
+                p.precio2 ??
 
-const formato={
+                p.dosUnidades
+            );
 
-minimumFractionDigits:0,
 
-maximumFractionDigits:0
+        const promo3 =
 
-};
+            convertirNumero(
 
+                p.promo3 ??
 
-const precioListaFormateado=
-precioLista.toLocaleString("es-AR",formato);
+                p.precio3 ??
 
+                p.tresUnidades
+            );
 
-const precioEfectivoFormateado=
-precioEfectivo.toLocaleString("es-AR",formato);
 
+        /* =================================================
+        MAYORISTA
+        ================================================= */
 
-const precioMayorista10Formateado=
-precioMayorista10.toLocaleString("es-AR",formato);
+        const total =
+            totalUnidades();
 
 
-const precioMayorista20Formateado=
-precioMayorista20.toLocaleString("es-AR",formato);
+        const totalParaMostrar =
 
+            total >= 5
+            ? total
+            : 5;
 
-const precioMayorista30Formateado=
-precioMayorista30.toLocaleString("es-AR",formato);
 
+        const escala =
 
-/* =========================
-CANTIDAD
-========================= */
+            obtenerEscalaMayorista(
+                p,
+                totalParaMostrar
+            );
 
-const cantidadActual=
-obtenerCantidad(p.perfume);
 
+        const cantidadActual =
 
-/* =========================
-PRECIO HTML
-========================= */
+            obtenerCantidad(
+                p.perfume
+            );
 
-let precioHTML="";
 
+        let precioHTML = "";
 
-if(modoActual==="particular"){
 
-precioHTML=`
+        /* =================================================
+        MODO PARTICULAR
+        ================================================= */
 
-<div class="precio-anterior">
+        if(
+            modoActual ===
+            "particular"
+        ){
 
-$ ${precioListaFormateado}
+            precioHTML = `
 
-</div>
+                <div class="precio-label">
+                    PRECIO UNITARIO
+                </div>
 
+                <div class="precio">
 
-<div class="precio">
+                    $ ${formatearPrecio(
+                        precioParticular
+                    )}
 
-💸 $ ${precioEfectivoFormateado}
+                </div>
 
-</div>
+            `;
 
 
-<div class="descuento">
+            if(
+                promo2 > 0 ||
+                promo3 > 0
+            ){
 
-10% OFF abonando por<br>
+                precioHTML += `
 
-Transferencia o Efectivo
+                    <div class="promos">
 
-</div>
+                `;
 
-`;
 
-}else{
+                if(promo2 > 0){
 
+                    precioHTML += `
 
-let precioMostrar=
-precioMayorista10Formateado;
+                        <div class="promo">
 
+                            🔥 2 x $
+                            ${formatearPrecio(
+                                promo2
+                            )}
 
-let textoNivel=
-"Desde 10 unidades";
+                        </div>
 
+                    `;
+                }
 
-const total=
-totalUnidades();
 
+                if(promo3 > 0){
 
-if(total>=30){
+                    precioHTML += `
 
-precioMostrar=
-precioMayorista30Formateado;
+                        <div class="promo">
 
-textoNivel=
-"Precio mayorista 30+";
+                            🔥 3 x $
+                            ${formatearPrecio(
+                                promo3
+                            )}
 
-}else if(total>=20){
+                        </div>
 
-precioMostrar=
-precioMayorista20Formateado;
+                    `;
+                }
 
-textoNivel=
-"Precio mayorista 20+";
 
-}else{
+                precioHTML += `
 
-precioMostrar=
-precioMayorista10Formateado;
+                    </div>
 
-textoNivel=
-"Precio mayorista 10+";
+                `;
+            }
 
-}
+        }
 
 
-precioHTML=`
+        /* =================================================
+        MODO MAYORISTA
+        ================================================= */
 
-<div class="mayorista-titulo">
+        else{
 
-📦 ${textoNivel}
+            const proximo =
+                obtenerProximoNivel(
+                    total
+                );
 
-</div>
 
+            let mensajeNivel = "";
 
-<div class="mayorista-precio">
 
-$ ${precioMostrar}
+            if(total < 5){
 
-</div>
+                mensajeNivel = `
 
+                    Mínimo mayorista:
+                    5 unidades
 
-<div class="mayorista-info">
+                `;
+            }
 
-10+ → $ ${precioMayorista10Formateado}<br>
+            else if(proximo){
 
-20+ → $ ${precioMayorista20Formateado}<br>
+                mensajeNivel = `
 
-30+ → $ ${precioMayorista30Formateado}
+                    Nivel actual:
+                    ${escala.titulo}<br>
 
-</div>
+                    Te faltan
+                    <strong>
+                    ${proximo.faltan}
+                    </strong>
+                    para llegar a
+                    ${proximo.cantidad}+
 
-`;
+                `;
+            }
 
-}
+            else{
 
+                mensajeNivel = `
 
-/* =========================
-BOTÓN
-========================= */
+                    🔥 Mejor escala
+                    mayorista activa:
+                    500+
 
-let botonHTML="";
+                `;
+            }
 
 
-if(modoActual==="mayorista"){
+            precioHTML = `
 
-if(textoStock.includes("disponible")){
+                <div class="mayorista-titulo">
 
-if(cantidadActual>0){
+                    📦 PRECIO MAYORISTA
 
-botonHTML=`
+                </div>
 
-<div class="cantidad">
 
-<button
-onclick="cambiarCantidad('${escapeHTML(p.perfume)}',-1)">
+                <div class="mayorista-precio">
 
-−
+                    $
+                    ${formatearPrecio(
+                        escala.precio
+                    )}
 
-</button>
+                </div>
 
 
-<span>
+                <div class="mayorista-unidad">
 
-${cantidadActual}
+                    por unidad
 
-</span>
+                </div>
 
 
-<button
-onclick="cambiarCantidad('${escapeHTML(p.perfume)}',1)">
+                <div class="nivel-mayorista">
 
-+
+                    ${mensajeNivel}
 
-</button>
+                </div>
 
-</div>
+            `;
+        }
 
-`;
 
-}else{
+        /* =================================================
+        BOTÓN
+        ================================================= */
 
-botonHTML=`
+        let botonHTML = "";
 
-<button
-class="agregar"
 
-onclick="agregarProducto('${escapeHTML(p.perfume)}')">
+        if(
+            modoActual ===
+            "mayorista"
+        ){
 
-➕ AGREGAR AL PEDIDO
+            if(
+                textoStock
+                .includes("disponible")
+            ){
 
-</button>
+                if(
+                    cantidadActual > 0
+                ){
 
-`;
+                    botonHTML = `
 
-}
+                        <div class="cantidad">
 
-}else{
+                            <button
+                            onclick="cambiarCantidad('${escapeJS(p.perfume)}',-1)">
+                                −
+                            </button>
 
-botonHTML=`
+                            <span>
+                                ${cantidadActual}
+                            </span>
 
-<button
-class="agregar"
-disabled>
+                            <button
+                            onclick="cambiarCantidad('${escapeJS(p.perfume)}',1)">
+                                +
+                            </button>
 
-SIN STOCK
+                        </div>
 
-</button>
+                    `;
+                }
 
-`;
+                else{
 
-}
+                    botonHTML = `
 
-}else{
+                        <button
+                            class="agregar"
+                            onclick="agregarProducto('${escapeJS(p.perfume)}')">
 
+                            ➕ AGREGAR AL PEDIDO
 
-const mensajeWhatsApp=`Hola AKKINO 👋✨
+                        </button>
+
+                    `;
+                }
+
+            }
+
+            else{
+
+                botonHTML = `
+
+                    <button
+                        class="agregar"
+                        disabled>
+
+                        SIN STOCK
+
+                    </button>
+
+                `;
+            }
+
+        }
+
+
+        else{
+
+
+            const mensajeWhatsApp =
+
+`Hola AKKINO 👋✨
 
 Quiero consultar por este perfume:
 
 🧴 ${p.perfume}
 
-💳 Precio de lista:
-$${precioListaFormateado}
+💵 Precio unitario:
+$${formatearPrecio(precioParticular)}
 
-💵 Efectivo o transferencia:
-$${precioEfectivoFormateado}
+${promo2 > 0 ? `🔥 Promo 2 unidades: $${formatearPrecio(promo2)}` : ""}
 
-🏷️ 10% de descuento
-
-📦 Estado:
-${p.stock}
+${promo3 > 0 ? `🔥 Promo 3 unidades: $${formatearPrecio(promo3)}` : ""}
 
 ¿Me confirmás disponibilidad?
 
 Muchas gracias 🙌`;
 
 
-botonHTML=`
+            botonHTML = `
 
-<a
-class="whatsapp"
-target="_blank"
-rel="noopener noreferrer"
+                <a
+                    class="whatsapp"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    href="https://wa.me/${WHATSAPP}?text=${encodeURIComponent(mensajeWhatsApp)}">
 
-href="https://wa.me/${WHATSAPP}?text=${encodeURIComponent(mensajeWhatsApp)}">
+                    💬 Consultar por WhatsApp
 
-💬 Consultar por WhatsApp
+                </a>
 
-</a>
-
-`;
-
-}
+            `;
+        }
 
 
-/* =========================
-CARD
-========================= */
+        /* =================================================
+        FOTO
+        ================================================= */
 
-cont.innerHTML+=`
+        const foto =
 
-<div class="card">
-
-<img
-
-src="${p.foto || 'https://placehold.co/600x800/222222/888888?text=AKKINO'}"
-
-alt="${p.perfume || 'Perfume AKKINO'}"
-
-loading="lazy">
+            String(
+                p.foto ||
+                p.imagen ||
+                ""
+            )
+            .trim();
 
 
-<div class="info">
+        /* =================================================
+        CARD
+        ================================================= */
+
+        cont.innerHTML += `
+
+            <div class="card">
 
 
-<div class="nombre">
+                <img
 
-${p.perfume || ""}
+                    src="${
+                        foto ||
+                        'https://placehold.co/600x800/222222/888888?text=AKKINO'
+                    }"
 
-</div>
+                    alt="${
+                        escapeHTML(
+                            p.perfume ||
+                            "Perfume AKKINO"
+                        )
+                    }"
+
+                    loading="lazy"
+
+                    onerror="
+                    this.onerror=null;
+                    this.src='https://placehold.co/600x800/222222/888888?text=AKKINO';
+                    "
+                >
 
 
-${precioHTML}
+                <div class="info">
 
 
-<div class="stock ${claseStock}">
+                    <div class="nombre">
 
-${p.stock || ""}
+                        ${escapeHTML(
+                            p.perfume ||
+                            ""
+                        )}
 
-</div>
+                    </div>
 
 
-${botonHTML}
+                    <div class="categoria-producto">
+
+                        ${escapeHTML(
+                            p.categoria ||
+                            ""
+                        )}
+
+                    </div>
 
 
-</div>
+                    ${precioHTML}
 
-</div>
 
-`;
+                    <div
+                        class="stock ${claseStock}">
 
-});
+                        ${
+                            escapeHTML(
+                                p.stock ||
+                                "Disponible"
+                            )
+                        }
 
+                    </div>
+
+
+                    ${botonHTML}
+
+
+                </div>
+
+
+            </div>
+
+        `;
+
+    });
 }
 
 
@@ -2120,137 +2590,179 @@ PAGINACIÓN
 
 function mostrarPaginacion(){
 
-const cont=
-document.getElementById("paginacion");
+    const cont =
 
+        document
+        .getElementById(
+            "paginacion"
+        );
 
-const totalPaginas=
-Math.ceil(
-productosFiltrados.length /
-PRODUCTOS_POR_PAGINA
-);
 
+    const totalPaginas =
 
-if(totalPaginas<=1){
+        Math.ceil(
 
-cont.innerHTML="";
+            productosFiltrados.length /
+            PRODUCTOS_POR_PAGINA
 
-return;
+        );
 
-}
 
+    if(totalPaginas <= 1){
 
-let html=`<div class="paginacion">`;
+        cont.innerHTML = "";
 
+        return;
+    }
 
-html+=`
 
-<button
+    let html = `
 
-class="pagina-btn"
+        <div class="paginacion">
 
-onclick="cambiarPagina(${paginaActual-1})"
+    `;
 
-${paginaActual===1 ? "disabled" : ""}>
 
-‹
+    html += `
 
-</button>
+        <button
 
-`;
+            class="pagina-btn"
 
+            onclick="cambiarPagina(${paginaActual - 1})"
 
-for(let i=1;i<=totalPaginas;i++){
+            ${paginaActual === 1 ? "disabled" : ""}>
 
-if(
+            ‹
 
-totalPaginas>8 &&
+        </button>
 
-i!==1 &&
+    `;
 
-i!==totalPaginas &&
 
-Math.abs(i-paginaActual)>2
+    for(
+        let i = 1;
+        i <= totalPaginas;
+        i++
+    ){
 
-){
+        if(
 
-if(i===2 || i===totalPaginas-1){
+            totalPaginas > 8 &&
 
-html+=`<span style="color:#666;">...</span>`;
+            i !== 1 &&
 
-}
+            i !== totalPaginas &&
 
-continue;
+            Math.abs(
+                i - paginaActual
+            ) > 2
+        ){
 
-}
+            if(
+                i === 2 ||
+                i === totalPaginas - 1
+            ){
 
+                html += `
 
-html+=`
+                    <span style="
+                    color:#666;
+                    ">
+                        ...
+                    </span>
 
-<button
+                `;
+            }
 
-class="pagina-btn ${i===paginaActual ? "activa" : ""}"
+            continue;
+        }
 
-onclick="cambiarPagina(${i})">
 
-${i}
+        html += `
 
-</button>
+            <button
 
-`;
+                class="pagina-btn ${
+                    i === paginaActual
+                    ? "activa"
+                    : ""
+                }"
 
-}
+                onclick="cambiarPagina(${i})">
 
+                ${i}
 
-html+=`
+            </button>
 
-<button
+        `;
+    }
 
-class="pagina-btn"
 
-onclick="cambiarPagina(${paginaActual+1})"
+    html += `
 
-${paginaActual===totalPaginas ? "disabled" : ""}>
+        <button
 
-›
+            class="pagina-btn"
 
-</button>
+            onclick="cambiarPagina(${paginaActual + 1})"
 
-`;
+            ${
+                paginaActual === totalPaginas
+                ? "disabled"
+                : ""
+            }>
 
+            ›
 
-html+=`</div>`;
+        </button>
 
+    `;
 
-const inicio=
-((paginaActual-1)*PRODUCTOS_POR_PAGINA)+1;
 
+    html += `
 
-const fin=
-Math.min(
+        </div>
 
-paginaActual*PRODUCTOS_POR_PAGINA,
+    `;
 
-productosFiltrados.length
 
-);
+    const inicio =
 
+        (
+            (paginaActual - 1) *
+            PRODUCTOS_POR_PAGINA
+        ) + 1;
 
-html+=`
 
-<div class="paginacion-info">
+    const fin =
 
-Mostrando ${inicio}–${fin}
+        Math.min(
 
-de ${productosFiltrados.length} perfumes
+            paginaActual *
+            PRODUCTOS_POR_PAGINA,
 
-</div>
+            productosFiltrados.length
+        );
 
-`;
 
+    html += `
 
-cont.innerHTML=html;
+        <div class="paginacion-info">
 
+            Mostrando
+            ${inicio}–${fin}
+            de
+            ${productosFiltrados.length}
+            perfumes
+
+        </div>
+
+    `;
+
+
+    cont.innerHTML =
+        html;
 }
 
 
@@ -2260,35 +2772,38 @@ CAMBIAR PÁGINA
 
 function cambiarPagina(pagina){
 
-const totalPaginas=
-Math.ceil(
+    const totalPaginas =
 
-productosFiltrados.length /
-PRODUCTOS_POR_PAGINA
+        Math.ceil(
 
-);
-
-
-if(pagina<1 || pagina>totalPaginas){
-
-return;
-
-}
+            productosFiltrados.length /
+            PRODUCTOS_POR_PAGINA
+        );
 
 
-paginaActual=pagina;
+    if(
+        pagina < 1 ||
+        pagina > totalPaginas
+    ){
 
-mostrarPagina();
+        return;
+    }
 
 
-window.scrollTo({
+    paginaActual =
+        pagina;
 
-top:0,
 
-behavior:"smooth"
+    mostrarPagina();
 
-});
 
+    window.scrollTo({
+
+        top:0,
+
+        behavior:"smooth"
+
+    });
 }
 
 
@@ -2298,11 +2813,18 @@ OBTENER CANTIDAD
 
 function obtenerCantidad(perfume){
 
-const item=
-carrito.find(x=>x.perfume===perfume);
+    const item =
 
-return item ? item.cantidad : 0;
+        carrito.find(
 
+            x =>
+            x.perfume === perfume
+        );
+
+
+    return item
+        ? item.cantidad
+        : 0;
 }
 
 
@@ -2312,51 +2834,101 @@ AGREGAR PRODUCTO
 
 function agregarProducto(perfume){
 
-const producto=
-perfumes.find(p=>p.perfume===perfume);
+    const producto =
+
+        perfumes.find(
+
+            p =>
+            p.perfume === perfume
+        );
 
 
-if(!producto){
+    if(!producto){
 
-return;
-
-}
-
-
-const existente=
-carrito.find(x=>x.perfume===perfume);
+        return;
+    }
 
 
-if(existente){
+    const existente =
 
-existente.cantidad++;
+        carrito.find(
 
-}else{
-
-carrito.push({
-
-perfume:producto.perfume,
-
-cantidad:1,
-
-precioMayorista10:
-Number(producto.precioMayorista10)||0,
-
-precioMayorista20:
-Number(producto.precioMayorista20)||0,
-
-precioMayorista30:
-Number(producto.precioMayorista30)||0
-
-});
-
-}
+            x =>
+            x.perfume === perfume
+        );
 
 
-actualizarCarrito();
+    if(existente){
 
-mostrarPagina();
+        existente.cantidad++;
+    }
 
+    else{
+
+        carrito.push({
+
+            perfume:
+                producto.perfume,
+
+            cantidad:
+                1,
+
+            precio5:
+                convertirNumero(
+                    producto.precio5 ??
+                    producto.precioMayorista5
+                ),
+
+            precio10:
+                convertirNumero(
+                    producto.precio10 ??
+                    producto.precioMayorista10
+                ),
+
+            precio20:
+                convertirNumero(
+                    producto.precio20 ??
+                    producto.precioMayorista20
+                ),
+
+            precio30:
+                convertirNumero(
+                    producto.precio30 ??
+                    producto.precioMayorista30
+                ),
+
+            precio50:
+                convertirNumero(
+                    producto.precio50 ??
+                    producto.precioMayorista50
+                ),
+
+            precio100:
+                convertirNumero(
+                    producto.precio100 ??
+                    producto.precioMayorista100
+                ),
+
+            precio250:
+                convertirNumero(
+                    producto.precio250 ??
+                    producto.precioMayorista250
+                ),
+
+            precio500:
+                convertirNumero(
+                    producto.precio500 ??
+                    producto.precioMayorista500 ??
+                    producto.precioMas500
+                )
+
+        });
+    }
+
+
+    actualizarCarrito();
+
+    mostrarPagina();
 }
 
 
@@ -2364,40 +2936,52 @@ mostrarPagina();
 CAMBIAR CANTIDAD
 ========================================================= */
 
-function cambiarCantidad(perfume,cambio){
+function cambiarCantidad(
+    perfume,
+    cambio
+){
 
-const item=
-carrito.find(x=>x.perfume===perfume);
+    const item =
 
+        carrito.find(
 
-if(!item){
-
-if(cambio>0){
-
-agregarProducto(perfume);
-
-}
-
-return;
-
-}
+            x =>
+            x.perfume === perfume
+        );
 
 
-item.cantidad+=cambio;
+    if(!item){
+
+        if(cambio > 0){
+
+            agregarProducto(
+                perfume
+            );
+        }
+
+        return;
+    }
 
 
-if(item.cantidad<=0){
-
-carrito=
-carrito.filter(x=>x.perfume!==perfume);
-
-}
+    item.cantidad +=
+        cambio;
 
 
-actualizarCarrito();
+    if(item.cantidad <= 0){
 
-mostrarPagina();
+        carrito =
 
+            carrito.filter(
+
+                x =>
+                x.perfume !== perfume
+            );
+    }
+
+
+    actualizarCarrito();
+
+    mostrarPagina();
 }
 
 
@@ -2407,38 +2991,73 @@ TOTAL UNIDADES
 
 function totalUnidades(){
 
-return carrito.reduce(
+    return carrito.reduce(
 
-(total,item)=>
-total+item.cantidad,
+        (
+            total,
+            item
+        ) =>
 
-0
+        total +
+        item.cantidad,
 
-);
-
+        0
+    );
 }
 
 
 /* =========================================================
-PRECIO MAYORISTA
+PRECIO MAYORISTA DEL CARRITO
 ========================================================= */
 
-function obtenerPrecioMayorista(item,total){
+function obtenerPrecioCarrito(
+    item,
+    total
+){
 
-if(total>=30){
+    if(total >= 500){
 
-return item.precioMayorista30;
+        return item.precio500;
+    }
 
-}
 
-if(total>=20){
+    if(total >= 250){
 
-return item.precioMayorista20;
+        return item.precio250;
+    }
 
-}
 
-return item.precioMayorista10;
+    if(total >= 100){
 
+        return item.precio100;
+    }
+
+
+    if(total >= 50){
+
+        return item.precio50;
+    }
+
+
+    if(total >= 30){
+
+        return item.precio30;
+    }
+
+
+    if(total >= 20){
+
+        return item.precio20;
+    }
+
+
+    if(total >= 10){
+
+        return item.precio10;
+    }
+
+
+    return item.precio5;
 }
 
 
@@ -2448,49 +3067,63 @@ ACTUALIZAR CARRITO
 
 function actualizarCarrito(){
 
-const unidades=
-totalUnidades();
+    const unidades =
+        totalUnidades();
 
 
-const barra=
-document.getElementById("carritoBarra");
+    const barra =
+
+        document
+        .getElementById(
+            "carritoBarra"
+        );
 
 
-const info=
-document.getElementById("carritoInfo");
+    const info =
+
+        document
+        .getElementById(
+            "carritoInfo"
+        );
 
 
-if(unidades>0){
+    if(unidades > 0){
 
-barra.style.display="block";
-
-
-info.innerHTML=`
-
-🛒 <strong>${unidades}</strong> unidades
-
-`;
-
-}else{
-
-barra.style.display="none";
-
-}
+        barra.style.display =
+            "block";
 
 
-if(
+        info.innerHTML = `
 
-document
-.getElementById("modalCarrito")
-.classList
-.contains("activo")
+            🛒
+            <strong>
+                ${unidades}
+            </strong>
+            unidades
 
-){
+        `;
+    }
 
-renderCarrito();
+    else{
 
-}
+        barra.style.display =
+            "none";
+    }
 
+
+    if(
+
+        document
+        .getElementById(
+            "modalCarrito"
+        )
+        .classList
+        .contains("activo")
+
+    ){
+
+        renderCarrito();
+    }
 }
 
 
@@ -2500,21 +3133,23 @@ ABRIR CARRITO
 
 function abrirCarrito(){
 
-if(carrito.length===0){
+    if(
+        carrito.length === 0
+    ){
 
-return;
-
-}
-
-
-document
-.getElementById("modalCarrito")
-.classList
-.add("activo");
+        return;
+    }
 
 
-renderCarrito();
+    document
+    .getElementById(
+        "modalCarrito"
+    )
+    .classList
+    .add("activo");
 
+
+    renderCarrito();
 }
 
 
@@ -2524,11 +3159,12 @@ CERRAR CARRITO
 
 function cerrarCarrito(){
 
-document
-.getElementById("modalCarrito")
-.classList
-.remove("activo");
-
+    document
+    .getElementById(
+        "modalCarrito"
+    )
+    .classList
+    .remove("activo");
 }
 
 
@@ -2538,301 +3174,377 @@ RENDER CARRITO
 
 function renderCarrito(){
 
-const lista=
-document.getElementById("listaCarrito");
+    const lista =
 
+        document
+        .getElementById(
+            "listaCarrito"
+        );
 
-const resumen=
-document.getElementById("resumenCarrito");
 
+    const resumen =
 
-if(carrito.length===0){
+        document
+        .getElementById(
+            "resumenCarrito"
+        );
 
-lista.innerHTML=`
 
-<div class="vacio">
+    if(
+        carrito.length === 0
+    ){
 
-Tu pedido está vacío.
+        lista.innerHTML = `
 
-</div>
+            <div class="vacio">
 
-`;
+                Tu pedido está vacío.
 
-resumen.innerHTML="";
+            </div>
 
-return;
+        `;
 
-}
 
+        resumen.innerHTML = "";
 
-const total=
-totalUnidades();
+        return;
+    }
 
 
-let totalPedido=0;
+    const total =
+        totalUnidades();
 
 
-lista.innerHTML="";
+    let totalPedido =
+        0;
 
 
-carrito.forEach(item=>{
+    lista.innerHTML =
+        "";
 
-const precio=
-obtenerPrecioMayorista(item,total);
 
+    carrito.forEach(item => {
 
-const subtotal=
-precio*item.cantidad;
 
+        const precio =
 
-totalPedido+=subtotal;
+            obtenerPrecioCarrito(
+                item,
+                total
+            );
 
 
-lista.innerHTML+=`
+        const subtotal =
 
-<div class="item-carrito">
+            precio *
+            item.cantidad;
 
 
-<div>
+        totalPedido +=
+            subtotal;
 
-<div class="item-nombre">
 
-${escapeHTML(item.perfume)}
+        lista.innerHTML += `
 
-</div>
+            <div class="item-carrito">
 
 
-<div class="item-precio">
+                <div>
 
-$ ${Math.round(precio).toLocaleString("es-AR")}
+                    <div class="item-nombre">
 
-por unidad
+                        ${escapeHTML(
+                            item.perfume
+                        )}
 
-</div>
+                    </div>
 
 
-<div class="item-subtotal">
+                    <div class="item-precio">
 
-Subtotal:
-$ ${Math.round(subtotal).toLocaleString("es-AR")}
+                        $
+                        ${formatearPrecio(
+                            precio
+                        )}
 
-</div>
+                        por unidad
 
-</div>
+                    </div>
 
 
-<div class="item-controles">
+                    <div class="item-subtotal">
 
+                        Subtotal:
+                        $
+                        ${formatearPrecio(
+                            subtotal
+                        )}
 
-<button
+                    </div>
 
-onclick="cambiarCantidad('${escapeHTML(item.perfume)}',-1)">
+                </div>
 
-−
 
-</button>
+                <div class="item-controles">
 
 
-<span>
+                    <button
 
-${item.cantidad}
+                        onclick="cambiarCantidad('${escapeJS(item.perfume)}',-1)">
 
-</span>
+                        −
 
+                    </button>
 
-<button
 
-onclick="cambiarCantidad('${escapeHTML(item.perfume)}',1)">
+                    <span>
 
-+
+                        ${item.cantidad}
 
-</button>
+                    </span>
 
 
-</div>
+                    <button
 
+                        onclick="cambiarCantidad('${escapeJS(item.perfume)}',1)">
 
-</div>
+                        +
 
-`;
+                    </button>
 
-});
 
+                </div>
 
-/* =========================
-SIGUIENTE NIVEL
-========================= */
 
-let siguienteNivel="";
+            </div>
 
+        `;
 
-if(total<10){
+    });
 
-const faltan=10-total;
 
+    /* =====================================================
+    MENSAJE DE NIVEL
+    ===================================================== */
 
-siguienteNivel=`
+    let mensajeNivel =
+        "";
 
-<div class="proximo-nivel">
 
-⚠️ Te faltan <strong>${faltan}</strong> unidades para alcanzar el mínimo mayorista de 10.
+    const proximo =
+        obtenerProximoNivel(
+            total
+        );
 
-</div>
 
-`;
+    if(total < 5){
 
-}else if(total<20){
+        mensajeNivel = `
 
-const faltan=20-total;
+            <div class="proximo-nivel">
 
+                ⚠️ Te faltan
 
-siguienteNivel=`
+                <strong>
+                    ${5-total}
+                </strong>
 
-<div class="proximo-nivel">
+                unidades para alcanzar
+                el mínimo mayorista
+                de 5.
 
-📦 Precio mayorista 10+ activado.
+            </div>
 
-Te faltan <strong>${faltan}</strong> unidades para desbloquear el precio de 20+.
+        `;
+    }
 
-</div>
+    else{
 
-`;
+        const primerItem =
+            carrito[0];
 
-}else if(total<30){
 
-const faltan=30-total;
+        const escalaActual =
 
+            obtenerPrecioCarrito(
+                primerItem,
+                total
+            );
 
-siguienteNivel=`
 
-<div class="proximo-nivel">
+        if(proximo){
 
-🔥 Precio mayorista 20+ activado.
+            mensajeNivel = `
 
-Te faltan <strong>${faltan}</strong> unidades para desbloquear el mejor precio de 30+.
+                <div class="proximo-nivel">
 
-</div>
+                    📦 Escala actual activa.<br>
 
-`;
+                    Te faltan
 
-}else{
+                    <strong>
+                        ${proximo.faltan}
+                    </strong>
 
-siguienteNivel=`
+                    unidades para llegar
+                    al precio de
 
-<div class="proximo-nivel">
+                    <strong>
+                        ${proximo.cantidad}+
+                    </strong>.
 
-🔥 <strong>Mejor precio mayorista desbloqueado.</strong>
+                </div>
 
-Estás en el nivel de 30+ unidades.
+            `;
+        }
 
-</div>
+        else{
 
-`;
+            mensajeNivel = `
 
-}
+                <div class="proximo-nivel">
 
+                    🔥
+                    <strong>
+                        Mejor escala mayorista desbloqueada.
+                    </strong>
 
-/* =========================
-RESUMEN
-========================= */
+                    <br>
 
-if(total<10){
+                    Estás en el nivel
+                    de 500+ unidades.
 
-resumen.innerHTML=`
+                </div>
 
-<div class="resumen-linea">
+            `;
+        }
+    }
 
-<span>Unidades</span>
 
-<strong>${total}</strong>
+    /* =====================================================
+    RESUMEN
+    ===================================================== */
 
-</div>
+    if(total < 5){
 
+        resumen.innerHTML = `
 
-${siguienteNivel}
+            <div class="resumen-linea">
 
-`;
+                <span>
+                    Unidades
+                </span>
 
-return;
+                <strong>
+                    ${total}
+                </strong>
 
-}
+            </div>
 
 
-const precioPromedio=
-totalPedido/total;
+            ${mensajeNivel}
 
+        `;
 
-resumen.innerHTML=`
+        return;
+    }
 
-<div class="resumen-linea">
 
-<span>Unidades</span>
+    const precioPromedio =
 
-<strong>${total}</strong>
+        totalPedido /
+        total;
 
-</div>
 
+    resumen.innerHTML = `
 
-<div class="resumen-linea">
+        <div class="resumen-linea">
 
-<span>Precio promedio</span>
+            <span>
+                Unidades
+            </span>
 
-<strong>
+            <strong>
+                ${total}
+            </strong>
 
-$ ${Math.round(precioPromedio).toLocaleString("es-AR")}
+        </div>
 
-</strong>
 
-</div>
+        <div class="resumen-linea">
 
+            <span>
+                Precio promedio
+            </span>
 
-<div class="resumen-total">
+            <strong>
 
-<span>TOTAL</span>
+                $
+                ${formatearPrecio(
+                    precioPromedio
+                )}
 
-<span>
+            </strong>
 
-$ ${Math.round(totalPedido).toLocaleString("es-AR")}
+        </div>
 
-</span>
 
-</div>
+        <div class="resumen-total">
 
+            <span>
+                TOTAL
+            </span>
 
-${siguienteNivel}
+            <span>
 
-`;
+                $
+                ${formatearPrecio(
+                    totalPedido
+                )}
 
+            </span>
+
+        </div>
+
+
+        ${mensajeNivel}
+
+    `;
 }
 
 
 /* =========================================================
-WHATSAPP
+ENVIAR PEDIDO WHATSAPP
 ========================================================= */
 
 function enviarPedidoWhatsApp(){
 
-const total=
-totalUnidades();
+    const total =
+        totalUnidades();
 
 
-if(total<MINIMO_MAYORISTA){
+    if(
+        total <
+        MINIMO_MAYORISTA
+    ){
 
-alert(
+        alert(
 
-`El pedido mayorista mínimo es de ${MINIMO_MAYORISTA} unidades.`
+            `El pedido mayorista mínimo es de ${MINIMO_MAYORISTA} unidades.`
 
-);
+        );
 
-return;
-
-}
-
-
-let totalPedido=0;
+        return;
+    }
 
 
-let mensaje=`Hola AKKINO 👋✨
+    let totalPedido =
+        0;
+
+
+    let mensaje =
+
+`Hola AKKINO 👋✨
 
 Quiero realizar un pedido MAYORISTA:
 
@@ -2844,60 +3556,94 @@ DETALLE DEL PEDIDO
 `;
 
 
-carrito.forEach(item=>{
-
-const precio=
-obtenerPrecioMayorista(item,total);
+    carrito.forEach(item => {
 
 
-const subtotal=
-precio*item.cantidad;
+        const precio =
+
+            obtenerPrecioCarrito(
+                item,
+                total
+            );
 
 
-totalPedido+=subtotal;
+        const subtotal =
+
+            precio *
+            item.cantidad;
 
 
-mensaje+=`
+        totalPedido +=
+            subtotal;
+
+
+        mensaje += `
 
 🧴 ${item.perfume}
 
 Cantidad: ${item.cantidad}
 
 Precio unitario:
-$${Math.round(precio).toLocaleString("es-AR")}
+$${formatearPrecio(precio)}
 
 Subtotal:
-$${Math.round(subtotal).toLocaleString("es-AR")}
+$${formatearPrecio(subtotal)}
 
 `;
 
-});
+    });
 
 
-let nivel="10+";
+    let nivel =
+        "5+";
 
 
-if(total>=30){
+    if(total >= 500){
 
-nivel="30+";
+        nivel = "500+";
+    }
 
-}else if(total>=20){
+    else if(total >= 250){
 
-nivel="20+";
+        nivel = "250+";
+    }
 
-}
+    else if(total >= 100){
+
+        nivel = "100+";
+    }
+
+    else if(total >= 50){
+
+        nivel = "50+";
+    }
+
+    else if(total >= 30){
+
+        nivel = "30+";
+    }
+
+    else if(total >= 20){
+
+        nivel = "20+";
+    }
+
+    else if(total >= 10){
+
+        nivel = "10+";
+    }
 
 
-mensaje+=`
+    mensaje += `
 
 ━━━━━━━━━━━━━━━
 
-📊 Nivel mayorista: ${nivel}
+📊 Escala mayorista: ${nivel}
 
 📦 Total de unidades: ${total}
 
 💰 TOTAL DEL PEDIDO:
-$${Math.round(totalPedido).toLocaleString("es-AR")}
+$${formatearPrecio(totalPedido)}
 
 ━━━━━━━━━━━━━━━
 
@@ -2907,12 +3653,15 @@ Gracias 🙌
 `;
 
 
-const url=
-`https://wa.me/${WHATSAPP}?text=${encodeURIComponent(mensaje)}`;
+    const url =
+
+        `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(mensaje)}`;
 
 
-window.open(url,"_blank");
-
+    window.open(
+        url,
+        "_blank"
+    );
 }
 
 
@@ -2922,36 +3671,90 @@ ESCAPAR HTML
 
 function escapeHTML(text){
 
-return String(text)
+    return String(
+        text ?? ""
+    )
 
-.replace(/&/g,"&amp;")
+    .replace(
+        /&/g,
+        "&amp;"
+    )
 
-.replace(/</g,"&lt;")
+    .replace(
+        /</g,
+        "&lt;"
+    )
 
-.replace(/>/g,"&gt;")
+    .replace(
+        />/g,
+        "&gt;"
+    )
 
-.replace(/"/g,"&quot;")
+    .replace(
+        /"/g,
+        "&quot;"
+    )
 
-.replace(/'/g,"&#039;");
-
+    .replace(
+        /'/g,
+        "&#039;"
+    );
 }
 
 
 /* =========================================================
-CERRAR MODAL AL TOCAR AFUERA
+ESCAPAR JAVASCRIPT
+========================================================= */
+
+function escapeJS(text){
+
+    return String(
+        text ?? ""
+    )
+
+    .replace(
+        /\\/g,
+        "\\\\"
+    )
+
+    .replace(
+        /'/g,
+        "\\'"
+    )
+
+    .replace(
+        /\r/g,
+        ""
+    )
+
+    .replace(
+        /\n/g,
+        "\\n"
+    );
+}
+
+
+/* =========================================================
+CERRAR MODAL TOCANDO AFUERA
 ========================================================= */
 
 document
-.getElementById("modalCarrito")
-.addEventListener("click",function(e){
+.getElementById(
+    "modalCarrito"
+)
+.addEventListener(
+    "click",
+    function(e){
 
-if(e.target===this){
+        if(
+            e.target === this
+        ){
 
-cerrarCarrito();
+            cerrarCarrito();
+        }
+    }
+);
 
-}
-
-});
 
 </script>
 
