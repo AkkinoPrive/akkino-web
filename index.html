@@ -1,32 +1,32 @@
-\<!DOCTYPE html>
-\<html lang="es">
+<!DOCTYPE html>
 
-\<head>
+<html lang="es">
 
-\<meta charset="UTF-8">
+<head>
 
-\<meta
+<meta charset="UTF-8">
+
+<meta
 name="viewport"
 content="width=device-width, initial-scale=1.0">
 
-\<title>AKKINO | Catálogo Oficial\</title>
+<title>AKKINO | Catálogo Oficial</title>
 
-\<link
+<link
 rel="icon"
 type="image/png"
 href="favicon.png">
 
+<style>
 
-\<style>
-
-/\* =========================================================
+/* =========================================================
 GENERAL
-\========================================================= \*/
+========================================================= */
 
-\*{
+*{
     margin:0;
     padding:0;
-    box-sizing\:border-box;
+    box-sizing:border-box;
 }
 
 body{
@@ -38,10 +38,10 @@ body{
     ),
     url("fondo.png");
 
-    background-size\:cover;
-    background-position\:center;
-    background-repeat\:no-repeat;
-    background-attachment\:fixed;
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+    background-attachment:fixed;
 
     font-family:
     -apple-system,
@@ -51,7 +51,7 @@ body{
     Arial,
     sans-serif;
 
-    color\:white;
+    color:white;
 
     padding:30px;
 
@@ -59,19 +59,19 @@ body{
 }
 
 
-/\* =========================================================
+/* =========================================================
 HEADER
-\========================================================= \*/
+========================================================= */
 
 .header{
 
-    display\:flex;
+    display:flex;
 
-    flex-direction\:column;
+    flex-direction:column;
 
-    justify-content\:center;
+    justify-content:center;
 
-    align-items\:center;
+    align-items:center;
 
     margin-bottom:25px;
 }
@@ -99,19 +99,19 @@ HEADER
 
     letter-spacing:4px;
 
-    text-transform\:uppercase;
+    text-transform:uppercase;
 }
 
 
-/\* =========================================================
+/* =========================================================
 MODO PARTICULAR / MAYORISTA
-\========================================================= \*/
+========================================================= */
 
 .modos{
 
-    display\:flex;
+    display:flex;
 
-    justify-content\:center;
+    justify-content:center;
 
     gap:10px;
 
@@ -137,19 +137,19 @@ MODO PARTICULAR / MAYORISTA
 
     font-size:14px;
 
-    font-weight\:bold;
+    font-weight:bold;
 
-    cursor\:pointer;
+    cursor:pointer;
 
     transition:.2s;
 }
 
 
-.modo\:hover{
+.modo:hover{
 
     border-color:#c89d38;
 
-    color\:white;
+    color:white;
 }
 
 
@@ -163,11 +163,11 @@ MODO PARTICULAR / MAYORISTA
 }
 
 
-/\* =========================================================
+/* =========================================================
 BUSCADOR
-\========================================================= \*/
+========================================================= */
 
-\#buscar{
+#buscar{
 
     width:100%;
 
@@ -175,7 +175,7 @@ BUSCADOR
 
     margin:0 auto 20px;
 
-    display\:block;
+    display:block;
 
     padding:16px;
 
@@ -185,23 +185,23 @@ BUSCADOR
 
     background:#181818;
 
-    color\:white;
+    color:white;
 
     font-size:16px;
 
-    outline\:none;
+    outline:none;
 }
 
 
-\#buscar\:focus{
+#buscar:focus{
 
     border-color:#c89d38;
 }
 
 
-/\* =========================================================
+/* =========================================================
 CATEGORÍAS
-\========================================================= \*/
+========================================================= */
 
 .categorias{
 
@@ -209,11 +209,11 @@ CATEGORÍAS
 
     margin:0 auto 30px;
 
-    display\:flex;
+    display:flex;
 
-    justify-content\:center;
+    justify-content:center;
 
-    flex-wrap\:wrap;
+    flex-wrap:wrap;
 
     gap:8px;
 }
@@ -231,7 +231,7 @@ CATEGORÍAS
 
     color:#aaa;
 
-    cursor\:pointer;
+    cursor:pointer;
 
     font-size:12px;
 
@@ -239,11 +239,11 @@ CATEGORÍAS
 }
 
 
-.categoria-btn\:hover{
+.categoria-btn:hover{
 
     border-color:#c89d38;
 
-    color\:white;
+    color:white;
 }
 
 
@@ -255,17 +255,17 @@ CATEGORÍAS
 
     color:#111;
 
-    font-weight\:bold;
+    font-weight:bold;
 }
 
 
-/\* =========================================================
+/* =========================================================
 PRODUCTOS
-\========================================================= \*/
+========================================================= */
 
-\#productos{
+#productos{
 
-    display\:grid;
+    display:grid;
 
     grid-template-columns:
     repeat(
@@ -289,7 +289,7 @@ PRODUCTOS
 
     border-radius:18px;
 
-    overflow\:hidden;
+    overflow:hidden;
 
     min-width:0;
 
@@ -297,7 +297,7 @@ PRODUCTOS
 }
 
 
-.card\:hover{
+.card:hover{
 
     transform:
     translateY(-5px);
@@ -312,17 +312,17 @@ PRODUCTOS
 
     height:270px;
 
-    display\:block;
+    display:block;
 
-    object-fit\:cover;
+    object-fit:cover;
 
     background:#222;
 }
 
 
-/\* =========================================================
+/* =========================================================
 INFO PRODUCTO
-\========================================================= \*/
+========================================================= */
 
 .info{
 
@@ -336,11 +336,11 @@ INFO PRODUCTO
 
     line-height:1.35;
 
-    font-weight\:bold;
+    font-weight:bold;
 
     min-height:55px;
 
-    overflow-wrap\:anywhere;
+    overflow-wrap:anywhere;
 }
 
 
@@ -356,9 +356,9 @@ INFO PRODUCTO
 }
 
 
-/\* =========================================================
+/* =========================================================
 PARTICULAR
-\========================================================= \*/
+========================================================= */
 
 .precio-label{
 
@@ -368,7 +368,7 @@ PARTICULAR
 
     font-size:10px;
 
-    font-weight\:bold;
+    font-weight:bold;
 
     letter-spacing:.5px;
 }
@@ -380,7 +380,7 @@ PARTICULAR
 
     font-size:24px;
 
-    font-weight\:bold;
+    font-weight:bold;
 
     color:#ffcc66;
 }
@@ -388,9 +388,9 @@ PARTICULAR
 
 .promos{
 
-    display\:flex;
+    display:flex;
 
-    flex-direction\:column;
+    flex-direction:column;
 
     gap:6px;
 
@@ -413,17 +413,17 @@ PARTICULAR
 
     border-radius:8px;
 
-    text-align\:center;
+    text-align:center;
 
     font-size:11px;
 
-    font-weight\:bold;
+    font-weight:bold;
 }
 
 
-/\* =========================================================
+/* =========================================================
 MAYORISTA
-\========================================================= \*/
+========================================================= */
 
 .mayorista-titulo{
 
@@ -431,7 +431,7 @@ MAYORISTA
 
     font-size:11px;
 
-    font-weight\:bold;
+    font-weight:bold;
 
     color:#c89d38;
 }
@@ -443,7 +443,7 @@ MAYORISTA
 
     font-size:24px;
 
-    font-weight\:bold;
+    font-weight:bold;
 
     color:#ffcc66;
 }
@@ -480,13 +480,13 @@ MAYORISTA
 
     line-height:1.5;
 
-    text-align\:center;
+    text-align:center;
 }
 
 
-/\* =========================================================
+/* =========================================================
 STOCK
-\========================================================= \*/
+========================================================= */
 
 .stock{
 
@@ -496,7 +496,7 @@ STOCK
 
     font-size:12px;
 
-    font-weight\:bold;
+    font-weight:bold;
 }
 
 
@@ -518,21 +518,21 @@ STOCK
 }
 
 
-/\* =========================================================
+/* =========================================================
 AGREGAR
-\========================================================= \*/
+========================================================= */
 
 .agregar{
 
     width:100%;
 
-    display\:block;
+    display:block;
 
     margin-top:13px;
 
     padding:11px 7px;
 
-    border\:none;
+    border:none;
 
     border-radius:9px;
 
@@ -542,41 +542,41 @@ AGREGAR
 
     font-size:12px;
 
-    font-weight\:bold;
+    font-weight:bold;
 
-    cursor\:pointer;
+    cursor:pointer;
 
     transition:.2s;
 }
 
 
-.agregar\:hover{
+.agregar:hover{
 
     background:#e0b653;
 }
 
 
-.agregar\:disabled{
+.agregar:disabled{
 
     background:#333;
 
     color:#777;
 
-    cursor\:not-allowed;
+    cursor:not-allowed;
 }
 
 
-/\* =========================================================
+/* =========================================================
 CONTADOR + / -
-\========================================================= \*/
+========================================================= */
 
 .cantidad{
 
-    display\:flex;
+    display:flex;
 
-    align-items\:center;
+    align-items:center;
 
-    justify-content\:center;
+    justify-content:center;
 
     gap:8px;
 
@@ -596,15 +596,15 @@ CONTADOR + / -
 
     background:#222;
 
-    color\:white;
+    color:white;
 
     font-size:19px;
 
-    cursor\:pointer;
+    cursor:pointer;
 }
 
 
-.cantidad button\:hover{
+.cantidad button:hover{
 
     border-color:#c89d38;
 }
@@ -614,25 +614,25 @@ CONTADOR + / -
 
     min-width:35px;
 
-    text-align\:center;
+    text-align:center;
 
-    font-weight\:bold;
+    font-weight:bold;
 }
 
 
-/\* =========================================================
+/* =========================================================
 PAGINACIÓN
-\========================================================= \*/
+========================================================= */
 
 .paginacion{
 
-    display\:flex;
+    display:flex;
 
-    justify-content\:center;
+    justify-content:center;
 
-    align-items\:center;
+    align-items:center;
 
-    flex-wrap\:wrap;
+    flex-wrap:wrap;
 
     gap:7px;
 
@@ -656,9 +656,9 @@ PAGINACIÓN
 
     color:#aaa;
 
-    font-weight\:bold;
+    font-weight:bold;
 
-    cursor\:pointer;
+    cursor:pointer;
 }
 
 
@@ -672,17 +672,17 @@ PAGINACIÓN
 }
 
 
-.pagina-btn\:disabled{
+.pagina-btn:disabled{
 
     opacity:.35;
 
-    cursor\:not-allowed;
+    cursor:not-allowed;
 }
 
 
 .paginacion-info{
 
-    text-align\:center;
+    text-align:center;
 
     color:#777;
 
@@ -692,13 +692,13 @@ PAGINACIÓN
 }
 
 
-/\* =========================================================
+/* =========================================================
 BARRA CARRITO
-\========================================================= \*/
+========================================================= */
 
 .carrito-barra{
 
-    position\:fixed;
+    position:fixed;
 
     left:0;
 
@@ -708,7 +708,7 @@ BARRA CARRITO
 
     z-index:1000;
 
-    display\:none;
+    display:none;
 
     padding:12px 20px;
 
@@ -727,13 +727,13 @@ BARRA CARRITO
 
     max-width:1000px;
 
-    margin\:auto;
+    margin:auto;
 
-    display\:flex;
+    display:flex;
 
-    align-items\:center;
+    align-items:center;
 
-    justify-content\:space-between;
+    justify-content:space-between;
 
     gap:15px;
 }
@@ -753,7 +753,7 @@ BARRA CARRITO
 
 .carrito-boton{
 
-    border\:none;
+    border:none;
 
     border-radius:10px;
 
@@ -761,23 +761,23 @@ BARRA CARRITO
 
     background:#25D366;
 
-    color\:white;
+    color:white;
 
-    font-weight\:bold;
+    font-weight:bold;
 
-    cursor\:pointer;
+    cursor:pointer;
 }
 
 
-/\* =========================================================
+/* =========================================================
 MODAL CARRITO
-\========================================================= \*/
+========================================================= */
 
 .modal{
 
-    display\:none;
+    display:none;
 
-    position\:fixed;
+    position:fixed;
 
     inset:0;
 
@@ -788,15 +788,15 @@ MODAL CARRITO
     background:
     rgba(0,0,0,.78);
 
-    align-items\:center;
+    align-items:center;
 
-    justify-content\:center;
+    justify-content:center;
 }
 
 
 .modal.activo{
 
-    display\:flex;
+    display:flex;
 }
 
 
@@ -808,7 +808,7 @@ MODAL CARRITO
 
     max-height:90vh;
 
-    overflow-y\:auto;
+    overflow-y:auto;
 
     padding:22px;
 
@@ -822,11 +822,11 @@ MODAL CARRITO
 
 .modal-header{
 
-    display\:flex;
+    display:flex;
 
-    justify-content\:space-between;
+    justify-content:space-between;
 
-    align-items\:center;
+    align-items:center;
 
     margin-bottom:18px;
 }
@@ -840,29 +840,29 @@ MODAL CARRITO
 
 .cerrar{
 
-    background\:none;
+    background:none;
 
-    border\:none;
+    border:none;
 
     color:#aaa;
 
     font-size:28px;
 
-    cursor\:pointer;
+    cursor:pointer;
 }
 
 
-/\* =========================================================
+/* =========================================================
 ITEM CARRITO
-\========================================================= \*/
+========================================================= */
 
 .item-carrito{
 
-    display\:flex;
+    display:flex;
 
-    justify-content\:space-between;
+    justify-content:space-between;
 
-    align-items\:center;
+    align-items:center;
 
     gap:12px;
 
@@ -883,7 +883,7 @@ ITEM CARRITO
 
     font-size:14px;
 
-    font-weight\:bold;
+    font-weight:bold;
 }
 
 
@@ -919,9 +919,9 @@ ITEM CARRITO
 
 .item-controles{
 
-    display\:flex;
+    display:flex;
 
-    align-items\:center;
+    align-items:center;
 
     gap:7px;
 }
@@ -939,9 +939,9 @@ ITEM CARRITO
 
     border-radius:7px;
 
-    color\:white;
+    color:white;
 
-    cursor\:pointer;
+    cursor:pointer;
 }
 
 
@@ -949,15 +949,15 @@ ITEM CARRITO
 
     min-width:25px;
 
-    text-align\:center;
+    text-align:center;
 
-    font-weight\:bold;
+    font-weight:bold;
 }
 
 
-/\* =========================================================
+/* =========================================================
 RESUMEN
-\========================================================= \*/
+========================================================= */
 
 .carrito-resumen{
 
@@ -971,9 +971,9 @@ RESUMEN
 
 .resumen-linea{
 
-    display\:flex;
+    display:flex;
 
-    justify-content\:space-between;
+    justify-content:space-between;
 
     margin-bottom:8px;
 
@@ -983,9 +983,9 @@ RESUMEN
 
 .resumen-total{
 
-    display\:flex;
+    display:flex;
 
-    justify-content\:space-between;
+    justify-content:space-between;
 
     margin-top:12px;
 
@@ -997,7 +997,7 @@ RESUMEN
 
     font-size:20px;
 
-    font-weight\:bold;
+    font-weight:bold;
 }
 
 
@@ -1020,15 +1020,15 @@ RESUMEN
 
     font-size:12px;
 
-    text-align\:center;
+    text-align:center;
 
     line-height:1.5;
 }
 
 
-/\* =========================================================
+/* =========================================================
 WHATSAPP FINAL
-\========================================================= \*/
+========================================================= */
 
 .enviar-whatsapp{
 
@@ -1038,27 +1038,27 @@ WHATSAPP FINAL
 
     padding:15px;
 
-    border\:none;
+    border:none;
 
     border-radius:10px;
 
     background:#25D366;
 
-    color\:white;
+    color:white;
 
-    font-weight\:bold;
+    font-weight:bold;
 
-    cursor\:pointer;
+    cursor:pointer;
 }
 
 
-/\* =========================================================
+/* =========================================================
 RESPONSIVE
-\========================================================= \*/
+========================================================= */
 
 @media(max-width:1450px){
 
-    \#productos{
+    #productos{
 
         grid-template-columns:
         repeat(5,minmax(0,1fr));
@@ -1068,7 +1068,7 @@ RESPONSIVE
 
 @media(max-width:1150px){
 
-    \#productos{
+    #productos{
 
         grid-template-columns:
         repeat(4,minmax(0,1fr));
@@ -1078,7 +1078,7 @@ RESPONSIVE
 
 @media(max-width:900px){
 
-    \#productos{
+    #productos{
 
         grid-template-columns:
         repeat(3,minmax(0,1fr));
@@ -1118,7 +1118,7 @@ RESPONSIVE
     }
 
 
-    \#buscar{
+    #buscar{
 
         padding:13px;
 
@@ -1128,11 +1128,11 @@ RESPONSIVE
 
     .categorias{
 
-        flex-wrap\:nowrap;
+        flex-wrap:nowrap;
 
-        justify-content\:flex-start;
+        justify-content:flex-start;
 
-        overflow-x\:auto;
+        overflow-x:auto;
 
         padding-bottom:5px;
     }
@@ -1140,11 +1140,11 @@ RESPONSIVE
 
     .categoria-btn{
 
-        flex\:none;
+        flex:none;
     }
 
 
-    \#productos{
+    #productos{
 
         grid-template-columns:
         repeat(2,minmax(0,1fr));
@@ -1159,9 +1159,9 @@ RESPONSIVE
     }
 
 
-    .card\:hover{
+    .card:hover{
 
-        transform\:none;
+        transform:none;
     }
 
 
@@ -1210,203 +1210,194 @@ RESPONSIVE
     }
 }
 
-\</style>
+</style>
 
-\</head>
+</head>
 
+<body>
 
-\<body>
-
-
-\<!-- =========================================================
+<!-- =========================================================
 HEADER
-\========================================================= -->
+========================================================= -->
 
-\<div class="header">
+<div class="header">
 
-    \<div class="marca">
-        AKKINO
-    \</div>
+<div class="marca">
+    AKKINO
+</div>
 
-    \<div class="subtitulo">
-        CATÁLOGO OFICIAL
-    \</div>
+<div class="subtitulo">
+    CATÁLOGO OFICIAL
+</div>
 
-\</div>
+</div>
 
-
-\<!-- =========================================================
+<!-- =========================================================
 MODOS
-\========================================================= -->
+========================================================= -->
 
-\<div class="modos">
+<div class="modos">
 
-    \<button
-        id="modoParticular"
-        class="modo activo"
-        onclick="cambiarModo('particular')">
+<button
+    id="modoParticular"
+    class="modo activo"
+    onclick="cambiarModo('particular')">
 
-        🛍️ PARTICULAR
+    🛍️ PARTICULAR
 
-    \</button>
-
-
-    \<button
-        id="modoMayorista"
-        class="modo"
-        onclick="cambiarModo('mayorista')">
-
-        📦 MAYORISTA
-
-    \</button>
-
-\</div>
+</button>
 
 
-\<!-- =========================================================
+<button
+    id="modoMayorista"
+    class="modo"
+    onclick="cambiarModo('mayorista')">
+
+    📦 MAYORISTA
+
+</button>
+
+</div>
+
+<!-- =========================================================
 BUSCADOR
-\========================================================= -->
+========================================================= -->
 
-\<input
-    id="buscar"
-    placeholder="🔍 Buscar perfume...">
+<input
+ id="buscar"
+ placeholder="🔍 Buscar perfume...">
 
-
-\<!-- =========================================================
+<!-- =========================================================
 CATEGORÍAS
-\========================================================= -->
+========================================================= -->
 
-\<div
+<div
     id="categorias"
     class="categorias">
-\</div>
+</div>
 
-
-\<!-- =========================================================
+<!-- =========================================================
 PRODUCTOS
-\========================================================= -->
+========================================================= -->
 
-\<div id="productos">\</div>
+<div id="productos"></div>
 
-
-\<!-- =========================================================
+<!-- =========================================================
 PAGINACIÓN
-\========================================================= -->
+========================================================= -->
 
-\<div id="paginacion">\</div>
+<div id="paginacion"></div>
 
-
-\<!-- =========================================================
+<!-- =========================================================
 BARRA CARRITO
-\========================================================= -->
+========================================================= -->
 
-\<div
+<div
     id="carritoBarra"
     class="carrito-barra">
 
-    \<div class="carrito-contenido">
+<div class="carrito-contenido">
 
-        \<div
-            id="carritoInfo"
-            class="carrito-info">
+    <div
+        id="carritoInfo"
+        class="carrito-info">
 
-            🛒
-            \<strong>0\</strong>
-            unidades
+        🛒
+        <strong>0</strong>
+        unidades
 
-        \</div>
-
-
-        \<button
-            class="carrito-boton"
-            onclick="abrirCarrito()">
-
-            VER CARRITO
-
-        \</button>
-
-    \</div>
-
-\</div>
+    </div>
 
 
-\<!-- =========================================================
+    <button
+        class="carrito-boton"
+        onclick="abrirCarrito()">
+
+        VER CARRITO
+
+    </button>
+
+</div>
+
+</div>
+
+<!-- =========================================================
 MODAL
-\========================================================= -->
+========================================================= -->
 
-\<div
+<div
     id="modalCarrito"
     class="modal">
 
-    \<div class="modal-contenido">
+<div class="modal-contenido">
 
 
-        \<div class="modal-header">
+    <div class="modal-header">
 
-            \<h2 id="tituloCarrito">
-                🛒 Mi pedido
-            \</h2>
+        <h2 id="tituloCarrito">
+            🛒 Mi pedido
+        </h2>
 
-            \<button
-                class="cerrar"
-                onclick="cerrarCarrito()">
+        <button
+            class="cerrar"
+            onclick="cerrarCarrito()">
 
-                ×
+            ×
 
-            \</button>
+        </button>
 
-        \</div>
-
-
-        \<div id="listaCarrito">\</div>
+    </div>
 
 
-        \<div
-            id="resumenCarrito"
-            class="carrito-resumen">
-        \</div>
+    <div id="listaCarrito"></div>
 
 
-        \<button
-            class="enviar-whatsapp"
-            onclick="enviarPedidoWhatsApp()">
-
-            💬 ENVIAR PEDIDO POR WHATSAPP
-
-        \</button>
+    <div
+        id="resumenCarrito"
+        class="carrito-resumen">
+    </div>
 
 
-    \</div>
+    <button
+        class="enviar-whatsapp"
+        onclick="enviarPedidoWhatsApp()">
 
-\</div>
+        💬 ENVIAR PEDIDO POR WHATSAPP
+
+    </button>
+
+
+</div>
+
+</div>
 
 
 
-\<script>
+<script>
 
-/\* =========================================================
+/* =========================================================
 CONFIGURACIÓN
-\========================================================= \*/
+========================================================= */
 
 const API =
-"[https://script.google.com/macros/s/AKfycbzghf-95XdX7NlSSsgZ0rjC2OpXu8kFyFAK6gYvL2cNNCoY7gf-Iv1mNNRlxwTPPRo/exec](https://script.google.com/macros/s/AKfycbzghf-95XdX7NlSSsgZ0rjC2OpXu8kFyFAK6gYvL2cNNCoY7gf-Iv1mNNRlxwTPPRo/exec)";
+"https://script.google.com/macros/s/AKfycbzghf-95XdX7NlSSsgZ0rjC2OpXu8kFyFAK6gYvL2cNNCoY7gf-Iv1mNNRlxwTPPRo/exec";
 
 
 const WHATSAPP =
 "5493476552435";
 
 
-const MINIMO\_MAYORISTA =
+const MINIMO_MAYORISTA =
 5;
 
 
-const PRODUCTOS\_POR\_PAGINA =
+const PRODUCTOS_POR_PAGINA =
 30;
 
 
-/\* =========================================================
+/* =========================================================
 VARIABLES
-\========================================================= \*/
+========================================================= */
 
 let perfumes = [];
 
@@ -1425,9 +1416,9 @@ let categoriaActual =
     "TODOS";
 
 
-/\* =========================================================
+/* =========================================================
 NÚMEROS
-\========================================================= \*/
+========================================================= */
 
 function numero(valor){
 
@@ -1454,7 +1445,7 @@ function numero(valor){
         String(valor)
         .trim()
         .replace(/ARS/gi,"")
-        .replace(/\\$/g,"")
+        .replace(/\$/g,"")
         .replace(/\s/g,"");
 
 
@@ -1465,7 +1456,7 @@ function numero(valor){
 
         texto =
             texto
-            .replace(/\\./g,"")
+            .replace(/\./g,"")
             .replace(",",".");
     }
 
@@ -1491,9 +1482,9 @@ function numero(valor){
 }
 
 
-/\* =========================================================
+/* =========================================================
 FORMATO PRECIO
-\========================================================= \*/
+========================================================= */
 
 function dinero(valor){
 
@@ -1508,9 +1499,9 @@ function dinero(valor){
 }
 
 
-/\* =========================================================
+/* =========================================================
 CARGAR API
-\========================================================= \*/
+========================================================= */
 
 fetch(API)
 
@@ -1562,11 +1553,11 @@ fetch(API)
     .getElementById(
         "productos"
     )
-    .innerHTML = \`
+    .innerHTML = `
 
-        \<div style="
+        <div style="
         grid-column:1/-1;
-        text-align\:center;
+        text-align:center;
         padding:50px;
         color:#ff5a5a;
         ">
@@ -1574,22 +1565,22 @@ fetch(API)
         No se pudieron cargar
         los perfumes.
 
-        \<br>\<br>
+        <br><br>
 
-        \<small>
+        <small>
         Revisá Apps Script
         y Google Sheets.
-        \</small>
+        </small>
 
-        \</div>
+        </div>
 
-    \`;
+    `;
 });
 
 
-/\* =========================================================
+/* =========================================================
 CATEGORÍAS
-\========================================================= \*/
+========================================================= */
 
 function crearCategorias(){
 
@@ -1619,34 +1610,34 @@ function crearCategorias(){
         ];
 
 
-    let html = \`
+    let html = `
 
-        \<button
+        <button
         class="categoria-btn activa"
         onclick="seleccionarCategoria('TODOS')"
         data-cat="TODOS">
 
         TODOS
 
-        \</button>
+        </button>
 
-    \`;
+    `;
 
 
     categorias.forEach(cat => {
 
-        html += \`
+        html += `
 
-            \<button
+            <button
             class="categoria-btn"
             onclick="seleccionarCategoria('${escapeJS(cat)}')"
             data-cat="${escapeHTML(cat)}">
 
             ${escapeHTML(cat)}
 
-            \</button>
+            </button>
 
-        \`;
+        `;
 
     });
 
@@ -1656,9 +1647,9 @@ function crearCategorias(){
 }
 
 
-/\* =========================================================
+/* =========================================================
 SELECCIONAR CATEGORÍA
-\========================================================= \*/
+========================================================= */
 
 function seleccionarCategoria(cat){
 
@@ -1690,9 +1681,9 @@ function seleccionarCategoria(cat){
 }
 
 
-/\* =========================================================
+/* =========================================================
 BUSCADOR
-\========================================================= \*/
+========================================================= */
 
 document
 .getElementById(
@@ -1709,9 +1700,9 @@ document
 );
 
 
-/\* =========================================================
+/* =========================================================
 FILTROS
-\========================================================= \*/
+========================================================= */
 
 function aplicarFiltros(){
 
@@ -1773,9 +1764,9 @@ function aplicarFiltros(){
 }
 
 
-/\* =========================================================
+/* =========================================================
 CAMBIAR MODO
-\========================================================= \*/
+========================================================= */
 
 function cambiarModo(modo){
 
@@ -1792,11 +1783,11 @@ function cambiarModo(modo){
         modo;
 
 
-    /\*
+    /*
     VACIAMOS EL CARRITO
     PARA NO MEZCLAR PRECIOS
     PARTICULAR / MAYORISTA
-    \*/
+    */
 
     carrito = [];
 
@@ -1854,9 +1845,9 @@ function cambiarModo(modo){
 }
 
 
-/\* =========================================================
+/* =========================================================
 TOTAL UNIDADES
-\========================================================= \*/
+========================================================= */
 
 function totalUnidades(){
 
@@ -1875,9 +1866,9 @@ function totalUnidades(){
 }
 
 
-/\* =========================================================
+/* =========================================================
 CANTIDAD PRODUCTO
-\========================================================= \*/
+========================================================= */
 
 function obtenerCantidad(
     perfume
@@ -1897,9 +1888,9 @@ function obtenerCantidad(
 }
 
 
-/\* =========================================================
+/* =========================================================
 PRECIO MAYORISTA
-\========================================================= \*/
+========================================================= */
 
 function precioMayorista(
     producto,
@@ -1968,9 +1959,9 @@ function precioMayorista(
 }
 
 
-/\* =========================================================
+/* =========================================================
 NOMBRE ESCALA
-\========================================================= \*/
+========================================================= */
 
 function escalaMayorista(
     total
@@ -1994,9 +1985,9 @@ function escalaMayorista(
 }
 
 
-/\* =========================================================
+/* =========================================================
 PRÓXIMA ESCALA
-\========================================================= \*/
+========================================================= */
 
 function proximaEscala(total){
 
@@ -2019,9 +2010,9 @@ function proximaEscala(total){
 }
 
 
-/\* =========================================================
+/* =========================================================
 CALCULAR PARTICULAR
-\========================================================= \*/
+========================================================= */
 
 function calcularParticular(
     producto,
@@ -2046,17 +2037,17 @@ function calcularParticular(
         );
 
 
-    /\*
+    /*
     PROGRAMACIÓN DINÁMICA
 
     Prueba todas las combinaciones
     posibles de:
-    \- unidad
-    \- promo x2
-    \- promo x3
+    - unidad
+    - promo x2
+    - promo x3
 
     y elige la más económica.
-    \*/
+    */
 
 
     const dp =
@@ -2088,9 +2079,9 @@ function calcularParticular(
     ){
 
 
-        /\*
+        /*
         1 UNIDAD
-        \*/
+        */
 
         if(
             unitario > 0 &&
@@ -2115,9 +2106,9 @@ function calcularParticular(
         }
 
 
-        /\*
+        /*
         PROMO 2
-        \*/
+        */
 
         if(
             i >= 2 &&
@@ -2143,9 +2134,9 @@ function calcularParticular(
         }
 
 
-        /\*
+        /*
         PROMO 3
-        \*/
+        */
 
         if(
             i >= 3 &&
@@ -2173,9 +2164,9 @@ function calcularParticular(
     }
 
 
-    /\*
+    /*
     SI NO HAY PROMOS
-    \*/
+    */
 
     if(
         !isFinite(
@@ -2186,7 +2177,7 @@ function calcularParticular(
         return {
 
             total:
-                unitario \*
+                unitario *
                 cantidad,
 
             descripcion:
@@ -2263,9 +2254,9 @@ function calcularParticular(
 }
 
 
-/\* =========================================================
+/* =========================================================
 MOSTRAR PÁGINA
-\========================================================= \*/
+========================================================= */
 
 function mostrarPagina(){
 
@@ -2276,9 +2267,9 @@ function mostrarPagina(){
             1
         )
 
-        \*
+        *
 
-        PRODUCTOS\_POR\_PAGINA;
+        PRODUCTOS_POR_PAGINA;
 
 
     const productosPagina =
@@ -2289,7 +2280,7 @@ function mostrarPagina(){
             inicio,
 
             inicio +
-            PRODUCTOS\_POR\_PAGINA
+            PRODUCTOS_POR_PAGINA
 
         );
 
@@ -2303,9 +2294,9 @@ function mostrarPagina(){
 }
 
 
-/\* =========================================================
+/* =========================================================
 MOSTRAR PRODUCTOS
-\========================================================= \*/
+========================================================= */
 
 function mostrarProductos(lista){
 
@@ -2323,21 +2314,21 @@ function mostrarProductos(lista){
 
     if(lista.length === 0){
 
-        cont.innerHTML = \`
+        cont.innerHTML = `
 
-        \<div style="
+        <div style="
         grid-column:1/-1;
         padding:50px;
-        text-align\:center;
+        text-align:center;
         color:#888;
         ">
 
         No encontramos perfumes
         con esa búsqueda.
 
-        \</div>
+        </div>
 
-        \`;
+        `;
 
         return;
     }
@@ -2391,11 +2382,11 @@ function mostrarProductos(lista){
             "";
 
 
-        /\*
-        \=============================================
+        /*
+        =============================================
         PARTICULAR
-        \=============================================
-        \*/
+        =============================================
+        */
 
         if(
             modoActual ===
@@ -2425,23 +2416,23 @@ function mostrarProductos(lista){
                 );
 
 
-            precioHTML = \`
+            precioHTML = `
 
-                \<div class="precio-label">
+                <div class="precio-label">
 
                     PRECIO UNITARIO
 
-                \</div>
+                </div>
 
 
-                \<div class="precio">
+                <div class="precio">
 
                     $
                     ${dinero(unitario)}
 
-                \</div>
+                </div>
 
-            \`;
+            `;
 
 
             if(
@@ -2449,58 +2440,58 @@ function mostrarProductos(lista){
                 promo3 > 0
             ){
 
-                precioHTML += \`
+                precioHTML += `
 
-                    \<div class="promos">
+                    <div class="promos">
 
-                \`;
+                `;
 
 
                 if(promo2 > 0){
 
-                    precioHTML += \`
+                    precioHTML += `
 
-                        \<div class="promo">
+                        <div class="promo">
 
                         🔥 2 x
                         $${dinero(promo2)}
 
-                        \</div>
+                        </div>
 
-                    \`;
+                    `;
                 }
 
 
                 if(promo3 > 0){
 
-                    precioHTML += \`
+                    precioHTML += `
 
-                        \<div class="promo">
+                        <div class="promo">
 
                         🔥 3 x
                         $${dinero(promo3)}
 
-                        \</div>
+                        </div>
 
-                    \`;
+                    `;
                 }
 
 
-                precioHTML += \`
+                precioHTML += `
 
-                    \</div>
+                    </div>
 
-                \`;
+                `;
             }
 
         }
 
 
-        /\*
-        \=============================================
+        /*
+        =============================================
         MAYORISTA
-        \=============================================
-        \*/
+        =============================================
+        */
 
         else{
 
@@ -2509,10 +2500,10 @@ function mostrarProductos(lista){
                 totalUnidades();
 
 
-            /\*
+            /*
             Antes de tener 5,
             mostramos precio base 5+
-            \*/
+            */
 
             const cantidadEscala =
 
@@ -2551,75 +2542,75 @@ function mostrarProductos(lista){
 
                 textoNivel =
 
-                    \`Mínimo mayorista:
-                    5 unidades\`;
+                    `Mínimo mayorista:
+                    5 unidades`;
             }
 
             else if(siguiente){
 
                 textoNivel =
 
-                    \`Escala actual:
-                    ${escala}\<br>
+                    `Escala actual:
+                    ${escala}<br>
                     Te faltan
-                    \<strong>
+                    <strong>
                     ${siguiente-total}
-                    \</strong>
-                    para ${siguiente}+\`;
+                    </strong>
+                    para ${siguiente}+`;
             }
 
             else{
 
                 textoNivel =
 
-                    \`🔥 Mejor precio
-                    mayorista activo\`;
+                    `🔥 Mejor precio
+                    mayorista activo`;
             }
 
 
-            precioHTML = \`
+            precioHTML = `
 
-                \<div
+                <div
                 class="mayorista-titulo">
 
                     📦 PRECIO MAYORISTA
 
-                \</div>
+                </div>
 
 
-                \<div
+                <div
                 class="mayorista-precio">
 
                     $
                     ${dinero(precio)}
 
-                \</div>
+                </div>
 
 
-                \<div
+                <div
                 class="mayorista-unidad">
 
                     por unidad
 
-                \</div>
+                </div>
 
 
-                \<div
+                <div
                 class="nivel-mayorista">
 
                     ${textoNivel}
 
-                \</div>
+                </div>
 
-            \`;
+            `;
         }
 
 
-        /\*
-        \=============================================
+        /*
+        =============================================
         BOTÓN
-        \=============================================
-        \*/
+        =============================================
+        */
 
         let botonHTML =
             "";
@@ -2635,75 +2626,75 @@ function mostrarProductos(lista){
                 cantidadActual > 0
             ){
 
-                botonHTML = \`
+                botonHTML = `
 
-                    \<div class="cantidad">
+                    <div class="cantidad">
 
-                        \<button
+                        <button
                         onclick="cambiarCantidad('${escapeJS(producto.perfume)}',-1)">
 
                         −
 
-                        \</button>
+                        </button>
 
 
-                        \<span>
+                        <span>
 
                         ${cantidadActual}
 
-                        \</span>
+                        </span>
 
 
-                        \<button
+                        <button
                         onclick="cambiarCantidad('${escapeJS(producto.perfume)}',1)">
 
-                        \+
+                        +
 
-                        \</button>
+                        </button>
 
-                    \</div>
+                    </div>
 
-                \`;
+                `;
             }
 
             else{
 
-                botonHTML = \`
+                botonHTML = `
 
-                    \<button
+                    <button
                     class="agregar"
                     onclick="agregarProducto('${escapeJS(producto.perfume)}')">
 
                     ➕ AGREGAR AL CARRITO
 
-                    \</button>
+                    </button>
 
-                \`;
+                `;
             }
 
         }
 
         else{
 
-            botonHTML = \`
+            botonHTML = `
 
-                \<button
+                <button
                 class="agregar"
                 disabled>
 
                 SIN STOCK
 
-                \</button>
+                </button>
 
-            \`;
+            `;
         }
 
 
-        /\*
-        \=============================================
+        /*
+        =============================================
         IMAGEN
-        \=============================================
-        \*/
+        =============================================
+        */
 
         const foto =
 
@@ -2713,22 +2704,22 @@ function mostrarProductos(lista){
             ).trim();
 
 
-        /\*
-        \=============================================
+        /*
+        =============================================
         CARD
-        \=============================================
-        \*/
+        =============================================
+        */
 
-        cont.innerHTML += \`
+        cont.innerHTML += `
 
-            \<div class="card">
+            <div class="card">
 
 
-                \<img
+                <img
 
                 src="${
                     foto ||
-                    '[https://placehold.co/600x800/222222/888888?text=AKKINO](https://placehold.co/600x800/222222/888888?text=AKKINO)'
+                    'https://placehold.co/600x800/222222/888888?text=AKKINO'
                 }"
 
                 loading="lazy"
@@ -2739,37 +2730,37 @@ function mostrarProductos(lista){
 
                 onerror="
                 this.onerror=null;
-                this.src='[https://placehold.co/600x800/222222/888888?text=AKKINO](https://placehold.co/600x800/222222/888888?text=AKKINO)';
+                this.src='https://placehold.co/600x800/222222/888888?text=AKKINO';
                 "
-                \>
+                >
 
 
-                \<div class="info">
+                <div class="info">
 
 
-                    \<div class="nombre">
+                    <div class="nombre">
 
                     ${escapeHTML(
                         producto.perfume
                     )}
 
-                    \</div>
+                    </div>
 
 
-                    \<div
+                    <div
                     class="categoria-producto">
 
                     ${escapeHTML(
                         producto.categoria
                     )}
 
-                    \</div>
+                    </div>
 
 
                     ${precioHTML}
 
 
-                    \<div
+                    <div
                     class="stock ${claseStock}">
 
                     ${escapeHTML(
@@ -2777,25 +2768,25 @@ function mostrarProductos(lista){
                         "Disponible"
                     )}
 
-                    \</div>
+                    </div>
 
 
                     ${botonHTML}
 
 
-                \</div>
+                </div>
 
-            \</div>
+            </div>
 
-        \`;
+        `;
 
     });
 }
 
 
-/\* =========================================================
+/* =========================================================
 AGREGAR PRODUCTO
-\========================================================= \*/
+========================================================= */
 
 function agregarProducto(
     perfume
@@ -2852,9 +2843,9 @@ function agregarProducto(
 }
 
 
-/\* =========================================================
+/* =========================================================
 CAMBIAR CANTIDAD
-\========================================================= \*/
+========================================================= */
 
 function cambiarCantidad(
     perfume,
@@ -2907,9 +2898,9 @@ function cambiarCantidad(
 }
 
 
-/\* =========================================================
+/* =========================================================
 ACTUALIZAR BARRA
-\========================================================= \*/
+========================================================= */
 
 function actualizarCarrito(){
 
@@ -2941,11 +2932,11 @@ function actualizarCarrito(){
 
         info.innerHTML =
 
-            \`🛒
-            \<strong>
+            `🛒
+            <strong>
             ${unidades}
-            \</strong>
-            unidades\`;
+            </strong>
+            unidades`;
 
     }
 
@@ -2972,9 +2963,9 @@ function actualizarCarrito(){
 }
 
 
-/\* =========================================================
+/* =========================================================
 ABRIR / CERRAR CARRITO
-\========================================================= \*/
+========================================================= */
 
 function abrirCarrito(){
 
@@ -3009,9 +3000,9 @@ function cerrarCarrito(){
 }
 
 
-/\* =========================================================
+/* =========================================================
 RENDER CARRITO
-\========================================================= \*/
+========================================================= */
 
 function renderCarrito(){
 
@@ -3055,11 +3046,11 @@ function renderCarrito(){
             "";
 
 
-        /\*
-        \=============================================
+        /*
+        =============================================
         PARTICULAR
-        \=============================================
-        \*/
+        =============================================
+        */
 
         if(
             modoActual ===
@@ -3083,11 +3074,11 @@ function renderCarrito(){
         }
 
 
-        /\*
-        \=============================================
+        /*
+        =============================================
         MAYORISTA
-        \=============================================
-        \*/
+        =============================================
+        */
 
         else{
 
@@ -3103,17 +3094,17 @@ function renderCarrito(){
 
             subtotal =
 
-                precio \*
+                precio *
                 item.cantidad;
 
 
             descripcion =
 
-                \`Escala ${escalaMayorista(
+                `Escala ${escalaMayorista(
                     total >= 5
                     ? total
                     : 5
-                )} · $${dinero(precio)} c/u\`;
+                )} · $${dinero(precio)} c/u`;
         }
 
 
@@ -3121,89 +3112,89 @@ function renderCarrito(){
             subtotal;
 
 
-        lista.innerHTML += \`
+        lista.innerHTML += `
 
-            \<div
+            <div
             class="item-carrito">
 
 
-                \<div class="item-datos">
+                <div class="item-datos">
 
 
-                    \<div
+                    <div
                     class="item-nombre">
 
                     ${escapeHTML(
                         item.perfume
                     )}
 
-                    \</div>
+                    </div>
 
 
-                    \<div
+                    <div
                     class="item-precio">
 
                     Cantidad:
                     ${item.cantidad}
 
-                    \</div>
+                    </div>
 
 
-                    \<div
+                    <div
                     class="item-promo">
 
                     ${escapeHTML(
                         descripcion
                     )}
 
-                    \</div>
+                    </div>
 
 
-                    \<div
+                    <div
                     class="item-subtotal">
 
                     Subtotal:
                     $${dinero(subtotal)}
 
-                    \</div>
+                    </div>
 
 
-                \</div>
+                </div>
 
 
-                \<div
+                <div
                 class="item-controles">
 
 
-                    \<button
+                    <button
                     onclick="cambiarCantidad('${escapeJS(item.perfume)}',-1)">
 
                     −
 
-                    \</button>
+                    </button>
 
 
-                    \<span>
+                    <span>
 
                     ${item.cantidad}
 
-                    \</span>
+                    </span>
 
 
-                    \<button
+                    <button
                     onclick="cambiarCantidad('${escapeJS(item.perfume)}',1)">
 
-                    \+
+                    +
 
-                    \</button>
-
-
-                \</div>
+                    </button>
 
 
-            \</div>
+                </div>
 
-        \`;
+
+            </div>
+
+        `;
 
     });
 
@@ -3212,9 +3203,9 @@ function renderCarrito(){
         "";
 
 
-    /\*
+    /*
     MAYORISTA
-    \*/
+    */
 
     if(
         modoActual ===
@@ -3224,23 +3215,23 @@ function renderCarrito(){
 
         if(total < 5){
 
-            avisoNivel = \`
+            avisoNivel = `
 
-                \<div
+                <div
                 class="proximo-nivel">
 
                 ⚠️ Te faltan
 
-                \<strong>
+                <strong>
                 ${5-total}
-                \</strong>
+                </strong>
 
                 unidades para alcanzar
                 el mínimo mayorista.
 
-                \</div>
+                </div>
 
-            \`;
+            `;
         }
 
         else{
@@ -3254,93 +3245,93 @@ function renderCarrito(){
 
             if(siguiente){
 
-                avisoNivel = \`
+                avisoNivel = `
 
-                    \<div
+                    <div
                     class="proximo-nivel">
 
                     📦 Escala actual:
-                    \<strong>
+                    <strong>
                     ${escalaMayorista(total)}
-                    \</strong>
+                    </strong>
 
-                    \<br>
+                    <br>
 
                     Te faltan
 
-                    \<strong>
+                    <strong>
                     ${siguiente-total}
-                    \</strong>
+                    </strong>
 
                     unidades para
                     ${siguiente}+.
 
-                    \</div>
+                    </div>
 
-                \`;
+                `;
             }
 
             else{
 
-                avisoNivel = \`
+                avisoNivel = `
 
-                    \<div
+                    <div
                     class="proximo-nivel">
 
                     🔥
-                    \<strong>
+                    <strong>
                     Mejor precio mayorista
                     desbloqueado.
-                    \</strong>
+                    </strong>
 
-                    \</div>
+                    </div>
 
-                \`;
+                `;
             }
         }
 
     }
 
 
-    resumen.innerHTML = \`
+    resumen.innerHTML = `
 
-        \<div
+        <div
         class="resumen-linea">
 
-            \<span>
+            <span>
             Unidades
-            \</span>
+            </span>
 
-            \<strong>
+            <strong>
             ${total}
-            \</strong>
+            </strong>
 
-        \</div>
+        </div>
 
 
-        \<div
+        <div
         class="resumen-total">
 
-            \<span>
+            <span>
             TOTAL
-            \</span>
+            </span>
 
-            \<span>
+            <span>
             $${dinero(totalPedido)}
-            \</span>
+            </span>
 
-        \</div>
+        </div>
 
 
         ${avisoNivel}
 
-    \`;
+    `;
 }
 
 
-/\* =========================================================
+/* =========================================================
 WHATSAPP
-\========================================================= \*/
+========================================================= */
 
 function enviarPedidoWhatsApp(){
 
@@ -3355,12 +3346,12 @@ function enviarPedidoWhatsApp(){
         &&
 
         total <
-        MINIMO\_MAYORISTA
+        MINIMO_MAYORISTA
     ){
 
         alert(
 
-            \`El pedido mayorista mínimo es de ${MINIMO\_MAYORISTA} unidades.\`
+            `El pedido mayorista mínimo es de ${MINIMO_MAYORISTA} unidades.`
 
         );
 
@@ -3374,7 +3365,7 @@ function enviarPedidoWhatsApp(){
 
     let mensaje =
 
-\`Hola AKKINO 👋✨
+`Hola AKKINO 👋✨
 
 Quiero realizar un pedido ${modoActual === "mayorista" ? "MAYORISTA" : "PARTICULAR"}:
 
@@ -3383,7 +3374,7 @@ Quiero realizar un pedido ${modoActual === "mayorista" ? "MAYORISTA" : "PARTICUL
 ━━━━━━━━━━━━━━━
 DETALLE DEL PEDIDO
 ━━━━━━━━━━━━━━━
-\`;
+`;
 
 
     carrito.forEach(
@@ -3431,13 +3422,13 @@ DETALLE DEL PEDIDO
 
             subtotal =
 
-                precio \*
+                precio *
                 item.cantidad;
 
 
             detalle =
 
-                \`Escala ${escalaMayorista(total)} - $${dinero(precio)} c/u\`;
+                `Escala ${escalaMayorista(total)} - $${dinero(precio)} c/u`;
         }
 
 
@@ -3445,7 +3436,7 @@ DETALLE DEL PEDIDO
             subtotal;
 
 
-        mensaje += \`
+        mensaje += `
 
 🧴 ${item.perfume}
 
@@ -3456,12 +3447,12 @@ ${detalle}
 Subtotal:
 $${dinero(subtotal)}
 
-\`;
+`;
 
     });
 
 
-    mensaje += \`
+    mensaje += `
 
 ━━━━━━━━━━━━━━━
 
@@ -3476,24 +3467,24 @@ $${dinero(totalPedido)}
 Quedo atento para confirmar disponibilidad y coordinar el pedido.
 
 Gracias 🙌
-\`;
+`;
 
 
     const url =
 
-        \`[https://wa.me/${WHATSAPP}?text=${encodeURIComponent(mensaje)](https://wa.me/${WHATSAPP}?text=${encodeURIComponent\(mensaje\))}\`;
+        `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(mensaje)}`;
 
 
-    window\.open(
+    window.open(
         url,
-        "\_blank"
+        "_blank"
     );
 }
 
 
-/\* =========================================================
+/* =========================================================
 PAGINACIÓN
-\========================================================= \*/
+========================================================= */
 
 function mostrarPaginacion(){
 
@@ -3511,7 +3502,7 @@ function mostrarPaginacion(){
 
             productosFiltrados.length
             /
-            PRODUCTOS\_POR\_PAGINA
+            PRODUCTOS_POR_PAGINA
 
         );
 
@@ -3528,21 +3519,21 @@ function mostrarPaginacion(){
 
 
     let html =
-        \`\<div class="paginacion">\`;
+        `<div class="paginacion">`;
 
 
-    html += \`
+    html += `
 
-        \<button
+        <button
         class="pagina-btn"
         onclick="cambiarPagina(${paginaActual-1})"
         ${paginaActual === 1 ? "disabled" : ""}>
 
         ‹
 
-        \</button>
+        </button>
 
-    \`;
+    `;
 
 
     for(
@@ -3576,34 +3567,34 @@ function mostrarPaginacion(){
         }
 
 
-        html += \`
+        html += `
 
-            \<button
+            <button
             class="pagina-btn ${i === paginaActual ? "activa" : ""}"
             onclick="cambiarPagina(${i})">
 
             ${i}
 
-            \</button>
+            </button>
 
-        \`;
+        `;
     }
 
 
-    html += \`
+    html += `
 
-        \<button
+        <button
         class="pagina-btn"
         onclick="cambiarPagina(${paginaActual+1})"
         ${paginaActual === totalPaginas ? "disabled" : ""}>
 
         ›
 
-        \</button>
+        </button>
 
-        \</div>
+        </div>
 
-    \`;
+    `;
 
 
     const inicio =
@@ -3613,28 +3604,28 @@ function mostrarPaginacion(){
             1
         )
 
-        \*
+        *
 
-        PRODUCTOS\_POR\_PAGINA
+        PRODUCTOS_POR_PAGINA
 
-        \+ 1;
+        + 1;
 
 
     const fin =
 
         Math.min(
 
-            paginaActual \*
-            PRODUCTOS\_POR\_PAGINA,
+            paginaActual *
+            PRODUCTOS_POR_PAGINA,
 
             productosFiltrados.length
 
         );
 
 
-    html += \`
+    html += `
 
-        \<div
+        <div
         class="paginacion-info">
 
         Mostrando
@@ -3643,9 +3634,9 @@ function mostrarPaginacion(){
         ${productosFiltrados.length}
         perfumes
 
-        \</div>
+        </div>
 
-    \`;
+    `;
 
 
     cont.innerHTML =
@@ -3653,9 +3644,9 @@ function mostrarPaginacion(){
 }
 
 
-/\* =========================================================
+/* =========================================================
 CAMBIAR PÁGINA
-\========================================================= \*/
+========================================================= */
 
 function cambiarPagina(
     pagina
@@ -3667,7 +3658,7 @@ function cambiarPagina(
 
             productosFiltrados.length
             /
-            PRODUCTOS\_POR\_PAGINA
+            PRODUCTOS_POR_PAGINA
 
         );
 
@@ -3688,7 +3679,7 @@ function cambiarPagina(
     mostrarPagina();
 
 
-    window\.scrollTo({
+    window.scrollTo({
 
         top:0,
 
@@ -3698,9 +3689,9 @@ function cambiarPagina(
 }
 
 
-/\* =========================================================
+/* =========================================================
 ESCAPAR HTML
-\========================================================= \*/
+========================================================= */
 
 function escapeHTML(text){
 
@@ -3714,7 +3705,7 @@ function escapeHTML(text){
     )
 
     .replace(
-        /\</g,
+        /</g,
         "&lt;"
     )
 
@@ -3735,9 +3726,9 @@ function escapeHTML(text){
 }
 
 
-/\* =========================================================
+/* =========================================================
 ESCAPAR JS
-\========================================================= \*/
+========================================================= */
 
 function escapeJS(text){
 
@@ -3746,13 +3737,13 @@ function escapeJS(text){
     )
 
     .replace(
-        /\\\\/g,
-        "\\\\\\\\"
+        /\\/g,
+        "\\\\"
     )
 
     .replace(
         /'/g,
-        "\\\\'"
+        "\\'"
     )
 
     .replace(
@@ -3762,14 +3753,14 @@ function escapeJS(text){
 
     .replace(
         /\n/g,
-        "\\\n"
+        "\\n"
     );
 }
 
 
-/\* =========================================================
+/* =========================================================
 CERRAR MODAL TOCANDO AFUERA
-\========================================================= \*/
+========================================================= */
 
 document
 .getElementById(
@@ -3789,8 +3780,8 @@ document
     }
 );
 
-\</script>
+</script>
 
-\</body>
+</body>
 
-\</html>
+</html>
