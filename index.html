@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="es">
 
 <head>
@@ -2011,245 +2010,207 @@ function proximaEscala(total){
 
 
 /* =========================================================
-CALCULAR PARTICULAR
+CALCULAR PARTICULAR COMBINANDO VARIEDADES
 ========================================================= */
 
-function calcularParticular(
-    producto,
-    cantidad
-){
+function calcularCarritoParticular(){
 
-    const unitario =
-        numero(
-            producto.precioParticular
-        );
+    let precioNormal = 0;
 
+    const grupos = {};
 
-    const promo2 =
-        numero(
-            producto.promo2
-        );
+    carrito.forEach(item => {
 
+        const producto = item.producto;
 
-    const promo3 =
-        numero(
-            producto.promo3
-        );
+        const unitario =
+            numero(
+                producto.precioParticular
+            );
 
+        const promo2 =
+            numero(
+                producto.promo2
+            );
 
-    /*
-    PROGRAMACIÓN DINÁMICA
+        const promo3 =
+            numero(
+                producto.promo3
+            );
 
-    Prueba todas las combinaciones
-    posibles de:
-    - unidad
-    - promo x2
-    - promo x3
-
-    y elige la más económica.
-    */
-
-
-    const dp =
-        new Array(
-            cantidad + 1
-        )
-        .fill(Infinity);
-
-
-    const detalle =
-        new Array(
-            cantidad + 1
-        );
-
-
-    dp[0] = 0;
-
-    detalle[0] = {
-        unidades:0,
-        promo2:0,
-        promo3:0
-    };
-
-
-    for(
-        let i = 1;
-        i <= cantidad;
-        i++
-    ){
-
-
-        /*
-        1 UNIDAD
-        */
+        precioNormal +=
+            unitario * item.cantidad;
 
         if(
-            unitario > 0 &&
-            dp[i-1] +
-            unitario <
-            dp[i]
+            promo2 <= 0 &&
+            promo3 <= 0
         ){
+            return;
+        }
 
-            dp[i] =
-                dp[i-1] +
-                unitario;
+        /*
+        Todos los perfumes que tengan
+        los mismos valores de promo
+        pueden combinarse entre sí.
 
+        Ejemplo:
+        1 Hawas + 1 Zanzibar
+        con promo2 = 35000
+        activa 2 x $35.000.
+        */
 
-            detalle[i] = {
+        const clave =
+            `${promo2}|${promo3}`;
 
-                ...detalle[i-1],
+        if(!grupos[clave]){
 
-                unidades:
-                    detalle[i-1]
-                    .unidades + 1
+            grupos[clave] = {
+                promo2,
+                promo3,
+                unidades:[]
             };
         }
 
-
-        /*
-        PROMO 2
-        */
-
-        if(
-            i >= 2 &&
-            promo2 > 0 &&
-            dp[i-2] +
-            promo2 <
-            dp[i]
+        for(
+            let i = 0;
+            i < item.cantidad;
+            i++
         ){
 
-            dp[i] =
-                dp[i-2] +
-                promo2;
+            grupos[clave]
+            .unidades
+            .push({
+                perfume:item.perfume,
+                precio:unitario
+            });
+        }
+    });
 
+    let totalFinal =
+        precioNormal;
 
-            detalle[i] = {
+    const detallePromos = [];
 
-                ...detalle[i-2],
+    Object.values(grupos)
+    .forEach(grupo => {
 
-                promo2:
-                    detalle[i-2]
-                    .promo2 + 1
-            };
+        const unidades =
+            [...grupo.unidades]
+            .sort(
+                (a,b) =>
+                b.precio - a.precio
+            );
+
+        const cantidad =
+            unidades.length;
+
+        if(cantidad === 0){
+            return;
         }
 
+        const totalNormalGrupo =
+            unidades.reduce(
+                (total,unidad) =>
+                total + unidad.precio,
+                0
+            );
 
-        /*
-        PROMO 3
-        */
+        let mejorTotal =
+            totalNormalGrupo;
 
-        if(
-            i >= 3 &&
-            promo3 > 0 &&
-            dp[i-3] +
-            promo3 <
-            dp[i]
+        let mejorPromo2 = 0;
+        let mejorPromo3 = 0;
+
+        const maxPromo3 =
+            grupo.promo3 > 0
+            ? Math.floor(cantidad / 3)
+            : 0;
+
+        for(
+            let cantPromo3 = 0;
+            cantPromo3 <= maxPromo3;
+            cantPromo3++
         ){
 
-            dp[i] =
-                dp[i-3] +
-                promo3;
+            const usadasPor3 =
+                cantPromo3 * 3;
 
+            const disponibles =
+                cantidad - usadasPor3;
 
-            detalle[i] = {
+            const maxPromo2 =
+                grupo.promo2 > 0
+                ? Math.floor(disponibles / 2)
+                : 0;
 
-                ...detalle[i-3],
+            for(
+                let cantPromo2 = 0;
+                cantPromo2 <= maxPromo2;
+                cantPromo2++
+            ){
 
-                promo3:
-                    detalle[i-3]
-                    .promo3 + 1
-            };
+                const usadas =
+                    cantPromo3 * 3 +
+                    cantPromo2 * 2;
+
+                const sobrantes =
+                    unidades.slice(usadas);
+
+                const costoSobrantes =
+                    sobrantes.reduce(
+                        (total,unidad) =>
+                        total + unidad.precio,
+                        0
+                    );
+
+                const costo =
+                    cantPromo3 * grupo.promo3 +
+                    cantPromo2 * grupo.promo2 +
+                    costoSobrantes;
+
+                if(costo < mejorTotal){
+
+                    mejorTotal = costo;
+                    mejorPromo2 = cantPromo2;
+                    mejorPromo3 = cantPromo3;
+                }
+            }
         }
 
-    }
+        totalFinal -=
+            totalNormalGrupo - mejorTotal;
 
+        if(mejorPromo3 > 0){
 
-    /*
-    SI NO HAY PROMOS
-    */
+            detallePromos.push(
+                `${mejorPromo3} ${
+                    mejorPromo3 > 1
+                    ? "promos"
+                    : "promo"
+                } de 3 x $${dinero(grupo.promo3)}`
+            );
+        }
 
-    if(
-        !isFinite(
-            dp[cantidad]
-        )
-    ){
+        if(mejorPromo2 > 0){
 
-        return {
-
-            total:
-                unitario *
-                cantidad,
-
-            descripcion:
-                cantidad +
-                " unidad/es"
-        };
-    }
-
-
-    const d =
-        detalle[cantidad];
-
-
-    const partes =
-        [];
-
-
-    if(d.promo3 > 0){
-
-        partes.push(
-
-            d.promo3 +
-            " promo" +
-            (
-                d.promo3 > 1
-                ? "s"
-                : ""
-            ) +
-            " x3"
-        );
-    }
-
-
-    if(d.promo2 > 0){
-
-        partes.push(
-
-            d.promo2 +
-            " promo" +
-            (
-                d.promo2 > 1
-                ? "s"
-                : ""
-            ) +
-            " x2"
-        );
-    }
-
-
-    if(d.unidades > 0){
-
-        partes.push(
-
-            d.unidades +
-            " unidad" +
-            (
-                d.unidades > 1
-                ? "es"
-                : ""
-            )
-        );
-    }
-
+            detallePromos.push(
+                `${mejorPromo2} ${
+                    mejorPromo2 > 1
+                    ? "promos"
+                    : "promo"
+                } de 2 x $${dinero(grupo.promo2)}`
+            );
+        }
+    });
 
     return {
-
-        total:
-            dp[cantidad],
-
+        precioNormal,
+        total:totalFinal,
+        ahorro:precioNormal-totalFinal,
         descripcion:
-            partes.join(" + ")
-
+            detallePromos.length
+            ? detallePromos.join(" + ")
+            : "Sin promociones aplicadas"
     };
 }
 
@@ -2500,11 +2461,6 @@ function mostrarProductos(lista){
                 totalUnidades();
 
 
-            /*
-            Antes de tener 5,
-            mostramos precio base 5+
-            */
-
             const cantidadEscala =
 
                 total >= 5
@@ -2606,12 +2562,6 @@ function mostrarProductos(lista){
         }
 
 
-        /*
-        =============================================
-        BOTÓN
-        =============================================
-        */
-
         let botonHTML =
             "";
 
@@ -2690,12 +2640,6 @@ function mostrarProductos(lista){
         }
 
 
-        /*
-        =============================================
-        IMAGEN
-        =============================================
-        */
-
         const foto =
 
             String(
@@ -2703,12 +2647,6 @@ function mostrarProductos(lista){
                 ""
             ).trim();
 
-
-        /*
-        =============================================
-        CARD
-        =============================================
-        */
 
         cont.innerHTML += `
 
@@ -3007,83 +2945,75 @@ RENDER CARRITO
 function renderCarrito(){
 
     const lista =
-
         document
         .getElementById(
             "listaCarrito"
         );
 
-
     const resumen =
-
         document
         .getElementById(
             "resumenCarrito"
         );
 
-
     const total =
         totalUnidades();
 
+    let totalPedido = 0;
 
-    let totalPedido =
-        0;
+    lista.innerHTML = "";
 
+    carrito.forEach(item => {
 
-    lista.innerHTML =
-        "";
-
-
-    carrito.forEach(
-        item => {
-
-
-        let subtotal =
-            0;
-
-
-        let descripcion =
-            "";
-
-
-        /*
-        =============================================
-        PARTICULAR
-        =============================================
-        */
+        let subtotal = 0;
+        let descripcion = "";
 
         if(
             modoActual ===
             "particular"
         ){
 
-            const calculo =
-
-                calcularParticular(
-                    item.producto,
-                    item.cantidad
+            const unitario =
+                numero(
+                    item.producto.precioParticular
                 );
 
-
             subtotal =
-                calculo.total;
+                unitario * item.cantidad;
 
+            const promo2 =
+                numero(
+                    item.producto.promo2
+                );
+
+            const promo3 =
+                numero(
+                    item.producto.promo3
+                );
+
+            const promosItem = [];
+
+            if(promo2 > 0){
+                promosItem.push(
+                    `2 x $${dinero(promo2)}`
+                );
+            }
+
+            if(promo3 > 0){
+                promosItem.push(
+                    `3 x $${dinero(promo3)}`
+                );
+            }
 
             descripcion =
-                calculo.descripcion;
+                promosItem.length
+                ? `🔥 Combinable: ${promosItem.join(" · ")}`
+                : `${item.cantidad} unidad/es`;
         }
-
-
-        /*
-        =============================================
-        MAYORISTA
-        =============================================
-        */
 
         else{
 
             const precio =
-
                 precioMayorista(
                     item.producto,
                     total >= 5
@@ -3091,15 +3021,10 @@ function renderCarrito(){
                     : 5
                 );
 
-
             subtotal =
-
-                precio *
-                item.cantidad;
-
+                precio * item.cantidad;
 
             descripcion =
-
                 `Escala ${escalaMayorista(
                     total >= 5
                     ? total
@@ -3107,224 +3032,164 @@ function renderCarrito(){
                 )} · $${dinero(precio)} c/u`;
         }
 
-
-        totalPedido +=
-            subtotal;
-
+        totalPedido += subtotal;
 
         lista.innerHTML += `
 
-            <div
-            class="item-carrito">
-
+            <div class="item-carrito">
 
                 <div class="item-datos">
 
-
-                    <div
-                    class="item-nombre">
-
-                    ${escapeHTML(
-                        item.perfume
-                    )}
-
+                    <div class="item-nombre">
+                    ${escapeHTML(item.perfume)}
                     </div>
 
-
-                    <div
-                    class="item-precio">
-
-                    Cantidad:
-                    ${item.cantidad}
-
+                    <div class="item-precio">
+                    Cantidad: ${item.cantidad}
                     </div>
 
-
-                    <div
-                    class="item-promo">
-
-                    ${escapeHTML(
-                        descripcion
-                    )}
-
+                    <div class="item-promo">
+                    ${escapeHTML(descripcion)}
                     </div>
 
-
-                    <div
-                    class="item-subtotal">
-
+                    <div class="item-subtotal">
                     Subtotal:
                     $${dinero(subtotal)}
-
                     </div>
-
 
                 </div>
 
-
-                <div
-                class="item-controles">
-
+                <div class="item-controles">
 
                     <button
                     onclick="cambiarCantidad('${escapeJS(item.perfume)}',-1)">
-
                     −
-
                     </button>
 
-
                     <span>
-
                     ${item.cantidad}
-
                     </span>
-
 
                     <button
                     onclick="cambiarCantidad('${escapeJS(item.perfume)}',1)">
-
                     +
-
                     </button>
-
 
                 </div>
 
-
             </div>
-
         `;
-
     });
 
+    let calculoGeneralParticular = null;
 
-    let avisoNivel =
-        "";
+    if(
+        modoActual ===
+        "particular"
+    ){
 
+        calculoGeneralParticular =
+            calcularCarritoParticular();
 
-    /*
-    MAYORISTA
-    */
+        totalPedido =
+            calculoGeneralParticular.total;
+    }
+
+    let avisoNivel = "";
 
     if(
         modoActual ===
         "mayorista"
     ){
 
-
         if(total < 5){
 
             avisoNivel = `
-
-                <div
-                class="proximo-nivel">
-
+                <div class="proximo-nivel">
                 ⚠️ Te faltan
-
-                <strong>
-                ${5-total}
-                </strong>
-
+                <strong>${5-total}</strong>
                 unidades para alcanzar
                 el mínimo mayorista.
-
                 </div>
-
             `;
         }
 
         else{
 
             const siguiente =
-
-                proximaEscala(
-                    total
-                );
-
+                proximaEscala(total);
 
             if(siguiente){
 
                 avisoNivel = `
-
-                    <div
-                    class="proximo-nivel">
-
+                    <div class="proximo-nivel">
                     📦 Escala actual:
-                    <strong>
-                    ${escalaMayorista(total)}
-                    </strong>
-
+                    <strong>${escalaMayorista(total)}</strong>
                     <br>
-
                     Te faltan
-
-                    <strong>
-                    ${siguiente-total}
-                    </strong>
-
-                    unidades para
-                    ${siguiente}+.
-
+                    <strong>${siguiente-total}</strong>
+                    unidades para ${siguiente}+.
                     </div>
-
                 `;
             }
 
             else{
 
                 avisoNivel = `
-
-                    <div
-                    class="proximo-nivel">
-
-                    🔥
-                    <strong>
-                    Mejor precio mayorista
-                    desbloqueado.
-                    </strong>
-
+                    <div class="proximo-nivel">
+                    🔥 <strong>Mejor precio mayorista desbloqueado.</strong>
                     </div>
-
                 `;
             }
         }
-
     }
 
+    let resumenPromo = "";
+
+    if(
+        modoActual === "particular" &&
+        calculoGeneralParticular &&
+        calculoGeneralParticular.ahorro > 0
+    ){
+
+        resumenPromo = `
+
+            <div class="resumen-linea">
+                <span>🔥 Promo aplicada</span>
+                <strong style="color:#3ddc84;text-align:right">
+                ${escapeHTML(calculoGeneralParticular.descripcion)}
+                </strong>
+            </div>
+
+            <div class="resumen-linea">
+                <span>Precio sin promo</span>
+                <span>$${dinero(calculoGeneralParticular.precioNormal)}</span>
+            </div>
+
+            <div class="resumen-linea">
+                <span>💰 Ahorrás</span>
+                <strong style="color:#3ddc84">
+                $${dinero(calculoGeneralParticular.ahorro)}
+                </strong>
+            </div>
+        `;
+    }
 
     resumen.innerHTML = `
 
-        <div
-        class="resumen-linea">
-
-            <span>
-            Unidades
-            </span>
-
-            <strong>
-            ${total}
-            </strong>
-
+        <div class="resumen-linea">
+            <span>Unidades</span>
+            <strong>${total}</strong>
         </div>
 
+        ${resumenPromo}
 
-        <div
-        class="resumen-total">
-
-            <span>
-            TOTAL
-            </span>
-
-            <span>
-            $${dinero(totalPedido)}
-            </span>
-
+        <div class="resumen-total">
+            <span>TOTAL</span>
+            <span>$${dinero(totalPedido)}</span>
         </div>
-
 
         ${avisoNivel}
-
     `;
 }
 
@@ -3338,33 +3203,26 @@ function enviarPedidoWhatsApp(){
     const total =
         totalUnidades();
 
-
     if(
-        modoActual ===
-        "mayorista"
-
-        &&
-
-        total <
-        MINIMO_MAYORISTA
+        modoActual === "mayorista" &&
+        total < MINIMO_MAYORISTA
     ){
 
         alert(
-
             `El pedido mayorista mínimo es de ${MINIMO_MAYORISTA} unidades.`
-
         );
 
         return;
     }
 
+    let totalPedido = 0;
 
-    let totalPedido =
-        0;
-
+    const calculoParticularGeneral =
+        modoActual === "particular"
+        ? calcularCarritoParticular()
+        : null;
 
     let mensaje =
-
 `Hola AKKINO 👋✨
 
 Quiero realizar un pedido ${modoActual === "mayorista" ? "MAYORISTA" : "PARTICULAR"}:
@@ -3376,84 +3234,86 @@ DETALLE DEL PEDIDO
 ━━━━━━━━━━━━━━━
 `;
 
+    carrito.forEach(item => {
 
-    carrito.forEach(
-        item => {
-
-
-        let subtotal =
-            0;
-
-
-        let detalle =
-            "";
-
+        let subtotal = 0;
+        let detalle = "";
 
         if(
             modoActual ===
             "particular"
         ){
 
-            const calculo =
-
-                calcularParticular(
-                    item.producto,
-                    item.cantidad
+            const unitario =
+                numero(
+                    item.producto.precioParticular
                 );
 
-
             subtotal =
-                calculo.total;
-
+                unitario * item.cantidad;
 
             detalle =
-                calculo.descripcion;
+                `$${dinero(unitario)} c/u`;
         }
 
         else{
 
             const precio =
-
                 precioMayorista(
                     item.producto,
                     total
                 );
 
-
             subtotal =
-
-                precio *
-                item.cantidad;
-
+                precio * item.cantidad;
 
             detalle =
-
                 `Escala ${escalaMayorista(total)} - $${dinero(precio)} c/u`;
         }
 
-
-        totalPedido +=
-            subtotal;
-
+        totalPedido += subtotal;
 
         mensaje += `
 
 🧴 ${item.perfume}
-
 Cantidad: ${item.cantidad}
-
 ${detalle}
-
-Subtotal:
+Subtotal sin promo:
 $${dinero(subtotal)}
 
 `;
-
     });
 
+    if(
+        modoActual === "particular" &&
+        calculoParticularGeneral
+    ){
+
+        totalPedido =
+            calculoParticularGeneral.total;
+
+        if(
+            calculoParticularGeneral.ahorro > 0
+        ){
+
+            mensaje += `
+━━━━━━━━━━━━━━━
+🔥 PROMOCIÓN APLICADA
+━━━━━━━━━━━━━━━
+
+${calculoParticularGeneral.descripcion}
+
+Precio sin promo:
+$${dinero(calculoParticularGeneral.precioNormal)}
+
+💰 Ahorro:
+$${dinero(calculoParticularGeneral.ahorro)}
+
+`;
+        }
+    }
 
     mensaje += `
-
 ━━━━━━━━━━━━━━━
 
 📦 Total unidades:
@@ -3469,11 +3329,8 @@ Quedo atento para confirmar disponibilidad y coordinar el pedido.
 Gracias 🙌
 `;
 
-
     const url =
-
         `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(mensaje)}`;
-
 
     window.open(
         url,
@@ -3684,7 +3541,6 @@ function cambiarPagina(
         top:0,
 
         behavior:"smooth"
-
     });
 }
 
