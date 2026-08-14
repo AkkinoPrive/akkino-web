@@ -1416,6 +1416,9 @@ let productosFiltrados =
 let categoriaActual =
     "TODOS";
 
+let disponibilidadActual =
+    "TODOS";
+
 
 /* =========================================================
 NÚMEROS
@@ -1622,6 +1625,16 @@ function crearCategorias(){
 
         </button>
 
+
+        <button
+        class="categoria-btn"
+        onclick="seleccionarDisponibilidad()"
+        data-disponibilidad="DISPONIBLES">
+
+        📦 DISPONIBLES
+
+        </button>
+
     `;
 
 
@@ -1648,6 +1661,48 @@ function crearCategorias(){
 }
 
 
+function seleccionarDisponibilidad(){
+
+    categoriaActual =
+        "TODOS";
+
+    disponibilidadActual =
+        "DISPONIBLES";
+
+
+    document
+    .querySelectorAll(
+        ".categoria-btn"
+    )
+    .forEach(btn => {
+
+        btn.classList.remove(
+            "activa"
+        );
+
+    });
+
+
+    const boton =
+        document.querySelector(
+            '[data-disponibilidad="DISPONIBLES"]'
+        );
+
+
+    if(boton){
+
+        boton.classList.add(
+            "activa"
+        );
+    }
+
+
+    paginaActual = 1;
+
+    aplicarFiltros();
+}
+
+
 /* =========================================================
 SELECCIONAR CATEGORÍA
 ========================================================= */
@@ -1656,6 +1711,9 @@ function seleccionarCategoria(cat){
 
     categoriaActual =
         cat;
+
+    disponibilidadActual =
+        "TODOS";
 
 
     document
@@ -1735,6 +1793,23 @@ function aplicarFiltros(){
 
                     String(
                         p.categoria || ""
+                    ).trim();
+
+
+                const stock =
+
+                    String(
+                        p.stock ||
+                        "Disponible"
+                    )
+                    .toLowerCase()
+                    .trim();
+
+
+                const disponible =
+
+                    stock.includes(
+                        "disponible"
                     );
 
 
@@ -1756,6 +1831,24 @@ function aplicarFiltros(){
                         categoriaActual
                     )
 
+                    &&
+
+                    (
+                        disponibilidadActual ===
+                        "TODOS"
+
+                        ||
+
+                        (
+                            disponibilidadActual ===
+                            "DISPONIBLES"
+
+                            &&
+
+                            disponible
+                        )
+                    )
+
                 );
             }
         );
@@ -1768,6 +1861,7 @@ function aplicarFiltros(){
 /* =========================================================
 CAMBIAR MODO
 ========================================================= */
+
 
 function cambiarModo(modo){
 
