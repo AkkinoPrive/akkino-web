@@ -9,9 +9,12 @@
 name="viewport"
 content="width=device-width, initial-scale=1.0">
 
-<title>AKKINO PRIVÉ | Catálogo Oficial</title>
+<title>AKKINO | Catálogo Oficial</title>
 
-<link rel="icon" type="image/png" href="./favicon.png?v=2">
+<link
+rel="icon"
+type="image/png"
+href="favicon.png">
 
 <style>
 
@@ -23,17 +26,7 @@ content="width=device-width, initial-scale=1.0">
 
 body{
     background:
-    radial-gradient(
-        circle at 50% -10%,
-        rgba(212,175,55,.12),
-        transparent 34%
-    ),
-    linear-gradient(
-        180deg,
-        #090909 0%,
-        #0d0d0d 48%,
-        #070707 100%
-    );
+    linear-gradient(180deg, #0b0b0b 0%, #111111 48%, #090909 100%);
 
     font-family:
     Arial,
@@ -62,23 +55,7 @@ body{
     z-index:9000;
     min-height:100vh;
     overflow:hidden;
-    background:
-        radial-gradient(
-            ellipse at 50% 44%,
-            rgba(212,175,55,.10),
-            transparent 32%
-        ),
-        radial-gradient(
-            ellipse at 80% 20%,
-            rgba(212,175,55,.06),
-            transparent 28%
-        ),
-        linear-gradient(
-            135deg,
-            #020202 0%,
-            #090909 48%,
-            #020202 100%
-        );
+    background:linear-gradient(135deg, #050505 0%, #111111 50%, #070707 100%);
     display:flex;
     flex-direction:column;
     transition:
@@ -1648,8 +1625,197 @@ body{
 
 }
 
+
+/* =========================================================
+   AKKINO — METODOS DE PAGO
+   ========================================================= */
+.metodos-pago-akkino{
+    display:grid;
+    grid-template-columns:repeat(3,minmax(0,1fr));
+    gap:10px;
+    margin-top:12px;
+}
+.metodo-pago{
+    appearance:none;
+    border:1px solid rgba(198,166,92,.30);
+    background:linear-gradient(145deg,#111,#080808);
+    color:#fff;
+    border-radius:12px;
+    padding:14px 10px 13px;
+    min-height:112px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    gap:5px;
+    cursor:pointer;
+    text-align:center;
+    transition:.18s ease;
+    font-family:inherit;
+}
+.metodo-pago:hover{
+    border-color:#c6a65c;
+    transform:translateY(-1px);
+}
+.metodo-pago.activo{
+    border-color:#c6a65c;
+    box-shadow:0 0 0 1px rgba(198,166,92,.25),0 8px 24px rgba(0,0,0,.25);
+    background:linear-gradient(145deg,#19150c,#0b0b0b);
+}
+.metodo-pago.solo-originales,
+.metodo-pago.solo-originales:hover{
+    position:relative;
+    opacity:.48;
+    filter:grayscale(.75);
+    cursor:not-allowed;
+    transform:none;
+    border-color:rgba(198,166,92,.18);
+    box-shadow:none;
+}
+.metodo-pago.solo-originales .metodo-titulo,
+.metodo-pago.solo-originales .metodo-subtitulo{
+    text-decoration:line-through;
+}
+.metodo-pago.solo-originales::after{
+    content:"SOLO PARA PERFUMES ORIGINALES";
+    position:absolute;
+    left:8px;
+    right:8px;
+    bottom:8px;
+    padding:4px 3px;
+    border-radius:5px;
+    background:rgba(0,0,0,.82);
+    color:#c6a65c;
+    font-size:7px;
+    font-weight:900;
+    letter-spacing:.35px;
+    line-height:1.15;
+    text-decoration:none;
+}
+.metodo-pago.bloqueado-mayorista,
+.metodo-pago.bloqueado-mayorista:hover{
+    position:relative;
+    opacity:.42;
+    filter:grayscale(.9);
+    cursor:not-allowed;
+    transform:none;
+    border-color:rgba(198,166,92,.14);
+    box-shadow:none;
+}
+.metodo-pago.bloqueado-mayorista .metodo-titulo,
+.metodo-pago.bloqueado-mayorista .metodo-subtitulo{
+    text-decoration:line-through;
+}
+.metodo-pago.bloqueado-mayorista::after{
+    content:"NO DISPONIBLE EN MAYORISTA";
+    position:absolute;
+    left:8px;
+    right:8px;
+    bottom:8px;
+    padding:4px 3px;
+    border-radius:5px;
+    background:rgba(0,0,0,.86);
+    color:#c6a65c;
+    font-size:7px;
+    font-weight:900;
+    letter-spacing:.35px;
+    line-height:1.15;
+    text-decoration:none;
+}
+.metodo-icono{font-size:21px;line-height:1;margin-bottom:2px}
+.metodo-titulo{font-size:12px;font-weight:800;letter-spacing:.5px;line-height:1.15}
+.metodo-subtitulo{font-size:9px;font-weight:700;letter-spacing:.35px;line-height:1.25;color:#c6a65c}
+
+.akkino-transferencia-box{
+    margin-top:12px;
+    padding:14px;
+    border:1px solid rgba(198,166,92,.35);
+    border-radius:12px;
+    background:linear-gradient(145deg,#15120c,#0b0b0b);
+}
+.akkino-transferencia-titulo{
+    color:#c6a65c;
+    font-size:11px;
+    font-weight:900;
+    letter-spacing:1px;
+    margin-bottom:10px;
+}
+.akkino-transferencia-dato{
+    display:flex;
+    justify-content:space-between;
+    gap:12px;
+    padding:6px 0;
+    border-bottom:1px solid rgba(255,255,255,.08);
+    font-size:11px;
+}
+.akkino-transferencia-dato:last-of-type{
+    border-bottom:0;
+}
+.akkino-transferencia-dato span:first-child{
+    color:#888;
+}
+.akkino-transferencia-dato strong{
+    color:#fff;
+    text-align:right;
+}
+.akkino-transferencia-aviso{
+    margin-top:10px;
+    color:#cfcfcf;
+    font-size:10px;
+    line-height:1.45;
+}
+@media(max-width:640px){
+    .metodos-pago-akkino{gap:7px}
+    .metodo-pago{min-height:106px;padding:12px 6px}
+    .metodo-titulo{font-size:10px}
+    .metodo-subtitulo{font-size:8px}
+    .metodo-icono{font-size:18px}
+}
 </style>
 
+<style id="akkino-banner-v44">
+/* =========================================================
+   AKKINO V44 — BANNER SUPERIOR DESLIZANTE
+   ========================================================= */
+.akkino-banner-wrap{
+    width:100%;
+    overflow:hidden;
+    border-top:1px solid rgba(212,175,55,.12);
+    border-bottom:1px solid rgba(212,175,55,.16);
+    background:#090909;
+}
+.akkino-banner-track{
+    display:flex;
+    width:max-content;
+    animation:akkinoBannerSlide 24s linear infinite;
+    will-change:transform;
+}
+.akkino-banner-item{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    min-height:36px;
+    padding:0 34px;
+    color:#d4af37;
+    font-size:10px;
+    font-weight:700;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    white-space:nowrap;
+}
+@keyframes akkinoBannerSlide{
+    from{transform:translateX(0)}
+    to{transform:translateX(-50%)}
+}
+@media(max-width:600px){
+    .akkino-banner-item{
+        min-height:34px;
+        padding:0 24px;
+        font-size:8px;
+        letter-spacing:1.4px;
+    }
+}
+</style>
 
 <style id="akkino-promociones">
 .promo-title{
@@ -2332,6 +2498,67 @@ RESULTADO:
     display:block !important;
 }
 
+/* =========================================================
+   AKKINO — DETALLE DE PRECIOS EN CARRITO
+   ========================================================= */
+#modalCarrito .pedido-precio-lista{
+    margin-top:6px;
+    color:#8f8f8f;
+    font-size:10px;
+    line-height:1.35;
+}
+
+#modalCarrito .pedido-precio-lista strong{
+    color:#bdbdbd;
+    font-weight:800;
+}
+
+#modalCarrito .pedido-precio-descuento{
+    margin-top:3px;
+    color:#d4af37;
+    font-size:9px;
+    font-weight:800;
+    letter-spacing:.35px;
+    text-transform:uppercase;
+}
+
+#modalCarrito .pedido-precio-cuotas{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:10px;
+    margin-top:6px;
+    padding-top:5px;
+    border-top:1px solid rgba(53,201,106,.18);
+}
+
+#modalCarrito .pedido-precio-cuotas span{
+    color:#35c96a;
+    font-size:9px;
+    font-weight:900;
+    letter-spacing:.45px;
+}
+
+#modalCarrito .pedido-precio-cuotas strong{
+    color:#fff;
+    font-size:12px;
+    font-weight:900;
+    white-space:nowrap;
+}
+
+#modalCarrito .pedido-precio-pago{
+    margin-top:5px;
+    color:#35c96a;
+    font-size:10px;
+    font-weight:700;
+}
+
+#modalCarrito .pedido-precio-pago strong{
+    color:#fff;
+    font-size:12px;
+    font-weight:900;
+}
+
 #modalCarrito .pedido-item-nuevo{
     position:relative !important;
 
@@ -2459,6 +2686,68 @@ RESULTADO:
 }
 
 /* =========================================================
+   AVISO MAYORISTA
+   ========================================================= */
+
+#modalCarrito .aviso-mayorista-carrito{
+    margin:12px 0 2px !important;
+    padding:13px 14px !important;
+    display:grid !important;
+    grid-template-columns:28px 1fr !important;
+    gap:3px 10px !important;
+    align-items:start !important;
+    background:linear-gradient(180deg,#171717,#111) !important;
+    border:1px solid rgba(212,175,55,.35) !important;
+    border-radius:10px !important;
+}
+
+#modalCarrito .aviso-mayorista-icono{
+    grid-row:1 / span 2 !important;
+    font-size:20px !important;
+    line-height:1.2 !important;
+}
+
+#modalCarrito .aviso-mayorista-contenido{
+    display:flex !important;
+    flex-direction:column !important;
+    gap:4px !important;
+}
+
+#modalCarrito .aviso-mayorista-contenido strong{
+    color:#f2c400 !important;
+    font-size:12px !important;
+    font-weight:900 !important;
+}
+
+#modalCarrito .aviso-mayorista-contenido span{
+    color:#cfcfcf !important;
+    font-size:10px !important;
+    line-height:1.4 !important;
+}
+
+#modalCarrito .aviso-mayorista-contenido b{
+    color:#fff !important;
+}
+
+#modalCarrito .aviso-mayorista-boton{
+    grid-column:2 !important;
+    justify-self:start !important;
+    margin-top:6px !important;
+    padding:8px 11px !important;
+    background:#d4af37 !important;
+    color:#111 !important;
+    border:0 !important;
+    border-radius:6px !important;
+    font-size:9px !important;
+    font-weight:900 !important;
+    cursor:pointer !important;
+}
+
+#modalCarrito .aviso-mayorista-boton:hover{
+    filter:brightness(1.08) !important;
+}
+
+/* =========================================================
    FORMA DE PAGO
    ========================================================= */
 
@@ -2569,6 +2858,110 @@ RESULTADO:
         gap:9px !important;
     }
 }
+
+/* =========================================================
+   ENTREGA / ENVÍO
+   ========================================================= */
+#modalCarrito .entrega-pedido{
+    margin-top:16px !important;
+    padding:15px !important;
+    background:#f5f5f5 !important;
+    border-radius:10px !important;
+}
+#modalCarrito .entrega-pedido-titulo{
+    display:block !important;
+    margin-bottom:10px !important;
+    font-size:12px !important;
+    font-weight:800 !important;
+    color:#222 !important;
+}
+#modalCarrito .entrega-opciones{
+    display:grid !important;
+    grid-template-columns:repeat(3,minmax(0,1fr)) !important;
+    gap:8px !important;
+}
+#modalCarrito .entrega-opcion{
+    min-height:58px !important;
+    padding:9px !important;
+    border:1px solid #ddd !important;
+    border-radius:8px !important;
+    background:#fff !important;
+    color:#222 !important;
+    cursor:pointer !important;
+    text-align:left !important;
+}
+#modalCarrito .entrega-opcion.activa{
+    border-color:#d4af37 !important;
+    box-shadow:0 0 0 1px #d4af37 inset !important;
+}
+#modalCarrito .entrega-opcion strong{
+    display:block !important;
+    font-size:11px !important;
+}
+#modalCarrito .entrega-opcion span{
+    display:block !important;
+    margin-top:3px !important;
+    color:#777 !important;
+    font-size:9px !important;
+}
+#modalCarrito .entrega-gratis{
+    color:#17863b !important;
+    font-weight:800 !important;
+}
+#modalCarrito .datos-envio{
+    display:none;
+    margin-top:12px !important;
+    padding-top:12px !important;
+    border-top:1px solid #ddd !important;
+}
+#modalCarrito .datos-envio.visible{
+    display:block !important;
+}
+#modalCarrito .datos-envio-grid{
+    display:grid !important;
+    grid-template-columns:1fr 1fr !important;
+    gap:9px !important;
+}
+#modalCarrito .datos-envio-grid .campo-completo{
+    grid-column:1 / -1 !important;
+}
+#modalCarrito .datos-envio label{
+    display:block !important;
+    margin-bottom:4px !important;
+    font-size:9px !important;
+    font-weight:700 !important;
+    color:#555 !important;
+}
+#modalCarrito .datos-envio input,
+#modalCarrito .datos-envio select{
+    width:100% !important;
+    min-height:38px !important;
+    box-sizing:border-box !important;
+    padding:0 9px !important;
+    border:1px solid #d5d5d5 !important;
+    border-radius:7px !important;
+    background:#fff !important;
+    color:#111 !important;
+    font-size:11px !important;
+}
+#modalCarrito .envio-seleccionado{
+    margin-top:9px !important;
+    color:#17863b !important;
+    font-size:10px !important;
+    font-weight:800 !important;
+}
+@media(max-width:600px){
+    #modalCarrito .entrega-opciones{
+        grid-template-columns:1fr !important;
+    }
+    #modalCarrito .datos-envio-grid{
+        grid-template-columns:1fr !important;
+    }
+    #modalCarrito .datos-envio-grid .campo-completo{
+        grid-column:auto !important;
+    }
+}
+
 </style>
 
 
@@ -2883,6 +3276,1466 @@ RESULTADO:
         font-size:23px;
     }
 }
+
+
+/* =========================================================
+   AKKINO V2 — NAVEGACION PREMIUM
+   ========================================================= */
+
+.categorias{
+    max-width:1100px;
+    margin:18px auto 30px;
+    padding:0 15px;
+}
+
+.categorias-principales{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:0;
+    border-bottom:1px solid rgba(255,255,255,.08);
+    margin-bottom:18px;
+}
+
+.categorias-principales .categoria-btn{
+    position:relative;
+    border:none;
+    border-radius:0;
+    background:transparent;
+    color:#777;
+    padding:13px 24px;
+    font-family:Arial,Helvetica,sans-serif;
+    font-size:11px;
+    font-weight:600;
+    letter-spacing:2px;
+    cursor:pointer;
+    transition:color .25s ease;
+}
+
+.categorias-principales .categoria-btn:hover{
+    color:#ddd;
+}
+
+.categorias-principales .categoria-btn.activa{
+    background:transparent;
+    color:#d4af37;
+}
+
+.categorias-principales .categoria-btn.activa::after{
+    content:"";
+    position:absolute;
+    left:20%;
+    right:20%;
+    bottom:-1px;
+    height:1px;
+    background:#d4af37;
+}
+
+.subcategorias{
+    display:flex;
+    justify-content:center;
+}
+
+.filtros-extra{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:7px;
+}
+
+.filtro-extra{
+    border:1px solid #292929;
+    padding:7px 13px;
+    border-radius:999px;
+    background:#101010;
+    color:#777;
+    cursor:pointer;
+    font-size:10px;
+    letter-spacing:1px;
+    transition:.2s ease;
+}
+
+.filtro-extra:hover{
+    color:#ddd;
+    border-color:#555;
+}
+
+.filtro-extra.activo{
+    background:rgba(212,175,55,.10);
+    border-color:rgba(212,175,55,.55);
+    color:#d4af37;
+}
+
+@media(max-width:600px){
+
+    .categorias{
+        margin-top:12px;
+        margin-bottom:24px;
+    }
+
+    .categorias-principales{
+        justify-content:flex-start;
+        overflow-x:auto;
+        scrollbar-width:none;
+    }
+
+    .categorias-principales::-webkit-scrollbar{
+        display:none;
+    }
+
+    .categorias-principales .categoria-btn{
+        flex:none;
+        padding:12px 17px;
+        font-size:9px;
+        letter-spacing:1.5px;
+    }
+
+    .filtros-extra{
+        justify-content:flex-start;
+        overflow-x:auto;
+        flex-wrap:nowrap;
+        scrollbar-width:none;
+        width:100%;
+        padding-bottom:3px;
+    }
+
+    .filtros-extra::-webkit-scrollbar{
+        display:none;
+    }
+
+    .filtro-extra{
+        flex:none;
+        font-size:9px;
+        padding:7px 11px;
+    }
+}
+
+
+
+/* =========================================================
+   AKKINO V2 — STOCK VISIBLE EN LA PARTE SUPERIOR
+   ========================================================= */
+
+.producto-card{
+    position:relative;
+}
+
+.producto-card .estado,
+.producto-card .stock,
+.producto-card .disponibilidad{
+    display:block;
+}
+
+/* Si el HTML genera el estado fuera del bloque de información,
+   lo llevamos visualmente a la zona superior de la tarjeta. */
+.producto-card .estado{
+    order:-10;
+    margin:0 0 9px;
+    padding:0;
+    font-size:10px;
+    font-weight:700;
+    letter-spacing:1.2px;
+    line-height:1.2;
+}
+
+/* Disponible: verde limpio, visible y separado del resto */
+.producto-card .estado.disponible,
+.producto-card .stock.disponible,
+.producto-card .disponibilidad.disponible{
+    color:#42c96b;
+}
+
+/* Evita que el texto de stock quede apretado u oculto */
+.producto-card .info,
+.producto-card .producto-info,
+.producto-card .card-info{
+    position:relative;
+}
+
+/* Estado que aparezca dentro del contenido de la tarjeta */
+.producto-card .info .estado,
+.producto-card .producto-info .estado,
+.producto-card .card-info .estado{
+    margin-top:0;
+    margin-bottom:10px;
+}
+
+/* Cuando la tarjeta utiliza flex, el estado queda primero */
+.producto-card .info,
+.producto-card .producto-info,
+.producto-card .card-info{
+    display:flex;
+    flex-direction:column;
+}
+
+/* Mantener nombre y precio después del estado */
+.producto-card .info .estado + *,
+.producto-card .producto-info .estado + *,
+.producto-card .card-info .estado + *{
+    margin-top:0;
+}
+
+/* Refuerzo para la etiqueta textual de disponibilidad */
+.estado-disponible,
+.disponible{
+    color:#42c96b !important;
+    font-weight:700;
+}
+
+/* En móvil también debe conservarse arriba y ser legible */
+@media(max-width:600px){
+    .producto-card .estado,
+    .producto-card .stock,
+    .producto-card .disponibilidad{
+        font-size:9px;
+        letter-spacing:1px;
+        margin-bottom:8px;
+    }
+}
+
+
+
+/* =========================================================
+   AKKINO V4 — DISPONIBILIDAD ARRIBA DE LA INFORMACIÓN
+   ========================================================= */
+
+.producto > .stock{
+    width:100%;
+    min-height:30px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:7px 10px;
+    margin:0;
+    border-top:1px solid rgba(255,255,255,.05);
+    border-bottom:1px solid rgba(255,255,255,.06);
+    font-size:10px;
+    font-weight:800;
+    letter-spacing:1.5px;
+    line-height:1;
+    text-transform:uppercase;
+}
+
+.producto > .stock.disponible{
+    color:#43d26b;
+    background:rgba(43,180,82,.075);
+}
+
+.producto > .stock.pedido{
+    color:#e0ad25;
+    background:rgba(224,173,37,.075);
+}
+
+.producto > .stock.sin-stock{
+    color:#e05252;
+    background:rgba(224,82,82,.075);
+}
+
+.producto > .producto-info{
+    padding-top:15px;
+}
+
+/* Eliminamos el margen que antes dejaba el stock pegado al final */
+.producto-info .stock{
+    margin:0;
+}
+
+@media(max-width:600px){
+
+    .producto > .stock{
+        min-height:27px;
+        padding:6px 8px;
+        font-size:9px;
+        letter-spacing:1.2px;
+    }
+
+    .producto > .producto-info{
+        padding-top:12px;
+    }
+}
+
+
+
+/* =========================================================
+   AKKINO — PRECIO ORIGINAL ESTILO FICHA PREMIUM
+   ========================================================= */
+
+.original-precio{
+    margin-top:4px;
+    padding-top:3px;
+}
+
+.precio-lista-grande{
+    font-size:26px;
+    line-height:1.15;
+    font-weight:800;
+    color:#f5f5f5;
+    margin-top:2px;
+}
+
+.original-linea-descuento{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:10px;
+    margin-top:12px;
+    padding-top:10px;
+    border-top:1px solid #292929;
+}
+
+.original-linea-descuento span{
+    color:#35c96a;
+    font-size:11px;
+    font-weight:800;
+    letter-spacing:1px;
+}
+
+.original-linea-descuento strong{
+    color:#35c96a;
+    font-size:19px;
+    font-weight:800;
+}
+
+.original-cuotas{
+    margin-top:5px;
+    color:#9d9d9d;
+    font-size:11px;
+    line-height:1.4;
+}
+
+.original-transferencia{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:10px;
+    margin-top:13px;
+    padding:11px 0 0;
+    border-top:1px solid rgba(53,201,106,.18);
+}
+
+.original-transferencia span{
+    color:#35c96a;
+    font-size:10px;
+    font-weight:800;
+    letter-spacing:.8px;
+}
+
+.original-transferencia strong{
+    color:#35c96a;
+    font-size:23px;
+    font-weight:900;
+}
+
+.original-transferencia-texto{
+    margin-top:4px;
+    color:#8d8d8d;
+    font-size:10px;
+    line-height:1.35;
+}
+
+@media(max-width:600px){
+
+    .precio-lista-grande{
+        font-size:22px;
+    }
+
+    .original-linea-descuento strong{
+        font-size:17px;
+    }
+
+    .original-transferencia strong{
+        font-size:20px;
+    }
+
+    .original-linea-descuento,
+    .original-transferencia{
+        gap:7px;
+    }
+}
+
+
+
+/* =========================================================
+   AKKINO — PRECIOS ORIGINALES
+   ========================================================= */
+
+.original-precio{
+    margin-top:2px;
+}
+
+.original-final-label,
+.original-cuotas-label,
+.original-lista-label{
+    color:#777;
+    font-size:9px;
+    font-weight:600;
+    letter-spacing:1.5px;
+    text-transform:uppercase;
+}
+
+.original-final{
+    margin-top:3px;
+    color:#fff;
+    font-size:28px;
+    line-height:1.1;
+    font-weight:900;
+}
+
+.original-descuento{
+    margin-top:3px;
+    color:#39cf6a;
+    font-size:10px;
+    font-weight:800;
+    letter-spacing:.8px;
+}
+
+.original-cuotas-bloque{
+    margin-top:13px;
+    padding-top:11px;
+    border-top:1px solid #292929;
+}
+
+.original-cuotas-precio{
+    margin-top:3px;
+    color:#e7e7e7;
+    font-size:21px;
+    font-weight:800;
+}
+
+.original-cuotas-info{
+    margin-top:3px;
+    color:#8c8c8c;
+    font-size:10px;
+}
+
+.original-cuotas-bloque .original-descuento{
+    margin-top:4px;
+}
+
+.original-lista-bloque{
+    margin-top:13px;
+    padding-top:11px;
+    border-top:1px solid rgba(255,255,255,.08);
+}
+
+.original-lista{
+    color:#858585;
+    font-size:18px;
+    font-weight:700;
+    text-decoration:line-through;
+    text-decoration-thickness:1px;
+}
+
+.original-lista-label{
+    margin-top:3px;
+    color:#666;
+}
+
+@media(max-width:600px){
+
+    .original-final{
+        font-size:24px;
+    }
+
+    .original-cuotas-precio{
+        font-size:19px;
+    }
+
+    .original-lista{
+        font-size:17px;
+    }
+
+}
+
+
+
+/* =========================================================
+   AKKINO — ORIGINALES / ORDEN DE PRECIOS
+   ========================================================= */
+
+.original-precio{
+    margin-top:2px;
+}
+
+/* 1 — LISTA: pequeña y tachada */
+.original-lista-bloque{
+    margin:0;
+    padding:0 0 10px;
+}
+
+.original-lista{
+    color:#707070;
+    font-size:15px;
+    line-height:1.1;
+    font-weight:700;
+    text-decoration:line-through;
+    text-decoration-thickness:1px;
+}
+
+.original-lista-label{
+    margin-top:3px;
+    color:#5f5f5f;
+    font-size:8px;
+    font-weight:600;
+    letter-spacing:1.3px;
+}
+
+/* 2 — CUOTAS: segundo nivel de importancia */
+.original-cuotas-bloque{
+    margin:0;
+    padding:10px 0;
+    border-top:1px solid #292929;
+    border-bottom:1px solid #292929;
+}
+
+.original-cuotas-label{
+    color:#888;
+    font-size:8px;
+    font-weight:600;
+    letter-spacing:1.3px;
+}
+
+.original-cuotas-precio{
+    margin-top:4px;
+    color:#f1f1f1;
+    font-size:21px;
+    line-height:1.1;
+    font-weight:800;
+}
+
+.original-cuotas-info{
+    margin-top:3px;
+    color:#858585;
+    font-size:10px;
+}
+
+.original-descuento{
+    margin-top:4px;
+    color:#39cf6a;
+    font-size:9px;
+    font-weight:800;
+    letter-spacing:.7px;
+}
+
+/* 3 — EFECTIVO / TRANSFERENCIA: precio protagonista */
+.original-final-bloque{
+    margin-top:11px;
+}
+
+.original-final-label{
+    color:#39cf6a;
+    font-size:9px;
+    font-weight:800;
+    letter-spacing:1.1px;
+}
+
+.original-final{
+    margin-top:3px;
+    color:#fff;
+    font-size:28px;
+    line-height:1.05;
+    font-weight:900;
+}
+
+.original-final-bloque .original-descuento{
+    margin-top:4px;
+}
+
+@media(max-width:600px){
+
+    .original-lista{
+        font-size:14px;
+    }
+
+    .original-cuotas-precio{
+        font-size:19px;
+    }
+
+    .original-final{
+        font-size:24px;
+    }
+}
+
+
+
+/* =========================================================
+   AKKINO V8 — HOME SIMPLE
+   ========================================================= */
+
+.akkino-home{
+    max-width:1100px;
+    margin:0 auto 30px;
+    padding:0 15px;
+}
+
+.home-intro{
+    position:relative;
+    overflow:hidden;
+    min-height:225px;
+    display:flex;
+    align-items:center;
+    padding:38px 45px;
+    border:1px solid rgba(212,175,55,.28);
+    border-radius:18px;
+    background:
+        radial-gradient(circle at 88% 35%,rgba(212,175,55,.14),transparent 28%),
+        linear-gradient(135deg,#151515,#080808);
+}
+
+.home-intro-copy{
+    max-width:680px;
+}
+
+.home-eyebrow{
+    color:#d4af37;
+    font-size:10px;
+    letter-spacing:4px;
+    margin-bottom:13px;
+}
+
+.home-title{
+    font-family:Georgia,"Times New Roman",serif;
+    font-size:clamp(32px,4vw,48px);
+    line-height:1;
+    font-weight:400;
+}
+
+.home-title span{
+    color:#d4af37;
+    font-style:italic;
+}
+
+.home-text{
+    max-width:600px;
+    margin-top:14px;
+    color:#999;
+    font-size:12px;
+    line-height:1.7;
+}
+
+
+
+
+@media(max-width:700px){
+    .home-intro{
+        min-height:0;
+        padding:28px 22px;
+    }
+
+    .home-title{
+        font-size:34px;
+    }
+}
+
+
+
+/* =========================================================
+   AKKINO — PRECIOS ORIGINALES / VALORES YA DESCONTADOS
+   ========================================================= */
+
+.original-precio{
+    margin-top:2px;
+}
+
+.original-lista-bloque{
+    margin:0;
+    padding:0 0 10px;
+}
+
+.original-lista{
+    color:#686868;
+    font-size:14px;
+    line-height:1.1;
+    font-weight:700;
+    text-decoration:line-through;
+    text-decoration-thickness:1px;
+}
+
+.original-lista-label{
+    margin-top:3px;
+    color:#5d5d5d;
+    font-size:8px;
+    font-weight:600;
+    letter-spacing:1.3px;
+}
+
+.original-cuotas-bloque{
+    margin:0;
+    padding:10px 0;
+    border-top:1px solid #292929;
+    border-bottom:1px solid #292929;
+}
+
+.original-cuotas-label{
+    color:#888;
+    font-size:8px;
+    font-weight:600;
+    letter-spacing:1.3px;
+}
+
+.original-cuotas-precio{
+    margin-top:4px;
+    color:#f1f1f1;
+    font-size:21px;
+    line-height:1.1;
+    font-weight:800;
+}
+
+.original-cuotas-info{
+    margin-top:3px;
+    color:#858585;
+    font-size:10px;
+}
+
+.original-final-bloque{
+    margin-top:11px;
+}
+
+.original-final-label{
+    color:#39cf6a;
+    font-size:9px;
+    font-weight:800;
+    letter-spacing:1.1px;
+}
+
+.original-final{
+    margin-top:3px;
+    color:#fff;
+    font-size:29px;
+    line-height:1.05;
+    font-weight:900;
+}
+
+@media(max-width:600px){
+
+    .original-lista{
+        font-size:14px;
+    }
+
+    .original-cuotas-precio{
+        font-size:19px;
+    }
+
+    .original-final{
+        font-size:25px;
+    }
+}
+
+
+
+/* =========================================================
+   AKKINO V11 — HOME ESTILO E-COMMERCE PREMIUM
+   Inspirado en la estructura de una tienda de perfumería,
+   manteniendo identidad AKKINO.
+   ========================================================= */
+
+.akkino-home-v11{
+    max-width:1280px;
+    margin:0 auto 42px;
+}
+
+.akkino-hero-v11{
+    position:relative;
+    min-height:310px;
+    display:flex;
+    align-items:center;
+    overflow:hidden;
+    border:1px solid #272727;
+    border-radius:2px;
+    background:
+        radial-gradient(circle at 80% 50%,rgba(212,175,55,.12),transparent 30%),
+        linear-gradient(105deg,#0c0c0c,#151515 58%,#090909);
+}
+
+.akkino-hero-v11::after{
+    content:"";
+    position:absolute;
+    right:-130px;
+    top:-170px;
+    width:460px;
+    height:460px;
+    border:1px solid rgba(212,175,55,.13);
+    border-radius:50%;
+    box-shadow:0 0 0 35px rgba(212,175,55,.025),
+               0 0 0 70px rgba(212,175,55,.015);
+}
+
+.akkino-hero-copy-v11{
+    position:relative;
+    z-index:2;
+    max-width:700px;
+    padding:48px 58px;
+}
+
+.akkino-kicker-v11{
+    color:#d4af37;
+    font-size:9px;
+    letter-spacing:4px;
+    margin-bottom:14px;
+}
+
+.akkino-title-v11{
+    font-family:Georgia,"Times New Roman",serif;
+    font-size:clamp(36px,5vw,64px);
+    font-weight:400;
+    line-height:.98;
+    letter-spacing:-1px;
+}
+
+.akkino-title-v11 span{
+    color:#d4af37;
+    font-style:italic;
+}
+
+.akkino-copy-v11{
+    max-width:570px;
+    margin-top:17px;
+    color:#8d8d8d;
+    font-size:11px;
+    line-height:1.75;
+}
+
+.akkino-hero-actions-v11{
+    display:flex;
+    flex-wrap:wrap;
+    gap:9px;
+    margin-top:23px;
+}
+
+.akkino-hero-btn-v11{
+    border:1px solid #3a3a3a;
+    background:transparent;
+    color:#c9c9c9;
+    padding:11px 18px;
+    font-size:9px;
+    letter-spacing:1.2px;
+    cursor:pointer;
+    transition:.2s ease;
+}
+
+.akkino-hero-btn-v11:hover{
+    background:#d4af37;
+    border-color:#d4af37;
+    color:#111;
+}
+
+.akkino-info-strip-v11{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    margin-top:13px;
+    border:1px solid #242424;
+    background:#0d0d0d;
+}
+
+.akkino-info-item-v11{
+    min-height:70px;
+    display:flex;
+    align-items:center;
+    gap:11px;
+    padding:14px 17px;
+    border-right:1px solid #242424;
+}
+
+.akkino-info-item-v11:last-child{
+    border-right:0;
+}
+
+.akkino-info-icon-v11{
+    color:#d4af37;
+    font-size:16px;
+}
+
+.akkino-info-item-v11 strong{
+    display:block;
+    color:#ddd;
+    font-size:9px;
+    letter-spacing:.8px;
+    font-weight:700;
+}
+
+.akkino-info-item-v11 span{
+    display:block;
+    margin-top:3px;
+    color:#686868;
+    font-size:8px;
+}
+
+.akkino-showcase-v11{
+    margin-top:40px;
+}
+
+.akkino-showcase-head-v11{
+    display:flex;
+    align-items:end;
+    justify-content:space-between;
+    margin-bottom:16px;
+    padding:0 2px;
+}
+
+.akkino-showcase-head-v11 h2{
+    margin:0;
+    font-family:Georgia,"Times New Roman",serif;
+    font-size:24px;
+    font-weight:400;
+}
+
+.akkino-showcase-head-v11 span{
+    color:#666;
+    font-size:8px;
+    letter-spacing:2px;
+}
+
+.akkino-showcase-row-v11{
+    display:grid;
+    grid-template-columns:repeat(6,minmax(0,1fr));
+    gap:12px;
+}
+
+.akkino-showcase-card-v11{
+    position:relative;
+    min-width:0;
+    overflow:hidden;
+    border:1px solid #252525;
+    background:#0d0d0d;
+    cursor:pointer;
+    transition:.22s ease;
+}
+
+.akkino-showcase-card-v11:hover{
+    transform:translateY(-3px);
+    border-color:#51451e;
+}
+
+.akkino-showcase-img-v11{
+    width:100%;
+    height:190px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:#fff;
+    overflow:hidden;
+}
+
+.akkino-showcase-img-v11 img{
+    width:100%;
+    height:100%;
+    object-fit:contain;
+}
+
+.akkino-showcase-body-v11{
+    padding:11px;
+}
+
+.akkino-showcase-name-v11{
+    height:31px;
+    overflow:hidden;
+    color:#e8e8e8;
+    font-size:10px;
+    line-height:1.45;
+}
+
+.akkino-showcase-price-v11{
+    margin-top:7px;
+    color:#fff;
+    font-size:14px;
+    font-weight:800;
+}
+
+.akkino-showcase-price-v11 span{
+    margin-left:4px;
+    color:#39cf6a;
+    font-size:7px;
+    font-weight:700;
+}
+
+.akkino-showcase-sub-v11{
+    margin-top:4px;
+    color:#777;
+    font-size:8px;
+}
+
+.akkino-catalog-head-v11{
+    max-width:1280px;
+    margin:0 auto;
+}
+
+@media(max-width:1100px){
+    .akkino-showcase-row-v11{
+        grid-template-columns:repeat(4,minmax(0,1fr));
+    }
+}
+
+@media(max-width:800px){
+    .akkino-info-strip-v11{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .akkino-info-item-v11:nth-child(2){
+        border-right:0;
+    }
+
+    .akkino-info-item-v11:nth-child(-n+2){
+        border-bottom:1px solid #242424;
+    }
+
+    .akkino-showcase-row-v11{
+        display:flex;
+        overflow-x:auto;
+        gap:10px;
+        padding-bottom:5px;
+        scrollbar-width:none;
+    }
+
+    .akkino-showcase-row-v11::-webkit-scrollbar{
+        display:none;
+    }
+
+    .akkino-showcase-card-v11{
+        flex:0 0 165px;
+    }
+
+    .akkino-showcase-img-v11{
+        height:170px;
+    }
+}
+
+@media(max-width:600px){
+    .akkino-home-v11{
+        margin-bottom:28px;
+    }
+
+    .akkino-hero-v11{
+        min-height:270px;
+    }
+
+    .akkino-hero-copy-v11{
+        padding:34px 25px;
+    }
+
+    .akkino-title-v11{
+        font-size:39px;
+    }
+
+    .akkino-copy-v11{
+        font-size:10px;
+    }
+
+    .akkino-info-item-v11{
+        min-height:64px;
+        padding:11px;
+    }
+
+    .akkino-showcase-head-v11 h2{
+        font-size:21px;
+    }
+}
+
+
+
+/* V11 header */
+.marca{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.marca img{
+    width:280px;
+    max-width:70vw;
+    height:auto;
+    display:block;
+}
+
+@media(max-width:600px){
+    .marca img{
+        width:225px;
+        max-width:75vw;
+    }
+}
+
+</style>
+
+
+<style id="akkino-promos-premium">
+/* PROMOCIONES — diseño premium AKKINO */
+.promociones-titulo{
+    margin-top:12px !important;
+    margin-bottom:8px !important;
+    padding-bottom:6px !important;
+    border-bottom:1px solid rgba(212,175,55,.22) !important;
+    color:#d4af37 !important;
+    font-size:10px !important;
+    font-weight:800 !important;
+    letter-spacing:1.8px !important;
+    text-transform:uppercase !important;
+}
+
+.promos{
+    display:grid !important;
+    grid-template-columns:1fr 1fr !important;
+    gap:7px !important;
+    margin-top:0 !important;
+}
+
+.promo{
+    min-height:38px !important;
+    display:flex !important;
+    align-items:center !important;
+    justify-content:center !important;
+    box-sizing:border-box !important;
+    padding:7px 6px !important;
+    border-radius:6px !important;
+    font-size:11px !important;
+    font-weight:800 !important;
+    letter-spacing:.2px !important;
+    color:#f5f5f5 !important;
+    border:1px solid rgba(212,175,55,.42) !important;
+    box-shadow:none !important;
+    background:#141414 !important;
+}
+
+.promo-2{
+    background:linear-gradient(180deg,#1b1b1b,#101010) !important;
+}
+
+.promo-3{
+    background:linear-gradient(180deg,#d8b84c,#b99325) !important;
+    color:#111 !important;
+    border-color:#e2c765 !important;
+}
+
+@media(max-width:700px){
+    .promos{
+        grid-template-columns:1fr !important;
+    }
+}
+
+
+/* =========================================================
+   PEDIDOS CON PRODUCTOS A PEDIDO
+   ========================================================= */
+
+.pedido-pendiente-aviso{
+    margin-top:14px;
+    padding:14px 16px;
+    border:1px solid rgba(212,175,55,.45);
+    border-radius:10px;
+    background:rgba(212,175,55,.055);
+    display:flex;
+    flex-direction:column;
+    gap:6px;
+    font-size:12px;
+    line-height:1.5;
+    color:#bdbdbd;
+}
+
+.pedido-pendiente-aviso strong{
+    color:#d4af37;
+    font-size:11px;
+    letter-spacing:1.2px;
+}
+
+.pedido-pendiente-aviso b{
+    color:#fff;
+}
+
+.selector-pago select:disabled{
+    opacity:.45;
+    cursor:not-allowed;
+}
+
+.enviar-whatsapp.pedido-consulta{
+    background:#111;
+    color:#d4af37;
+    border:1px solid rgba(212,175,55,.65);
+}
+
+.enviar-whatsapp.pedido-consulta:hover{
+    background:#181818;
+}
+
+/* =========================================================
+   MERCADO PAGO
+   ========================================================= */
+.boton-mercado-pago{
+    display:block;
+    width:100%;
+    margin-top:10px;
+    min-height:47px;
+    border:0;
+    border-radius:8px;
+    background:#3483fa;
+    color:#fff;
+    font-size:13px;
+    font-weight:900;
+    letter-spacing:.2px;
+    cursor:pointer;
+    transition:.2s ease;
+}
+.boton-mercado-pago:hover{
+    background:#2968c8;
+}
+.boton-mercado-pago:disabled{
+    opacity:.4;
+    cursor:not-allowed;
+}
+.mercado-pago-cargando{
+    opacity:.7;
+    pointer-events:none;
+}
+
+
+/* =========================================================
+   AKKINO V40 — CUOTAS DESTACADAS
+   ========================================================= */
+.original-cuotas-label{
+    color:#39cf6a !important;
+    font-size:10px !important;
+    font-weight:900 !important;
+    letter-spacing:1px !important;
+}
+
+.original-cuotas-label .cuota-monto{
+    color:#fff !important;
+    font-size:12px;
+    font-weight:900;
+}
+</style>
+
+
+<style id="akkino-selector-cristal-v45">
+/* =========================================================
+   AKKINO V45 — SELECTOR CRISTAL EXTRACTOS / ORIGINALES
+   ========================================================= */
+.categorias-principales{
+    display:grid !important;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:12px !important;
+    width:min(680px,100%);
+    margin:0 auto 18px !important;
+    padding:0 !important;
+    border-bottom:0 !important;
+}
+.categorias-principales .categoria-btn{
+    position:relative;
+    min-height:68px;
+    padding:13px 18px !important;
+    border:1px solid rgba(212,175,55,.24) !important;
+    border-radius:16px !important;
+    background:
+        linear-gradient(135deg,rgba(255,255,255,.075),rgba(255,255,255,.018) 48%,rgba(212,175,55,.035)) !important;
+    box-shadow:
+        inset 0 1px 0 rgba(255,255,255,.10),
+        0 8px 24px rgba(0,0,0,.20) !important;
+    backdrop-filter:blur(12px);
+    -webkit-backdrop-filter:blur(12px);
+    color:#aaa !important;
+    font-size:12px !important;
+    font-weight:700 !important;
+    letter-spacing:1.8px !important;
+    transition:.22s ease !important;
+    overflow:hidden;
+}
+.categorias-principales .categoria-btn::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:linear-gradient(115deg,transparent 20%,rgba(255,255,255,.10) 48%,transparent 72%);
+    transform:translateX(-120%);
+    transition:transform .55s ease;
+    pointer-events:none;
+}
+.categorias-principales .categoria-btn:hover::before{
+    transform:translateX(120%);
+}
+.categorias-principales .categoria-btn:hover{
+    color:#fff !important;
+    border-color:rgba(212,175,55,.55) !important;
+    transform:translateY(-1px);
+}
+.categorias-principales .categoria-btn.activa{
+    color:#f4d46b !important;
+    border-color:rgba(212,175,55,.82) !important;
+    background:
+        linear-gradient(135deg,rgba(212,175,55,.23),rgba(212,175,55,.08) 52%,rgba(255,255,255,.045)) !important;
+    box-shadow:
+        inset 0 1px 0 rgba(255,255,255,.16),
+        inset 0 0 28px rgba(212,175,55,.06),
+        0 8px 28px rgba(0,0,0,.26),
+        0 0 18px rgba(212,175,55,.08) !important;
+}
+.categorias-principales .categoria-btn.activa::after{
+    content:"";
+    position:absolute;
+    left:18%;
+    right:18%;
+    bottom:7px;
+    height:2px;
+    border-radius:99px;
+    background:#d4af37;
+    box-shadow:0 0 10px rgba(212,175,55,.45);
+}
+@media(max-width:600px){
+    .categorias{
+        margin-top:14px !important;
+        margin-bottom:24px !important;
+        padding:0 12px !important;
+    }
+    .categorias-principales{
+        grid-template-columns:repeat(2,minmax(0,1fr));
+        gap:9px !important;
+        width:100%;
+        margin-bottom:16px !important;
+    }
+    .categorias-principales .categoria-btn{
+        min-height:62px;
+        padding:11px 7px !important;
+        border-radius:14px !important;
+        font-size:11px !important;
+        letter-spacing:1.1px !important;
+        line-height:1.35;
+    }
+    .categorias-principales .categoria-btn.activa::after{
+        left:20%;
+        right:20%;
+        bottom:6px;
+    }
+}
+</style>
+
+
+<style id="akkino-mayorista-banners-final">
+/* SOLO reemplaza la presentación visual del bloque mayorista.
+   El resto del HTML, pagos, carrito, API y catálogo permanece intacto. */
+
+#heroMayorista.mayorista-hero{
+    display:none;
+    width:100%;
+    max-width:1040px;
+    margin:18px auto 28px;
+    padding:0 15px;
+    box-sizing:border-box;
+}
+
+#heroMayorista .mayorista-carousel{
+    width:100%;
+    min-height:0 !important;
+    height:auto !important;
+    overflow:hidden;
+    position:relative;
+    border:1px solid rgba(212,175,55,.48);
+    border-radius:18px;
+    background:#090909;
+    box-shadow:0 20px 60px rgba(0,0,0,.28);
+}
+
+#heroMayorista .mayorista-slide{
+    position:relative;
+    inset:auto;
+    display:none;
+    width:100%;
+    height:auto;
+    min-height:0;
+    padding:0;
+    margin:0;
+    opacity:1;
+    visibility:visible;
+    transform:none;
+    overflow:visible;
+}
+
+#heroMayorista .mayorista-slide.activa{
+    display:block;
+}
+
+#heroMayorista .mayorista-banner-imagen{
+    display:block;
+    width:100%;
+    height:auto;
+    max-width:100%;
+    object-fit:contain;
+    margin:0;
+    padding:0;
+    filter:none;
+}
+
+#heroMayorista .mayorista-arrow{
+    position:absolute;
+    top:50%;
+    transform:translateY(-50%);
+    z-index:10;
+    width:42px;
+    height:42px;
+    border-radius:50%;
+    border:1px solid rgba(212,175,55,.65);
+    background:rgba(5,5,5,.80);
+    color:#d4af37;
+    font-size:29px;
+    line-height:1;
+    cursor:pointer;
+}
+
+#heroMayorista .mayorista-prev{left:13px}
+#heroMayorista .mayorista-next{right:13px}
+
+#heroMayorista .mayorista-carousel-bottom{
+    position:static;
+    width:100%;
+    min-height:44px;
+    padding:10px 0;
+    box-sizing:border-box;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:#090909;
+}
+
+#heroMayorista .mayorista-dots{
+    display:flex;
+    gap:7px;
+}
+
+#heroMayorista .mayorista-dots button{
+    width:30px;
+    height:7px;
+    padding:0;
+    border:0;
+    border-radius:10px;
+    background:#292929;
+    color:transparent;
+    cursor:pointer;
+}
+
+#heroMayorista .mayorista-dots button.activo{
+    width:48px;
+    background:#d4af37;
+}
+
+@media(max-width:600px){
+    #heroMayorista.mayorista-hero{
+        margin:14px auto 22px;
+        padding:0 10px;
+    }
+
+    #heroMayorista .mayorista-carousel{
+        border-radius:12px;
+    }
+
+    #heroMayorista .mayorista-arrow{
+        width:36px;
+        height:36px;
+        font-size:25px;
+    }
+
+    #heroMayorista .mayorista-prev{left:8px}
+    #heroMayorista .mayorista-next{right:8px}
+
+    #heroMayorista .mayorista-carousel-bottom{
+        min-height:38px;
+        padding:8px 0;
+    }
+}
 </style>
 
 </head>
@@ -3140,6 +4993,21 @@ RESULTADO:
 
     <div id="catalogInner">
 
+<!-- =========================================================
+     BANNER SUPERIOR — AKKINO PRIVÉ
+     ========================================================= -->
+<div class="akkino-banner-wrap" aria-label="Información y beneficios de AKKINO Privé">
+    <div class="akkino-banner-track">
+        <div class="akkino-banner-item">🚚 ENVÍO GRATIS · PUERTO GENERAL SAN MARTÍN + SAN LORENZO · SIN MÍNIMO</div>
+        <div class="akkino-banner-item">💳 2 CUOTAS SIN INTERÉS</div>
+        <div class="akkino-banner-item">✨ PERFUMES ORIGINALES E INSPIRACIONES</div>
+        <div class="akkino-banner-item">📦 ENVÍO GRATIS A PARTIR DE $180.000</div>
+        <div class="akkino-banner-item">🚚 ENVÍO GRATIS · PUERTO GENERAL SAN MARTÍN + SAN LORENZO · SIN MÍNIMO</div>
+        <div class="akkino-banner-item">💳 2 CUOTAS SIN INTERÉS</div>
+        <div class="akkino-banner-item">✨ PERFUMES ORIGINALES E INSPIRACIONES</div>
+        <div class="akkino-banner-item">📦 ENVÍO GRATIS A PARTIR DE $180.000</div>
+    </div>
+</div>
 
 <!-- =======================================================
      HEADER
@@ -3148,7 +5016,7 @@ RESULTADO:
 <div class="header">
 
     <div class="marca">
-        AKKINO
+        <img src="logo.png" alt="AKKINO PRIVÉ">
     </div>
 
     <div class="subtitulo">
@@ -3188,7 +5056,6 @@ RESULTADO:
 <!-- =======================================================
      BUSCADOR
      ======================================================= -->
-
 <div class="buscar-contenedor">
 
     <input
@@ -3198,6 +5065,61 @@ RESULTADO:
     autocomplete="off">
 
 </div>
+<!-- =======================================================
+     MAYORISTA — 3 BANNERS APROBADOS
+     ======================================================= -->
+
+<div id="heroMayorista" class="mayorista-hero">
+
+    <div class="mayorista-carousel">
+
+        <div class="mayorista-slide activa">
+            <img
+                class="mayorista-banner-imagen"
+                src="assets/mayorista-banner-1.jpg"
+                alt="AKKINO PRIVÉ Mayorista — Inspiraciones pensadas para revender">
+        </div>
+
+        <div class="mayorista-slide">
+            <img
+                class="mayorista-banner-imagen"
+                src="assets/mayorista-banner-2.jpg"
+                alt="AKKINO PRIVÉ — Precios mayoristas">
+        </div>
+
+        <div class="mayorista-slide">
+            <img
+                class="mayorista-banner-imagen"
+                src="assets/mayorista-banner-3.jpg"
+                alt="AKKINO PRIVÉ — Condiciones mayoristas">
+        </div>
+
+    </div>
+
+    <button
+        type="button"
+        class="mayorista-arrow mayorista-prev"
+        onclick="cambiarSlideMayorista(-1)"
+        aria-label="Banner anterior">‹</button>
+
+    <button
+        type="button"
+        class="mayorista-arrow mayorista-next"
+        onclick="cambiarSlideMayorista(1)"
+        aria-label="Banner siguiente">›</button>
+
+    <div class="mayorista-carousel-bottom">
+
+        <div id="mayoristaDots" class="mayorista-dots">
+            <button type="button" class="activo" onclick="irSlideMayorista(0)" aria-label="Banner 1">1</button>
+            <button type="button" onclick="irSlideMayorista(1)" aria-label="Banner 2">2</button>
+            <button type="button" onclick="irSlideMayorista(2)" aria-label="Banner 3">3</button>
+        </div>
+
+    </div>
+
+</div>
+
 
 
 <!-- =======================================================
@@ -3206,362 +5128,8 @@ RESULTADO:
 
 
 <!-- =======================================================
-     HERO AKKINO
+     CATEGORÍAS
      ======================================================= -->
-
-<section class="hero-akkino catalog-welcome">
-
-    <div class="hero-panel">
-
-        <!-- =====================================================
-             HERO PARTICULAR
-             ===================================================== -->
-
-        <div
-            id="heroParticular"
-            class="hero-copy">
-
-            <div class="hero-kicker">
-                BIENVENIDO A AKKINO PRIVÉ
-            </div>
-
-            <div class="hero-title">
-                Todo tu mundo de fragancias,
-                <span>en un solo lugar.</span>
-            </div>
-
-            <div class="hero-text">
-                Desde acá podés armar tus pedidos de inspiraciones,
-                consultar las promociones vigentes y realizar tus
-                pedidos mayoristas. También encontrás nuestra sección
-                de perfumes originales.
-            </div>
-
-            <div class="catalog-welcome-grid">
-
-                <button
-                    class="welcome-card"
-                    onclick="
-                        seleccionarTipo('INSPIRACIONES 60ML');
-                        seleccionarFiltroExtra('TODOS');
-                        document.getElementById('productos').scrollIntoView({behavior:'smooth'})
-                    ">
-
-                    <div class="welcome-icon">✦</div>
-
-                    <div>
-                        <strong>INSPIRACIONES</strong>
-                        <span>
-                            Armá tu pedido y aprovechá
-                            las promociones vigentes.
-                        </span>
-                    </div>
-
-                    <b>VER COLECCIÓN →</b>
-
-                </button>
-
-
-                <button
-                    class="welcome-card"
-                    onclick="cambiarModo('mayorista')">
-
-                    <div class="welcome-icon">◇</div>
-
-                    <div>
-                        <strong>MAYORISTA</strong>
-                        <span>
-                            Consultá escalas, precios
-                            y armá tu pedido mayorista.
-                        </span>
-                    </div>
-
-                    <b>INGRESAR →</b>
-
-                </button>
-
-
-                <button
-                    class="welcome-card welcome-originales"
-                    onclick="
-                        cambiarModo('particular');
-                        seleccionarTipo('ORIGINALES');
-                        seleccionarFiltroExtra('TODOS');
-                        document.getElementById('productos').scrollIntoView({behavior:'smooth'})
-                    ">
-
-                    <div class="welcome-icon">◆</div>
-
-                    <div>
-                        <strong>PERFUMES ORIGINALES</strong>
-                        <span>
-                            Descubrí nuestra selección
-                            de fragancias originales.
-                        </span>
-                    </div>
-
-                    <b>VER ORIGINALES →</b>
-
-                </button>
-
-            </div>
-
-        </div>
-
-
-        <!-- =====================================================
-             HERO MAYORISTA — CARRUSEL
-             ===================================================== -->
-
-        <div
-            id="heroMayorista"
-            class="mayorista-hero"
-            aria-label="Información mayorista">
-
-            <div class="mayorista-carousel">
-
-                <!-- SLIDE 1 -->
-
-                <article
-                    class="mayorista-slide activa"
-                    data-slide="0">
-
-                    <div class="mayorista-slide-copy">
-
-                        <div class="mayorista-kicker">
-                            AKKINO PRIVÉ · MAYORISTA
-                        </div>
-
-                        <h2>
-                            Inspiraciones pensadas
-                            <span>para revender.</span>
-                        </h2>
-
-                        <p>
-                            Inspirados en las fragancias más reconocidas del mundo.
-                        </p>
-
-                        <p>
-                            💼 Ideal para perfumerías, farmacias,
-                            regalerías y revendedores.
-                        </p>
-
-                        <p>
-                            💰 Precio sugerido de venta al público:
-                            <strong>$25.000 a $35.000</strong>
-                        </p>
-
-                    </div>
-
-                    <div class="mayorista-slide-media">
-                        <img
-                            id="mayoristaImagen0"
-                            alt="Inspiraciones AKKINO Privé"
-                            loading="lazy">
-                    </div>
-
-                </article>
-
-
-                <!-- SLIDE 2 -->
-
-                <article
-                    class="mayorista-slide"
-                    data-slide="1">
-
-                    <div class="mayorista-slide-copy">
-
-                        <div class="mayorista-kicker">
-                            ESCALAS MAYORISTAS
-                        </div>
-
-                        <h2>
-                            Mientras más comprás,
-                            <span>menor es tu costo.</span>
-                        </h2>
-
-                        <div class="mayorista-escalas">
-
-                            <div>🔹 <b>5 unidades</b> → invertís $75.000 <small>(a $15.000 c/u)</small> 💵 Ganás $125.000</div>
-
-                            <div>🔹 <b>10 unidades</b> → invertís $145.000 <small>(a $14.500 c/u)</small> 💵 Ganás $250.000</div>
-
-                            <div>🔹 <b>20 unidades</b> → invertís $284.000 <small>(a $14.200 c/u)</small> 💵 Ganás $500.000</div>
-
-                            <div>🔹 <b>30 unidades</b> → invertís $417.000 <small>(a $13.900 c/u)</small> 💵 Ganás $750.000</div>
-
-                            <div>🔹 <b>50 unidades</b> → invertís $670.000 <small>(a $13.400 c/u)</small> 💵 Ganás $1.250.000</div>
-
-                            <div>🔹 <b>100 unidades</b> → invertís $1.250.000 <small>(a $12.500 c/u)</small> 💵 Ganás $2.500.000</div>
-
-                            <div>🔹 <b>250 unidades</b> → invertís $3.000.000 <small>(a $12.000 c/u)</small> 💵 Ganás $6.250.000</div>
-
-                            <div>🔹 <b>+500 unidades</b> → invertís $5.250.000 <small>(a $10.500 c/u)</small> 💵 Ganás $12.500.000</div>
-
-                        </div>
-
-                        <div class="mayorista-minimo">
-                            ✅ Mínimo de compra: <strong>5 unidades</strong>
-                        </div>
-
-                    </div>
-
-                    <div class="mayorista-slide-media">
-                        <img
-                            id="mayoristaImagen1"
-                            alt="Escalas mayoristas AKKINO Privé"
-                            loading="lazy">
-                    </div>
-
-                </article>
-
-
-                <!-- SLIDE 3 -->
-
-                <article
-                    class="mayorista-slide"
-                    data-slide="2">
-
-                    <div class="mayorista-slide-copy">
-
-                        <div class="mayorista-kicker">
-                            CONDICIONES MAYORISTAS
-                        </div>
-
-                        <h2>
-                            Todo lo que necesitás
-                            <span>para empezar.</span>
-                        </h2>
-
-                        <div class="mayorista-condiciones">
-
-                            <p>● Presentación en envase de 60ml</p>
-                            <p>● Packaging semi-transparente de plástico antigolpes</p>
-                            <p>● Excelente proyección y duración (8 a 10 horas)</p>
-
-                            <p class="condicion-separador">
-                                📍 <strong>Formas de pago:</strong>
-                            </p>
-
-                            <p>● Efectivo</p>
-                            <p>● Transferencia</p>
-                            <p>● Recibimos USDT</p>
-
-                            <div class="mayorista-descuento">
-                                🎁 Primera compra:
-                                <strong>-10% de descuento</strong>
-                                a partir de 10 unidades
-                            </div>
-
-                            <p class="condicion-separador">
-                                📦 <strong>Modalidad de trabajo</strong>
-                            </p>
-
-                            <p>
-                                💳 Los pedidos se confirman con el pago del 100%,
-                                se cierra pedido cada lunes y se despachan una vez
-                                recibida la mercadería del proveedor.
-                            </p>
-
-                            <p>
-                                🚚 Plazo estimado de entrega:
-                                <strong>2 a 5 días hábiles.</strong>
-                            </p>
-
-                        </div>
-
-                    </div>
-
-                    <div class="mayorista-slide-media">
-                        <img
-                            id="mayoristaImagen2"
-                            alt="Condiciones mayoristas AKKINO Privé"
-                            loading="lazy">
-                    </div>
-
-                </article>
-
-            </div>
-
-
-            <button
-                class="mayorista-arrow mayorista-prev"
-                type="button"
-                onclick="cambiarSlideMayorista(-1)"
-                aria-label="Anterior">
-                ‹
-            </button>
-
-            <button
-                class="mayorista-arrow mayorista-next"
-                type="button"
-                onclick="cambiarSlideMayorista(1)"
-                aria-label="Siguiente">
-                ›
-            </button>
-
-
-            <div class="mayorista-carousel-bottom">
-
-                <div
-                    id="mayoristaDots"
-                    class="mayorista-dots">
-
-                    <button
-                        type="button"
-                        class="activo"
-                        onclick="irSlideMayorista(0)"
-                        aria-label="Información general">
-                        1
-                    </button>
-
-                    <button
-                        type="button"
-                        onclick="irSlideMayorista(1)"
-                        aria-label="Escalas mayoristas">
-                        2
-                    </button>
-
-                    <button
-                        type="button"
-                        onclick="irSlideMayorista(2)"
-                        aria-label="Condiciones mayoristas">
-                        3
-                    </button>
-
-                </div>
-
-                <button
-                    class="mayorista-catalogo-btn"
-                    type="button"
-                    onclick="
-                        seleccionarTipo('INSPIRACIONES 60ML');
-                        seleccionarFiltroExtra('TODOS');
-                        document.getElementById('productos').scrollIntoView({behavior:'smooth'})
-                    ">
-                    VER CATÁLOGO MAYORISTA →
-                </button>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<div class="seccion-tienda">
-
-    <h2>
-        Descubrí tu próxima fragancia
-    </h2>
-
-    <span>
-        Catálogo oficial
-    </span>
-
-</div>
 
 <div
 id="categorias"
@@ -3676,27 +5244,123 @@ class="modal">
         <div id="listaCarrito"></div>
 
 
-        <div
-        id="selectorPago"
-        class="selector-pago">
+        <div id="selectorPago" class="selector-pago">
 
-            <label>
-                FORMA DE PAGO
-            </label>
+            <label>FORMA DE PAGO</label>
 
-            <select
-            id="formaPagoPedido"
-            onchange="cambiarFormaPago(this.value)">
+            <div class="metodos-pago-akkino" id="metodosPagoAkkino">
 
-                <option value="EFECTIVO">
-                    EFECTIVO
-                </option>
+                <button type="button" class="metodo-pago" data-forma="EFECTIVO" onclick="cambiarFormaPago('EFECTIVO')">
+                    <span class="metodo-icono">🏦</span>
+                    <span class="metodo-titulo">TRANSFERENCIA / EFECTIVO</span>
+                    <span class="metodo-subtitulo">MEJOR PRECIO</span>
+                </button>
 
-                <option value="TRANSFERENCIA">
-                    TRANSFERENCIA
-                </option>
+                <button type="button" class="metodo-pago" data-forma="MERCADO_PAGO_1_PAGO" onclick="cambiarFormaPago('MERCADO_PAGO_1_PAGO')">
+                    <span class="metodo-icono">💳</span>
+                    <span class="metodo-titulo">DÉBITO</span>
+                    <span class="metodo-subtitulo">20% OFF · PRECIO DE LISTA</span>
+                </button>
 
+                <button type="button" class="metodo-pago" data-forma="TARJETA_2_CUOTAS" onclick="cambiarFormaPago('TARJETA_2_CUOTAS')">
+                    <span class="metodo-icono">💳</span>
+                    <span class="metodo-titulo">CRÉDITO / TARJETA</span>
+                    <span class="metodo-subtitulo">20% OFF · 2 CUOTAS SIN INTERÉS</span>
+                </button>
+
+            </div>
+
+            <select id="formaPagoPedido" aria-hidden="true" tabindex="-1" style="position:absolute;opacity:0;pointer-events:none;width:1px;height:1px;">
+                <option value="EFECTIVO">TRANSFERENCIA / EFECTIVO</option>
+                <option value="TRANSFERENCIA">TRANSFERENCIA</option>
+                <option value="MERCADO_PAGO_1_PAGO">DÉBITO</option>
+                <option value="TARJETA_2_CUOTAS">CRÉDITO / TARJETA</option>
             </select>
+
+        </div>
+
+
+        <div id="entregaPedido" class="entrega-pedido">
+
+            <span class="entrega-pedido-titulo">¿CÓMO RECIBÍS TU PEDIDO?</span>
+
+            <div class="entrega-opciones">
+
+                <button type="button" class="entrega-opcion" data-entrega="PUERTO" onclick="seleccionarEntrega('PUERTO')">
+                    <strong>🏠 Puerto General San Martín</strong>
+                    <span class="entrega-gratis">ENVÍO GRATIS</span>
+                </button>
+
+                <button type="button" class="entrega-opcion" data-entrega="SAN_LORENZO" onclick="seleccionarEntrega('SAN_LORENZO')">
+                    <strong>🏠 San Lorenzo</strong>
+                    <span class="entrega-gratis">ENVÍO GRATIS</span>
+                </button>
+
+                <button type="button" class="entrega-opcion" data-entrega="OTRO" onclick="seleccionarEntrega('OTRO')">
+                    <strong>📦 Otro destino</strong>
+                    <span>Calcular envío</span>
+                </button>
+
+            </div>
+
+            <div id="envioSeleccionado" class="envio-seleccionado"></div>
+
+            <div id="datosEnvio" class="datos-envio">
+
+                <div class="datos-envio-grid">
+
+                    <div>
+                        <label for="envioNombre">NOMBRE Y APELLIDO *</label>
+                        <input id="envioNombre" type="text" autocomplete="name">
+                    </div>
+
+                    <div>
+                        <label for="envioDni">DNI *</label>
+                        <input id="envioDni" type="text" inputmode="numeric">
+                    </div>
+
+                    <div>
+                        <label for="envioTelefono">TELÉFONO *</label>
+                        <input id="envioTelefono" type="tel" autocomplete="tel">
+                    </div>
+
+                    <div>
+                        <label for="envioEmail">EMAIL *</label>
+                        <input id="envioEmail" type="email" autocomplete="email">
+                    </div>
+
+                    <div>
+                        <label for="envioProvincia">PROVINCIA *</label>
+                        <input id="envioProvincia" type="text" value="Santa Fe">
+                    </div>
+
+                    <div>
+                        <label for="envioLocalidad">LOCALIDAD *</label>
+                        <input id="envioLocalidad" type="text">
+                    </div>
+
+                    <div class="campo-completo">
+                        <label for="envioDireccion">DIRECCIÓN *</label>
+                        <input id="envioDireccion" type="text" autocomplete="street-address" placeholder="Calle y número">
+                    </div>
+
+                    <div>
+                        <label for="envioCodigoPostal">CÓDIGO POSTAL *</label>
+                        <input id="envioCodigoPostal" type="text" inputmode="numeric">
+                    </div>
+
+                    <div>
+                        <label for="envioTransporte">ENVÍO POR *</label>
+                        <select id="envioTransporte">
+                            <option value="">Seleccionar</option>
+                            <option value="Via Cargo">Via Cargo</option>
+                            <option value="Andreani">Andreani</option>
+                        </select>
+                    </div>
+
+                </div>
+
+            </div>
 
         </div>
 
@@ -3720,6 +5384,16 @@ class="modal">
 
         </button>
 
+        <button
+        id="botonMercadoPago"
+        class="boton-mercado-pago"
+        onclick="pagarMercadoPago()"
+        type="button">
+
+            PAGAR CON MERCADO PAGO
+
+        </button>
+
     </div>
 
 </div>
@@ -3735,13 +5409,13 @@ class="modal">
    ========================================================= */
 
 const API =
-"https://script.google.com/macros/s/AKfycbwVZWvj17WYo6amUDwZE7HG09dkkDSw9Zo0M0e6dfJ22TC7WHaDTtc1BnTa1XoTxmX0/exec";
+"https://script.google.com/macros/s/AKfycbwGfbAuvnCU3F524cu62JuwO3RwdphZqCk3AFeJ-hvwnEcWOFdmEPQUHyvwRy3-J0LY/exec";
 
 const WHATSAPP =
 "5493476552435";
 
 const MINIMO_MAYORISTA =
-5;
+10;
 
 const PRODUCTOS_POR_PAGINA =
 30;
@@ -3765,13 +5439,16 @@ let productosFiltrados =
 [];
 
 let tipoActual =
-"TODOS";
+"INSPIRACIONES 60ML";
 
 let filtroExtraActual =
 "TODOS";
 
 let formaPagoActual =
 "EFECTIVO";
+
+let entregaActual =
+"";
 
 
 /* =========================================================
@@ -3999,69 +5676,66 @@ function stockClase(producto){
 
 function precioOriginal(producto){
 
-    const lista =
-        numero(
-            producto.precioLista
-        );
-
-    const descuento =
-        numero(
-            producto.descuento
-        );
-
     /*
-    Para ORIGINALES:
-    - precioLista = columna P
-    - valorReal = columna D = precio final real
-    - descuento = columna Q
-    - tipoDescuento = columna R
-    - formaPago = columna S
+    ORIGINALES — los precios vienen directamente de Google Sheets:
 
-    Si valorReal existe, lo usamos directamente como
-    precio final. Así evitamos recalcular y redondear
-    un valor que ya está definido en el Sheets.
+    Columna D = valorReal = precio efectivo / transferencia.
+    Columna P = precioLista = precio de lista publicado.
+
+    La web NO recalcula el precio de lista.
+    Solo calcula las 2 cuotas a partir del precio de lista:
+    total 2 cuotas = precioLista × 0,80.
     */
 
-    const valorReal =
-        numero(
-            producto.valorReal
-        );
+    const precioFinal =
+        numero(producto.valorReal) > 0
+        ? numero(producto.valorReal)
+        : numero(producto.precioParticular);
 
-    let final = 0;
+    const precioLista =
+        numero(producto.precioLista);
 
-    if(valorReal > 0){
-        final = valorReal;
-    }
-    else if(lista > 0 && descuento > 0){
+    const cuotas = 2;
 
-        /*
-        En el Sheets el descuento (10, 15, etc.)
-        representa porcentaje.
-        */
+    const precioCuotas =
+        precioLista > 0
+        ? Math.round(precioLista * 0.80)
+        : 0;
 
-        final =
-            lista -
-            (
-                lista *
-                descuento /
-                100
-            );
-    }
-    else{
-        final = lista;
-    }
-
-    if(final < 0){
-        final = 0;
-    }
+    const valorCuota =
+        precioCuotas > 0
+        ? Math.round(precioCuotas / cuotas)
+        : 0;
 
     return {
-        lista: lista,
-        descuento: descuento,
-        final: final
+        final: precioFinal,
+        precioCuotas: precioCuotas,
+        lista: precioLista,
+        cuotas: cuotas,
+        valorCuota: valorCuota
     };
 }
 
+function precioOriginalSegunPago(producto){
+
+    const precios = precioOriginal(producto);
+
+    /*
+    DÉBITO y CRÉDITO tienen el mismo precio comercial:
+    precio de lista menos 20%.
+    La diferencia es solamente la forma de pago:
+    DÉBITO = 1 pago.
+    CRÉDITO = 2 cuotas sin interés.
+    */
+    if(
+        formaPagoActual === "MERCADO_PAGO_1_PAGO" ||
+        formaPagoActual === "TARJETA_2_CUOTAS"
+    ){
+        return precios.precioCuotas;
+    }
+
+    return precios.final;
+}
 
 function precioParticularProducto(producto){
 
@@ -4260,6 +5934,8 @@ function cargarPerfumes(){
                 data;
 
 
+            renderHomeShowcasesV11();
+
             crearCategorias();
 
             aplicarFiltros();
@@ -4322,6 +5998,10 @@ cargarPerfumes();
    CATEGORIAS PRINCIPALES
    ========================================================= */
 
+/* =========================================================
+   CATEGORIAS PRINCIPALES — AKKINO V2
+   ========================================================= */
+
 function crearCategorias(){
 
     const cont =
@@ -4335,51 +6015,33 @@ function crearCategorias(){
         class="categorias-principales">
 
             <button
-            class="categoria-btn activa"
-            data-tipo="TODOS"
+            class="categoria-btn
+            ${tipoActual === "INSPIRACIONES 60ML" ? "activa" : ""}"
+            data-tipo="INSPIRACIONES 60ML"
             onclick="
-            seleccionarTipo(
-                'TODOS'
-            )">
+                seleccionarTipo(
+                    'INSPIRACIONES 60ML'
+                )
+            ">
 
-                TODOS
+                EXTRACTOS 60 ML
 
             </button>
 
 
             <button
-            class="categoria-btn"
-            data-tipo="INSPIRACIONES 60ML"
+            class="categoria-btn
+            ${tipoActual === "ORIGINALES" ? "activa" : ""}"
+            data-tipo="ORIGINALES"
             onclick="
-            seleccionarTipo(
-                'INSPIRACIONES 60ML'
-            )">
-
-                INSPIRACIONES 60ML
-
-            </button>
-
-
-            ${
-                modoActual ===
-                "particular"
-                ?
-                `
-                <button
-                class="categoria-btn"
-                data-tipo="ORIGINALES"
-                onclick="
                 seleccionarTipo(
                     'ORIGINALES'
-                )">
+                )
+            ">
 
-                    PERFUMES ORIGINALES
+                ORIGINALES
 
-                </button>
-                `
-                :
-                ""
-            }
+            </button>
 
         </div>
 
@@ -4387,14 +6049,13 @@ function crearCategorias(){
         <div
         id="subcategorias"
         class="subcategorias">
+
         </div>
 
     `;
 
     mostrarSubcategorias();
 }
-
-
 function seleccionarTipo(tipo){
 
     tipoActual =
@@ -4433,6 +6094,10 @@ function seleccionarTipo(tipo){
    FILTROS SECUNDARIOS
    ========================================================= */
 
+/* =========================================================
+   FILTROS SECUNDARIOS — AKKINO V2
+   ========================================================= */
+
 function mostrarSubcategorias(){
 
     const cont =
@@ -4443,22 +6108,39 @@ function mostrarSubcategorias(){
     let filtros = [];
 
 
+    /*
+    ---------------------------------------------------------
+    EXTRACTOS
+    ---------------------------------------------------------
+    */
+
     if(
         tipoActual ===
         "INSPIRACIONES 60ML"
     ){
 
         filtros = [
+
             "TODOS",
+
             "MASCULINOS",
+
             "FEMENINOS",
+
             "UNISEX",
-            "STOCK INSPIRACIONES",
-            "NUEVOS INGRESOS",
-            "SIN STOCK"
+
+            "EN STOCK"
+
         ];
 
     }
+
+
+    /*
+    ---------------------------------------------------------
+    ORIGINALES
+    ---------------------------------------------------------
+    */
 
     else if(
         tipoActual ===
@@ -4466,25 +6148,15 @@ function mostrarSubcategorias(){
     ){
 
         filtros = [
+
             "TODOS",
-            "DISPONIBLES",
-            "A PEDIDO",
-            "SIN STOCK",
-            "NUEVOS INGRESOS"
-        ];
 
-    }
-
-    else{
-
-        filtros = [
-            "TODOS",
             "MASCULINOS",
+
             "FEMENINOS",
-            "UNISEX",
-            "STOCK INSPIRACIONES",
-            "NUEVOS INGRESOS",
-            "SIN STOCK"
+
+            "UNISEX"
+
         ];
 
     }
@@ -4501,21 +6173,17 @@ function mostrarSubcategorias(){
 
                 <button
                 class="filtro-extra ${
-                    filtroExtraActual ===
-                    filtro
+                    filtroExtraActual === filtro
                     ? "activo"
                     : ""
                 }"
                 onclick="
-                seleccionarFiltroExtra(
-                    '${escapeJS(
-                        filtro
-                    )}'
-                )">
+                    seleccionarFiltroExtra(
+                        '${escapeJS(filtro)}'
+                    )
+                ">
 
-                    ${escapeHTML(
-                        filtro
-                    )}
+                    ${escapeHTML(filtro)}
 
                 </button>
 
@@ -4527,8 +6195,6 @@ function mostrarSubcategorias(){
 
     `;
 }
-
-
 function seleccionarFiltroExtra(
     filtro
 ){
@@ -4813,37 +6479,14 @@ function aplicarFiltros(){
                         break;
 
 
-                    case "STOCK INSPIRACIONES":
+                    case "EN STOCK":
 
                         coincideExtra =
-                            tipo ===
-                            "INSPIRACIONES 60ML" &&
                             estado ===
                             "DISPONIBLE";
 
                         break;
-
-
-                    case "NUEVOS INGRESOS":
-
-                        coincideExtra =
-                            nuevoIngresoProducto(
-                                producto
-                            );
-
-                        break;
-
-
-                    case "SIN STOCK":
-
-                        coincideExtra =
-                            estado ===
-                            "SIN STOCK";
-
-                        break;
-
-
-                    case "DISPONIBLES":
+case "DISPONIBLES":
 
                         coincideExtra =
                             estado ===
@@ -4901,17 +6544,19 @@ function actualizarHeroModo(){
     const heroMayorista =
         document.getElementById("heroMayorista");
 
-    if(!heroParticular || !heroMayorista){
+    if(!heroMayorista){
         return;
     }
 
     const esMayorista =
         modoActual === "mayorista";
 
-    heroParticular.style.display =
-        esMayorista
-        ? "none"
-        : "block";
+    if(heroParticular){
+        heroParticular.style.display =
+            esMayorista
+            ? "none"
+            : "block";
+    }
 
     heroMayorista.style.display =
         esMayorista
@@ -5088,8 +6733,11 @@ function cambiarModo(modo){
         modoActual === "mayorista" &&
         tipoActual === "ORIGINALES"
     ){
-        tipoActual = "TODOS";
-        filtroExtraActual = "TODOS";
+        tipoActual =
+            "INSPIRACIONES 60ML";
+
+        filtroExtraActual =
+            "TODOS";
     }
 
     crearCategorias();
@@ -5181,97 +6829,46 @@ function precioMayorista(
     cantidad
 ){
 
-    const escalas = [
-        {
-            min:100,
-            precio:
-                numero(
-                    producto.precio100
-                )
-        },
-        {
-            min:50,
-            precio:
-                numero(
-                    producto.precio50
-                )
-        },
-        {
-            min:30,
-            precio:
-                numero(
-                    producto.precio30
-                )
-        },
-        {
-            min:20,
-            precio:
-                numero(
-                    producto.precio20
-                )
-        },
-        {
-            min:10,
-            precio:
-                numero(
-                    producto.precio10
-                )
-        },
-        {
-            min:5,
-            precio:
-                numero(
-                    producto.precio5
-                )
-        }
-    ];
+    /*
+    Nueva escala mayorista:
+    10 a 50  -> columna precio10
+    51 a 250 -> columna precio50
+    +250     -> consultar
 
+    Las columnas 100, 250 y +500 del Sheet se conservan
+    para referencia futura, pero la web utiliza estas dos
+    escalas comerciales.
+    */
 
-    for(
-        const escala
-        of escalas
-    ){
-
-        if(
-            cantidad >=
-            escala.min &&
-            escala.precio > 0
-        ){
-
-            return escala.precio;
-        }
+    if(cantidad >= 251){
+        return 0;
     }
 
+    if(cantidad >= 51){
+        return numero(producto.precio50);
+    }
 
-    return numero(
-        producto.precio5
-    );
+    if(cantidad >= 10){
+        return numero(producto.precio10);
+    }
+
+    return 0;
 }
-
 
 function escalaMayorista(
     total
 ){
 
-    if(total >= 100)
-        return "100+ unidades";
+    if(total >= 251)
+        return "+250 unidades — CONSULTAR";
 
-    if(total >= 50)
-        return "50 unidades";
-
-    if(total >= 30)
-        return "30 unidades";
-
-    if(total >= 20)
-        return "20 unidades";
+    if(total >= 51)
+        return "51 a 250 unidades";
 
     if(total >= 10)
-        return "10 unidades";
+        return "10 a 50 unidades";
 
-    if(total >= 5)
-        return "5 unidades";
-
-    return "Menos de 5 unidades";
+    return `Menos de ${MINIMO_MAYORISTA} unidades`;
 }
 
 
@@ -5279,31 +6876,12 @@ function proximaEscala(
     total
 ){
 
-    const escalas = [
-        5,
-        10,
-        20,
-        30,
-        50,
-        100
-    ];
-
-    for(
-        const escala
-        of escalas
-    ){
-
-        if(
-            total < escala
-        ){
-
-            return escala;
-        }
-    }
+    if(total < 10) return 10;
+    if(total < 51) return 51;
+    if(total < 251) return 251;
 
     return null;
 }
-
 
 /* =========================================================
    PROMOCIONES PARTICULAR
@@ -5342,7 +6920,7 @@ function calcularCarritoParticular(){
 
             const unitario =
                 tipo === "ORIGINALES"
-                ? precioOriginal(producto).final
+                ? precioOriginalSegunPago(producto)
                 : precioParticularProducto(producto);
 
             precioNormal +=
@@ -5575,9 +7153,9 @@ function calcularCarritoParticular(){
             ){
 
                 totalOriginales +=
-                    precioOriginal(
+                    precioOriginalSegunPago(
                         item.producto
-                    ).final *
+                    ) *
                     item.cantidad;
 
             }
@@ -5618,6 +7196,251 @@ function calcularCarritoParticular(){
 /* =========================================================
    MOSTRAR PAGINA
    ========================================================= */
+
+
+/* =========================================================
+   AKKINO V11 — HOME SHOWCASES
+   Usa los productos existentes del Sheets.
+   No requiere columnas nuevas.
+   ========================================================= */
+
+function escaparAttrV11(valor){
+    return String(valor || "")
+        .replace(/&/g,"&amp;")
+        .replace(/"/g,"&quot;")
+        .replace(/</g,"&lt;")
+        .replace(/>/g,"&gt;");
+}
+
+
+function imagenProductoV11(producto){
+
+    return (
+        producto.imagen ||
+        producto.foto ||
+        producto.urlImagen ||
+        producto.image ||
+        producto.imagenUrl ||
+        ""
+    );
+}
+
+
+function renderHomeShowcasesV11(){
+
+    const cont =
+        document.getElementById(
+            "homeShowcasesV11"
+        );
+
+    if(!cont || !Array.isArray(perfumes)){
+        return;
+    }
+
+
+    const disponibles =
+        perfumes.filter(
+            p =>
+                normalizar(
+                    p.tipo
+                ).includes("ORIGINAL")
+                ||
+                normalizar(
+                    p.tipo
+                ).includes("INSPIRACION")
+        );
+
+
+    const productosBase =
+        disponibles.length
+        ?
+        disponibles
+        :
+        perfumes;
+
+
+    const destacados =
+        productosBase
+        .slice(0,6);
+
+
+    const novedades =
+        productosBase
+        .slice(6,12);
+
+
+    const tendencias =
+        productosBase
+        .slice(12,18);
+
+
+    function crearFila(titulo, etiqueta, lista){
+
+        if(!lista.length){
+            return "";
+        }
+
+
+        return `
+
+            <section class="akkino-showcase-v11">
+
+                <div
+                class="akkino-showcase-head-v11">
+
+                    <h2>
+                        ${titulo}
+                    </h2>
+
+                    <span>
+                        ${etiqueta}
+                    </span>
+
+                </div>
+
+
+                <div
+                class="akkino-showcase-row-v11">
+
+                    ${
+                        lista
+                        .map(
+                            producto => {
+
+                                const img =
+                                    imagenProductoV11(
+                                        producto
+                                    );
+
+                                const precio =
+                                    precioParticularProducto(
+                                        producto
+                                    );
+
+                                return `
+
+                                    <article
+                                    class="akkino-showcase-card-v11"
+                                    onclick="
+                                        seleccionarTipo(
+                                            '${escapeJS(
+                                                tipoPrincipalProducto(
+                                                    producto
+                                                )
+                                            )}'
+                                        );
+                                        document.getElementById(
+                                            'catalogoAkkino'
+                                        ).scrollIntoView({
+                                            behavior:'smooth'
+                                        });
+                                    ">
+
+                                        <div
+                                        class="akkino-showcase-img-v11">
+
+                                            ${
+                                                img
+                                                ?
+                                                `
+                                                <img
+                                                src="${escaparAttrV11(img)}"
+                                                alt="${escaparAttrV11(
+                                                    producto.perfume
+                                                )}"
+                                                loading="lazy">
+                                                `
+                                                :
+                                                ""
+                                            }
+
+                                        </div>
+
+
+                                        <div
+                                        class="akkino-showcase-body-v11">
+
+                                            <div
+                                            class="akkino-showcase-name-v11">
+
+                                                ${escapeHTML(
+                                                    producto.perfume
+                                                    || ""
+                                                )}
+
+                                            </div>
+
+
+                                            ${
+                                                precio > 0
+                                                ?
+                                                `
+                                                <div
+                                                class="akkino-showcase-price-v11">
+
+                                                    ${dinero(
+                                                        precio
+                                                    )}
+
+                                                    <span>
+                                                        DISPONIBLE
+                                                    </span>
+
+                                                </div>
+                                                `
+                                                :
+                                                ""
+                                            }
+
+
+                                            <div
+                                            class="akkino-showcase-sub-v11">
+
+                                                ${
+                                                    producto.categoria
+                                                    || ""
+                                                }
+
+                                            </div>
+
+                                        </div>
+
+                                    </article>
+
+                                `;
+                            }
+                        )
+                        .join("")
+                    }
+
+                </div>
+
+            </section>
+
+        `;
+    }
+
+
+    cont.innerHTML =
+        crearFila(
+            "Destacados",
+            "SELECCIÓN AKKINO",
+            destacados
+        )
+        +
+        crearFila(
+            "Novedades",
+            "RECIÉN INCORPORADOS",
+            novedades
+        )
+        +
+        crearFila(
+            "Tendencias",
+            "PRIMAVERA · VERANO",
+            tendencias
+        );
+}
+
 
 function mostrarPagina(){
 
@@ -5719,122 +7542,82 @@ function mostrarProductos(
                 ){
 
                     const precios =
-                        precioOriginal(
-                            producto
-                        );
+                        precioOriginal(producto);
 
 
-                    if(
-                        precios.lista > 0 &&
-                        precios.final <
-                        precios.lista
-                    ){
-
-                        const detalleDescuento =
-                            descuentoTexto(
-                                producto
-                            );
-
-                        const pago =
-                            formaPagoProducto(
-                                producto
-                            );
-
+                    if(precios.final > 0){
 
                         precioHTML = `
 
                             <div
-                            class="precio-label">
+                            class="original-precio">
 
-                                PRECIO DE LISTA
+                                <!-- PRECIO DE LISTA: REFERENCIA -->
 
-                            </div>
-
-                            <div
-                            class="precio-original-lista">
-
-                                ${dinero(
-                                    precios.lista
-                                )}
-
-                            </div>
-
-
-                            <div
-                            class="precio-label">
-
-                                PRECIO FINAL
-
-                            </div>
-
-                            <div
-                            class="precio-original-descuento">
-
-                                ${dinero(
-                                    precios.final
-                                )}
-
-                            </div>
-
-
-                            ${
-                                detalleDescuento
-                                ?
-                                `
                                 <div
-                                class="original-detalle">
+                                class="original-lista-bloque">
 
-                                    Descuento:
-                                    ${detalleDescuento}
+                                    <div
+                                    class="original-lista">
+
+                                        ${dinero(
+                                            precios.lista
+                                        )}
+
+                                    </div>
+
+                                    <div
+                                    class="original-lista-label">
+
+                                        PRECIO DE LISTA
+
+                                    </div>
 
                                 </div>
-                                `
-                                :
-                                ""
-                            }
 
 
-                            ${
-                                pago
-                                ?
-                                `
+                                <!-- PRECIO DE 2 CUOTAS: YA DESCONTADO -->
+
                                 <div
-                                class="original-detalle">
+                                class="original-cuotas-bloque">
 
-                                    Forma de pago:
-                                    ${escapeHTML(
-                                        pago
-                                    )}
+                                    <div
+                                    class="original-cuotas-label">
+
+                                        2 CUOTAS SIN INTERÉS DE
+                                        <span class="cuota-monto">
+                                            ${dinero(
+                                                precios.valorCuota
+                                            )}
+                                        </span>
+
+                                    </div>
 
                                 </div>
-                                `
-                                :
-                                ""
-                            }
 
-                        `;
 
-                    }
+                                <!-- PRECIO EFECTIVO: YA DESCONTADO -->
 
-                    else if(
-                        precios.lista > 0
-                    ){
+                                <div
+                                class="original-final-bloque">
 
-                        precioHTML = `
+                                    <div
+                                    class="original-final-label">
 
-                            <div
-                            class="precio-label">
+                                        EFECTIVO / TRANSFERENCIA
 
-                                PRECIO
+                                    </div>
 
-                            </div>
+                                    <div
+                                    class="original-final">
 
-                            <div
-                            class="precio">
+                                        ${dinero(
+                                            precios.final
+                                        )}
 
-                                ${dinero(
-                                    precios.lista
-                                )}
+                                    </div>
+
+                                </div>
 
                             </div>
 
@@ -5854,6 +7637,7 @@ function mostrarProductos(
                             </div>
 
                         `;
+
                     }
 
                 }
@@ -5909,7 +7693,7 @@ function mostrarProductos(
                             `
 
                             <div class="promociones-titulo">
-                                🎉 PROMOCIONES
+                                PROMOCIONES
                             </div>
 
                             <div class="promos">
@@ -5919,7 +7703,7 @@ function mostrarProductos(
                                     ?
                                     `
                                     <div class="promo promo-2">
-                                        🔥🔥 &nbsp; 2 x ${dinero(promo2)}
+                                        2 x ${dinero(promo2)}
                                     </div>
                                     `
                                     :
@@ -5931,7 +7715,7 @@ function mostrarProductos(
                                     ?
                                     `
                                     <div class="promo promo-3">
-                                        🔥🔥🔥 &nbsp; 3 x ${dinero(promo3)}
+                                        3 x ${dinero(promo3)}
                                     </div>
                                     `
                                     :
@@ -6009,9 +7793,7 @@ function mostrarProductos(
                         <div
                         class="mayorista-precio">
 
-                            ${dinero(
-                                precio
-                            )}
+                            ${precio > 0 ? dinero(precio) : "CONSULTAR"}
 
                         </div>
 
@@ -6037,6 +7819,13 @@ function mostrarProductos(
                                 )}
 
                                 ${
+                                    totalPedido >= 251
+                                    ?
+                                    `
+                                    <br>
+                                    Precio mayorista: CONSULTAR
+                                    `
+                                    :
                                     siguiente
                                     ?
                                     `
@@ -6124,6 +7913,16 @@ function mostrarProductos(
 
 
                         <div
+                        class="stock ${claseStock}">
+
+                            ${escapeHTML(
+                                estado
+                            )}
+
+                        </div>
+
+
+                        <div
                         class="producto-info">
 
                             <div
@@ -6148,16 +7947,6 @@ function mostrarProductos(
 
 
                             ${precioHTML}
-
-
-                            <div
-                            class="stock ${claseStock}">
-
-                                ${escapeHTML(
-                                    estado
-                                )}
-
-                            </div>
 
 
                             ${
@@ -6523,7 +8312,9 @@ function actualizarCarrito(){
 
 
     totalBarra.textContent =
-        `TOTAL ${dinero(
+        modoActual === "mayorista" && total >= 251
+        ? "TOTAL A COTIZAR"
+        : `TOTAL ${dinero(
             totalPedidoBarra
         )}`;
 
@@ -6831,7 +8622,7 @@ function renderizarCarrito(){
             <div class="promo-detalle-titulo">
                 ${
                     (promo3Usadas > 0 && promo2Usadas > 0)
-                    ? "🎉 PROMOCIONES APLICADAS"
+                    ? "PROMOCIONES APLICADAS"
                     : "🎉 PROMOCIÓN APLICADA"
                 }
             </div>
@@ -6930,6 +8721,54 @@ function renderizarCarrito(){
         "";
 
 
+    /* =========================================================
+       AVISO MAYORISTA
+       ========================================================= */
+
+    const todosAdmitenMayorista =
+        carrito.length > 0 &&
+        carrito.every(
+            item =>
+                tipoPrincipalProducto(item.producto) !== "ORIGINALES"
+        );
+
+    const avisoMayoristaHTML =
+        modoActual === "particular" &&
+        totalUnidades() >= MINIMO_MAYORISTA &&
+        todosAdmitenMayorista
+        ?
+        `
+        <div class="aviso-mayorista-carrito">
+            <div class="aviso-mayorista-icono">📦</div>
+
+            <div class="aviso-mayorista-contenido">
+                <strong>¿ESTÁS COMPRANDO 10 O MÁS UNIDADES?</strong>
+                <span>
+                    Pasá al modo <b>MAYORISTA</b> para aprovechar nuestros precios especiales por cantidad.
+                </span>
+            </div>
+
+            <button
+            type="button"
+            class="aviso-mayorista-boton"
+            onclick="cambiarModo('mayorista'); cerrarCarrito();">
+                VER PRECIOS MAYORISTAS
+            </button>
+        </div>
+        `
+        :
+        "";
+
+
+    const bloquePrePagoHTML =
+        `
+        <div class="bloque-pre-pago">
+            ${detallePromoHTML}
+            ${avisoMayoristaHTML}
+        </div>
+        `;
+
+
     cont.innerHTML =
         carrito
         .map(
@@ -6938,29 +8777,77 @@ function renderizarCarrito(){
                 const producto =
                     item.producto;
 
+                const esOriginal =
+                    tipoPrincipalProducto(producto) === "ORIGINALES";
+
+                const preciosOriginal =
+                    esOriginal
+                    ? precioOriginal(producto)
+                    : null;
+
                 const precio =
-                    modoActual ===
-                    "mayorista"
-
-                    ?
-
-                    precioMayorista(
+                    modoActual === "mayorista"
+                    ? precioMayorista(
                         producto,
                         Math.max(
                             totalUnidades(),
                             MINIMO_MAYORISTA
                         )
                     )
-
-                    :
-
-                    precioParticularProducto(
-                        producto
-                    );
+                    : (esOriginal
+                        ? precioOriginalSegunPago(producto)
+                        : precioParticularProducto(producto));
 
                 const subtotal =
                     precio *
                     item.cantidad;
+
+                let detallePrecio = "";
+
+                if(esOriginal && modoActual === "particular") {
+
+                    if(formaPagoActual === "TARJETA_2_CUOTAS") {
+                        detallePrecio = `
+                            <div class="pedido-precio-lista">
+                                Precio de lista: <strong>${dinero(preciosOriginal.lista)}</strong>
+                            </div>
+                            <div class="pedido-precio-descuento">
+                                20% OFF · Crédito / tarjeta
+                            </div>
+                            <div class="pedido-precio-cuotas">
+                                <span>2 CUOTAS SIN INTERÉS</span>
+                                <strong>2 × ${dinero(preciosOriginal.valorCuota)}</strong>
+                            </div>
+                        `;
+                    }
+                    else if(formaPagoActual === "MERCADO_PAGO_1_PAGO") {
+                        detallePrecio = `
+                            <div class="pedido-precio-lista">
+                                Precio de lista: <strong>${dinero(preciosOriginal.lista)}</strong>
+                            </div>
+                            <div class="pedido-precio-descuento">
+                                20% OFF · Débito · 1 pago
+                            </div>
+                            <div class="pedido-precio-pago">
+                                Débito: <strong>${dinero(preciosOriginal.precioCuotas)}</strong>
+                            </div>
+                        `;
+                    }
+                    else {
+                        detallePrecio = `
+                            <div class="pedido-precio-lista">
+                                Precio de lista: <strong>${dinero(preciosOriginal.lista)}</strong>
+                            </div>
+                            <div class="pedido-precio-descuento">
+                                Precio especial · transferencia / efectivo
+                            </div>
+                            <div class="pedido-precio-pago">
+                                Transferencia / efectivo: <strong>${dinero(preciosOriginal.final)}</strong>
+                            </div>
+                        `;
+                    }
+
+                }
 
                 return `
 
@@ -6977,6 +8864,8 @@ function renderizarCarrito(){
                             <div class="pedido-item-cantidad">
                                 Cantidad: ${item.cantidad}
                             </div>
+
+                            ${detallePrecio}
 
                             <div class="pedido-item-subtotal">
                                 Subtotal: ${dinero(subtotal)}
@@ -7027,8 +8916,7 @@ function renderizarCarrito(){
 
 
     /*
-    Agregamos el detalle de promociones
-    antes del selector de pago.
+    Agregamos promociones / aviso mayorista antes del selector.
     */
 
     const selector =
@@ -7039,29 +8927,30 @@ function renderizarCarrito(){
     if(
         selector &&
         !selector.previousElementSibling?.classList.contains(
-            "promo-detalle"
+            "bloque-pre-pago"
         )
     ){
 
         selector.insertAdjacentHTML(
             "beforebegin",
-            detallePromoHTML
+            bloquePrePagoHTML
         );
 
     }
     else if(
         selector &&
         selector.previousElementSibling?.classList.contains(
-            "promo-detalle"
+            "bloque-pre-pago"
         )
     ){
 
         selector.previousElementSibling.outerHTML =
-            detallePromoHTML;
+            bloquePrePagoHTML;
 
     }
 
 
+    actualizarOpcionesPago();
     actualizarResumenCarrito();
 
 }
@@ -7128,6 +9017,125 @@ function modificarCantidad(
 
 
 /* =========================================================
+   CONTROL DE DISPONIBILIDAD DEL PEDIDO
+   ========================================================= */
+
+function hayProductosAPedido(){
+
+    return carrito.some(
+        item => obtenerEstado(item.producto) === "A PEDIDO"
+    );
+}
+
+function actualizarOpcionesPago(){
+
+    const selector = document.getElementById("formaPagoPedido");
+    if(!selector){ return; }
+
+    const todosOriginalesDisponibles =
+        carrito.length > 0 &&
+        carrito.every(item =>
+            tipoPrincipalProducto(item.producto) === "ORIGINALES" &&
+            obtenerEstado(item.producto) === "DISPONIBLE"
+        );
+
+    const hayInspiraciones = carrito.some(
+        item => tipoPrincipalProducto(item.producto) === "INSPIRACIONES 60ML"
+    );
+
+    const puedePagoTarjeta = modoActual === "particular" && !hayProductosAPedido();
+    const botones = document.querySelectorAll("#metodosPagoAkkino .metodo-pago");
+
+    botones.forEach(boton => {
+        const forma = boton.dataset.forma;
+        let permitido = puedePagoTarjeta;
+        const esTarjeta =
+            forma === "MERCADO_PAGO_1_PAGO" ||
+            forma === "TARJETA_2_CUOTAS";
+
+        boton.classList.remove("solo-originales", "bloqueado-mayorista");
+
+        if(esTarjeta){
+            permitido = puedePagoTarjeta && todosOriginalesDisponibles;
+
+            if(modoActual === "mayorista"){
+                boton.classList.add("bloqueado-mayorista");
+            }
+            else if(!permitido && puedePagoTarjeta && !todosOriginalesDisponibles){
+                boton.classList.add("solo-originales");
+            }
+        }
+
+        // Los métodos de tarjeta permanecen visibles cuando hay Extractos,
+        // pero quedan bloqueados y marcados como exclusivos para Originales.
+        boton.hidden = false;
+        boton.disabled = !permitido;
+
+        boton.classList.toggle(
+            "activo",
+            formaPagoActual === forma && permitido
+        );
+    });
+
+    if(
+        (formaPagoActual === "MERCADO_PAGO_1_PAGO" ||
+         formaPagoActual === "TARJETA_2_CUOTAS") &&
+        !todosOriginalesDisponibles
+    ){
+        formaPagoActual = "EFECTIVO";
+    }
+
+    if(formaPagoActual === "TRANSFERENCIA"){
+        formaPagoActual = "EFECTIVO";
+    }
+
+    selector.value = formaPagoActual;
+}
+
+
+function actualizarEstadoBotonPedido(){
+
+    actualizarOpcionesPago();
+
+    const boton = document.querySelector(".enviar-whatsapp");
+    const botonMP = document.getElementById("botonMercadoPago");
+    const selector = document.getElementById("formaPagoPedido");
+
+    const hayPedido = hayProductosAPedido();
+    const puedePagar =
+        carrito.length > 0 &&
+        modoActual === "particular" &&
+        !hayPedido;
+
+    if(boton){
+        boton.textContent = hayPedido
+            ? "CONSULTAR PEDIDO POR WHATSAPP"
+            : "ENVIAR PEDIDO POR WHATSAPP";
+
+        boton.classList.toggle("pedido-consulta", hayPedido);
+    }
+
+    if(selector){
+        selector.disabled = hayPedido;
+        selector.title = hayPedido
+            ? "Este pedido contiene productos A PEDIDO y debe confirmarse por WhatsApp."
+            : "";
+    }
+
+    if(botonMP){
+        const habilitar = puedePagar &&
+            (formaPagoActual === "MERCADO_PAGO_1_PAGO" || formaPagoActual === "TARJETA_2_CUOTAS");
+
+        botonMP.disabled = !habilitar;
+        botonMP.style.display = puedePagar ? "block" : "none";
+        botonMP.textContent =
+            formaPagoActual === "TARJETA_2_CUOTAS"
+            ? "CONTINUAR CON CRÉDITO — 2 CUOTAS"
+            : "CONTINUAR CON DÉBITO — 1 PAGO";
+    }
+}
+
+/* =========================================================
    FORMA DE PAGO
    ========================================================= */
 
@@ -7135,9 +9143,43 @@ function cambiarFormaPago(
     forma
 ){
 
-    formaPagoActual =
-        forma;
+    if(hayProductosAPedido()){
+        return;
+    }
 
+    if(
+        modoActual === "mayorista" &&
+        (forma === "MERCADO_PAGO_1_PAGO" || forma === "TARJETA_2_CUOTAS")
+    ){
+        formaPagoActual = "EFECTIVO";
+        actualizarOpcionesPago();
+        actualizarResumenCarrito();
+        return;
+    }
+
+    const hayInspiraciones = carrito.some(
+        item => tipoPrincipalProducto(item.producto) === "INSPIRACIONES 60ML"
+    );
+
+    if((forma === "TARJETA_2_CUOTAS" || forma === "MERCADO_PAGO_1_PAGO") && hayInspiraciones){
+        formaPagoActual = "EFECTIVO";
+        actualizarOpcionesPago();
+        actualizarResumenCarrito();
+        return;
+    }
+
+    if(forma === "MERCADO_PAGO" && modoActual !== "particular"){
+        formaPagoActual = "EFECTIVO";
+        actualizarOpcionesPago();
+        actualizarResumenCarrito();
+        return;
+    }
+
+    formaPagoActual = forma;
+
+    document.querySelectorAll("#metodosPagoAkkino .metodo-pago").forEach(boton => {
+        boton.classList.toggle("activo", boton.dataset.forma === formaPagoActual);
+    });
     actualizarResumenCarrito();
 }
 
@@ -7161,6 +9203,7 @@ function actualizarResumenCarrito(){
         cont.innerHTML =
             "";
 
+        actualizarEstadoBotonPedido();
         return;
     }
 
@@ -7211,6 +9254,7 @@ function actualizarResumenCarrito(){
 
             `;
 
+            actualizarEstadoBotonPedido();
             return;
         }
 
@@ -7218,19 +9262,22 @@ function actualizarResumenCarrito(){
         let totalFinal =
             0;
 
+        const consultarMayorista = total >= 251;
 
-        carrito.forEach(
-            item => {
+        if(!consultarMayorista){
+            carrito.forEach(
+                item => {
 
-                totalFinal +=
-                    precioMayorista(
-                        item.producto,
-                        total
-                    ) *
-                    item.cantidad;
+                    totalFinal +=
+                        precioMayorista(
+                            item.producto,
+                            total
+                        ) *
+                        item.cantidad;
 
-            }
-        );
+                }
+            );
+        }
 
 
         cont.innerHTML = `
@@ -7284,6 +9331,7 @@ function actualizarResumenCarrito(){
 
         `;
 
+        actualizarEstadoBotonPedido();
         return;
     }
 
@@ -7305,6 +9353,12 @@ function actualizarResumenCarrito(){
                 ${dinero(
                     calculo.precioNormal
                 )}
+
+                ${
+                    formaPagoActual === "TARJETA_2_CUOTAS"
+                    ? ` · 2 cuotas de ${dinero(Math.round(calculo.totalFinal / 2))}`
+                    : ""
+                }
             </strong>
 
         </div>
@@ -7334,11 +9388,68 @@ function actualizarResumenCarrito(){
         }
 
 
+        ${
+            (formaPagoActual === "EFECTIVO" || formaPagoActual === "TRANSFERENCIA")
+            ?
+            `
+            <div class="akkino-transferencia-box">
+                <div class="akkino-transferencia-titulo">
+                    DATOS PARA TRANSFERENCIA
+                </div>
+
+                <div class="akkino-transferencia-dato">
+                    <span>Alias</span>
+                    <strong>akkinoprive</strong>
+                </div>
+
+                <div class="akkino-transferencia-dato">
+                    <span>CVU</span>
+                    <strong>0000003100080816942802</strong>
+                </div>
+
+                <div class="akkino-transferencia-dato">
+                    <span>CUIT</span>
+                    <strong>20-38595340-3</strong>
+                </div>
+
+                <div class="akkino-transferencia-dato">
+                    <span>Entidad</span>
+                    <strong>Mercado Pago</strong>
+                </div>
+
+                <div class="akkino-transferencia-aviso">
+                    Si elegís transferencia, realizá el pago y enviá el comprobante por WhatsApp junto con tu pedido.
+                </div>
+            </div>
+            `
+            :
+            ""
+        }
+
+
+        <div
+        class="resumen-linea">
+
+            <span>
+                FORMA DE PAGO
+            </span>
+
+            <strong>
+                ${formaPagoActual === "TARJETA_2_CUOTAS"
+                    ? "CRÉDITO / TARJETA — 2 CUOTAS"
+                    : formaPagoActual === "MERCADO_PAGO_1_PAGO"
+                    ? "DÉBITO — 1 PAGO"
+                    : "TRANSFERENCIA / EFECTIVO"}
+            </strong>
+
+        </div>
+
+
         <div
         class="resumen-linea resumen-total">
 
             <span>
-                TOTAL
+                ${hayProductosAPedido() ? "TOTAL ESTIMADO" : "TOTAL"}
             </span>
 
             <strong>
@@ -7349,13 +9460,218 @@ function actualizarResumenCarrito(){
 
         </div>
 
+        ${
+            hayProductosAPedido()
+            ?
+            `
+            <div class="pedido-pendiente-aviso">
+                <strong>ESTE PEDIDO REQUIERE CONFIRMACIÓN</strong>
+                <span>
+                    Incluye uno o más perfumes <b>A PEDIDO</b>. No se puede realizar el pago desde la web.
+                    Te contactaremos por WhatsApp para confirmar disponibilidad, plazo y si querés abonarlo y esperarlo.
+                </span>
+            </div>
+            `
+            : ""
+        }
+
     `;
+
+    actualizarEstadoBotonPedido();
+}
+
+
+/* =========================================================
+   MERCADO PAGO — CHECKOUT PRO DE PRUEBA
+   ========================================================= */
+
+function pagarMercadoPago(){
+
+    if(!carrito.length){
+        alert("No hay productos en el pedido.");
+        return;
+    }
+
+    if(modoActual !== "particular"){
+        alert("Mercado Pago está disponible por ahora para pedidos particulares.");
+        return;
+    }
+
+    if(hayProductosAPedido()){
+        alert("Este pedido contiene productos A PEDIDO. Primero hay que confirmar disponibilidad por WhatsApp.");
+        return;
+    }
+
+    if(formaPagoActual !== "MERCADO_PAGO_1_PAGO" && formaPagoActual !== "TARJETA_2_CUOTAS"){
+        alert("Seleccioná DÉBITO o CRÉDITO / TARJETA como forma de pago.");
+        return;
+    }
+
+    const boton = document.getElementById("botonMercadoPago");
+    if(boton){
+        boton.disabled = true;
+        boton.classList.add("mercado-pago-cargando");
+        boton.textContent = "CONECTANDO CON EL MEDIO DE PAGO...";
+    }
+
+    const callbackName = "__akkinoMP_" + Date.now();
+    const script = document.createElement("script");
+
+    const items = carrito.map(item => ({
+        perfume: item.producto.perfume,
+        cantidad: item.cantidad
+    }));
+
+    const params = new URLSearchParams();
+    params.set("action", "crear_preferencia");
+    params.set("callback", callbackName);
+    params.set("medioPago", formaPagoActual);
+    params.set("modo", modoActual);
+    params.set("items", JSON.stringify(items));
+
+    let terminado = false;
+
+    function limpiar(){
+        try{ delete window[callbackName]; }catch(e){ window[callbackName] = undefined; }
+        if(script.parentNode){ script.parentNode.removeChild(script); }
+        if(boton){
+            boton.disabled = false;
+            boton.classList.remove("mercado-pago-cargando");
+            boton.textContent = formaPagoActual === "TARJETA_2_CUOTAS"
+                ? "CONTINUAR CON CRÉDITO — 2 CUOTAS"
+                : "CONTINUAR CON DÉBITO — 1 PAGO";
+        }
+    }
+
+    window[callbackName] = function(respuesta){
+        terminado = true;
+
+        if(respuesta && respuesta.ok){
+            const url = respuesta.initPoint;
+            if(url){
+                window.location.href = url;
+                return;
+            }
+        }
+
+        limpiar();
+        alert(
+            respuesta && respuesta.error
+            ? "Error en el medio de pago: " + respuesta.error
+            : "No se pudo iniciar el pago."
+        );
+    };
+
+    script.onerror = function(){
+        if(terminado) return;
+        limpiar();
+        alert("No se pudo conectar con el sistema de pagos.");
+    };
+
+    script.src = API + "?" + params.toString();
+    document.body.appendChild(script);
 }
 
 
 /* =========================================================
    ENVIAR WHATSAPP
    ========================================================= */
+
+function seleccionarEntrega(tipo){
+
+    entregaActual = tipo;
+
+    document.querySelectorAll("#entregaPedido .entrega-opcion").forEach(boton => {
+        boton.classList.toggle("activa", boton.dataset.entrega === tipo);
+    });
+
+    const datos = document.getElementById("datosEnvio");
+    const resumen = document.getElementById("envioSeleccionado");
+
+    if(tipo === "OTRO"){
+        datos.classList.add("visible");
+        resumen.textContent = "📦 Envío a domicilio — completá tus datos para calcular el envío.";
+    }
+    else{
+        datos.classList.remove("visible");
+        resumen.textContent = tipo === "PUERTO"
+            ? "✓ Puerto General San Martín — ENVÍO GRATIS"
+            : "✓ San Lorenzo — ENVÍO GRATIS";
+    }
+}
+
+function obtenerDatosEnvio(){
+
+    if(entregaActual === "PUERTO"){
+        return {
+            valido:true,
+            texto:"Puerto General San Martín — ENVÍO GRATIS"
+        };
+    }
+
+    if(entregaActual === "SAN_LORENZO"){
+        return {
+            valido:true,
+            texto:"San Lorenzo — ENVÍO GRATIS"
+        };
+    }
+
+    if(entregaActual !== "OTRO"){
+        return { valido:false };
+    }
+
+    const campos = {
+        nombre: document.getElementById("envioNombre").value.trim(),
+        dni: document.getElementById("envioDni").value.trim(),
+        telefono: document.getElementById("envioTelefono").value.trim(),
+        email: document.getElementById("envioEmail").value.trim(),
+        provincia: document.getElementById("envioProvincia").value.trim(),
+        localidad: document.getElementById("envioLocalidad").value.trim(),
+        direccion: document.getElementById("envioDireccion").value.trim(),
+        codigoPostal: document.getElementById("envioCodigoPostal").value.trim(),
+        transporte: document.getElementById("envioTransporte").value
+    };
+
+    const faltantes = [];
+    const nombres = {
+        nombre:"Nombre y apellido",
+        dni:"DNI",
+        telefono:"Teléfono",
+        email:"Email",
+        provincia:"Provincia",
+        localidad:"Localidad",
+        direccion:"Dirección",
+        codigoPostal:"Código postal",
+        transporte:"Via Cargo o Andreani"
+    };
+
+    Object.keys(nombres).forEach(clave => {
+        if(!campos[clave]) faltantes.push(nombres[clave]);
+    });
+
+    if(faltantes.length){
+        return {
+            valido:false,
+            error:"Completá los datos de envío: " + faltantes.join(", ") + "."
+        };
+    }
+
+    return {
+        valido:true,
+        texto:
+            "Otro destino — envío por " + campos.transporte + "%0A" +
+            "Nombre y apellido: " + encodeURIComponent(campos.nombre) + "%0A" +
+            "DNI: " + encodeURIComponent(campos.dni) + "%0A" +
+            "Teléfono: " + encodeURIComponent(campos.telefono) + "%0A" +
+            "Email: " + encodeURIComponent(campos.email) + "%0A" +
+            "Provincia: " + encodeURIComponent(campos.provincia) + "%0A" +
+            "Localidad: " + encodeURIComponent(campos.localidad) + "%0A" +
+            "Dirección: " + encodeURIComponent(campos.direccion) + "%0A" +
+            "Código postal: " + encodeURIComponent(campos.codigoPostal) + "%0A" +
+            "Envío por: " + encodeURIComponent(campos.transporte)
+    };
+}
+
 
 function enviarWhatsApp(){
 
@@ -7380,6 +9696,72 @@ function enviarWhatsApp(){
 
         alert(
             `El pedido mayorista requiere mínimo ${MINIMO_MAYORISTA} unidades.`
+        );
+
+        return;
+    }
+
+
+    const datosEntrega =
+        obtenerDatosEnvio();
+
+    if(!datosEntrega.valido){
+        alert(
+            datosEntrega.error ||
+            "Seleccioná cómo querés recibir tu pedido."
+        );
+        return;
+    }
+
+
+    /*
+    Si el pedido mezcla DISPONIBLES con A PEDIDO,
+    no se permite pago ni confirmación automática.
+    Se deriva a WhatsApp para que el cliente decida
+    si quiere esperar el producto faltante y abonarlo.
+    */
+
+    const pedidoPendiente =
+        hayProductosAPedido();
+
+    if(pedidoPendiente){
+
+        let mensajeConsulta =
+            "Hola AKKINO Privé!%0A%0A" +
+            "Quiero consultar este pedido. Incluye productos DISPONIBLES y productos A PEDIDO.%0A%0A";
+
+        carrito.forEach(
+            item => {
+
+                const estado =
+                    obtenerEstado(item.producto);
+
+                mensajeConsulta +=
+                    `${item.cantidad} x ${encodeURIComponent(
+                        item.producto.perfume
+                    )} - ${encodeURIComponent(
+                        estado
+                    )}%0A`;
+            }
+        );
+
+        mensajeConsulta +=
+            "%0AEl pedido contiene productos A PEDIDO. Quiero confirmar disponibilidad y plazo antes de pagar.%0A" +
+            "Si el producto debe esperarse, decidiré si quiero abonarlo y esperar la entrega.";
+
+        mensajeConsulta +=
+            "%0A%0AENTREGA:%0A" +
+            datosEntrega.texto;
+
+        const urlConsulta =
+            "https://wa.me/" +
+            WHATSAPP +
+            "?text=" +
+            mensajeConsulta;
+
+        window.open(
+            urlConsulta,
+            "_blank"
         );
 
         return;
@@ -7418,11 +9800,15 @@ function enviarWhatsApp(){
                 "mayorista"
             ){
 
+                const unidadesMayorista = totalUnidades();
+
                 precioUnitario =
-                    precioMayorista(
+                    unidadesMayorista >= 251
+                    ? 0
+                    : precioMayorista(
                         producto,
                         Math.max(
-                            totalUnidades(),
+                            unidadesMayorista,
                             MINIMO_MAYORISTA
                         )
                     );
@@ -7446,7 +9832,7 @@ function enviarWhatsApp(){
                         );
 
                     precioUnitario =
-                        precios.final;
+                        precioOriginalSegunPago(producto);
 
                 }
 
@@ -7464,9 +9850,9 @@ function enviarWhatsApp(){
                 `${item.cantidad} x ${encodeURIComponent(
                     producto.perfume
                 )} - ${encodeURIComponent(
-                    dinero(
-                        precioUnitario
-                    )
+                    precioUnitario > 0
+                    ? dinero(precioUnitario)
+                    : "CONSULTAR"
                 )}%0A`;
 
         }
@@ -7504,22 +9890,31 @@ function enviarWhatsApp(){
         const unidades =
             totalUnidades();
 
+        const consultarMayorista =
+            unidades >= 251;
 
-        carrito.forEach(
-            item => {
 
-                totalFinal +=
-                    precioMayorista(
-                        item.producto,
-                        unidades
-                    ) *
-                    item.cantidad;
+        if(!consultarMayorista){
+            carrito.forEach(
+                item => {
 
-            }
-        );
+                    totalFinal +=
+                        precioMayorista(
+                            item.producto,
+                            unidades
+                        ) *
+                        item.cantidad;
+
+                }
+            );
+        }
 
 
         mensaje +=
+            consultarMayorista
+            ?
+            "TOTAL MAYORISTA: CONSULTAR%0A"
+            :
             `TOTAL MAYORISTA: ${encodeURIComponent(
                 dinero(
                     totalFinal
@@ -7543,7 +9938,9 @@ function enviarWhatsApp(){
 
 
     mensaje +=
-        "%0AGracias!";
+        "%0AENTREGA:%0A" +
+        datosEntrega.texto +
+        "%0A%0AGracias!";
 
 
     const url =
