@@ -4501,6 +4501,22 @@ RESULTADO:
     font-size:12px;
     font-weight:900;
 }
+
+.original-cuotas-total{
+    margin-top:5px;
+    color:#9b9b9b;
+    font-size:9px;
+    font-weight:800;
+    letter-spacing:.7px;
+    line-height:1.4;
+}
+.original-cuotas-total strong{
+    color:#fff;
+    font-size:11px;
+    font-weight:900;
+    letter-spacing:.2px;
+}
+
 </style>
 
 
@@ -7591,6 +7607,11 @@ function mostrarProductos(
                                             )}
                                         </span>
 
+                                    </div>
+
+                                    <div class="original-cuotas-total">
+                                        TOTAL EN CUOTAS:
+                                        <strong>${dinero(precios.precioCuotas)}</strong>
                                     </div>
 
                                 </div>
