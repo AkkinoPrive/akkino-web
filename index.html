@@ -69,6 +69,11 @@ body{overflow-x:hidden;}
     flex:0 0 auto;
     line-height:0;
 }
+.akkino-portada-picture{
+    display:block;
+    width:100%;
+    height:100%;
+}
 .akkino-portada-img{
     display:block;
     width:100%;
@@ -102,6 +107,39 @@ body{overflow-x:hidden;}
 @media(max-aspect-ratio: 4/5){
     .landing-page{align-items:flex-start;}
     .akkino-portada-artboard{width:100vw;}
+}
+
+/* Portada vertical exclusiva para celulares */
+@media(max-width:700px){
+    .landing-page{
+        align-items:flex-start;
+        justify-content:center;
+        overflow-y:auto;
+        overflow-x:hidden;
+    }
+    .akkino-portada-artboard{
+        width:100vw;
+        aspect-ratio:928 / 1600;
+        height:auto;
+    }
+    .akkino-portada-picture{
+        width:100%;
+        height:100%;
+    }
+    .akkino-portada-img{
+        width:100%;
+        height:100%;
+        object-fit:contain;
+    }
+    /* Zonas táctiles alineadas con los botones apilados de la portada móvil */
+    .portada-hotspot{
+        left:10.5%;
+        width:79%;
+        height:7.1%;
+        border-radius:14px;
+    }
+    .portada-particular{top:73.8%;}
+    .portada-mayorista{top:81.8%;}
 }
 
 /* =========================================================
@@ -1397,150 +1435,6 @@ body{overflow-x:hidden;}
     .metodo-subtitulo{font-size:8px}
     .metodo-icono{font-size:18px}
 }
-
-/* =========================================================
-   AKKINO — MENÚ LATERAL (restauración de estilos faltantes)
-   ========================================================= */
-.menu-backdrop{
-    position:fixed;
-    inset:0;
-    z-index:7998;
-    background:rgba(0,0,0,.68);
-    opacity:0;
-    visibility:hidden;
-    pointer-events:none;
-    transition:opacity .25s ease,visibility .25s ease;
-    backdrop-filter:blur(3px);
-}
-.menu-backdrop.abierto{
-    opacity:1;
-    visibility:visible;
-    pointer-events:auto;
-}
-.side-menu{
-    position:fixed;
-    top:0;
-    left:0;
-    bottom:0;
-    z-index:7999;
-    width:min(360px,88vw);
-    padding:22px 18px 28px;
-    overflow-y:auto;
-    background:linear-gradient(180deg,#111 0%,#080808 100%);
-    color:#f5f5f5;
-    border-right:1px solid rgba(212,175,55,.28);
-    box-shadow:20px 0 60px rgba(0,0,0,.5);
-    transform:translateX(-105%);
-    visibility:hidden;
-    pointer-events:none;
-    transition:transform .28s ease,visibility .28s ease;
-}
-.side-menu.abierto{
-    transform:translateX(0);
-    visibility:visible;
-    pointer-events:auto;
-}
-.side-menu-head{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    gap:16px;
-    padding:4px 2px 22px;
-    margin-bottom:20px;
-    border-bottom:1px solid rgba(212,175,55,.22);
-}
-.side-menu-head small,
-.side-menu-head strong{
-    display:block;
-}
-.side-menu-head small{
-    color:#aaa;
-    font-size:9px;
-    letter-spacing:4px;
-    margin-bottom:5px;
-}
-.side-menu-head strong{
-    color:#d4af37;
-    font-family:Georgia,"Times New Roman",serif;
-    font-size:23px;
-    font-weight:normal;
-    letter-spacing:5px;
-}
-.menu-close{
-    flex:0 0 36px;
-    width:36px;
-    height:36px;
-    border:1px solid #333;
-    border-radius:50%;
-    background:#171717;
-    color:#eee;
-    font-size:22px;
-    line-height:1;
-    cursor:pointer;
-}
-.menu-close:hover{
-    color:#d4af37;
-    border-color:#d4af37;
-}
-.side-menu-section{
-    padding:0 0 18px;
-    margin-bottom:18px;
-    border-bottom:1px solid rgba(255,255,255,.08);
-}
-.side-menu-section>small{
-    display:block;
-    margin:0 0 10px 3px;
-    color:#d4af37;
-    font-size:9px;
-    font-weight:800;
-    letter-spacing:2.5px;
-}
-.side-menu-section>button,
-.side-menu-section>a{
-    display:flex;
-    align-items:center;
-    gap:12px;
-    width:100%;
-    min-height:43px;
-    padding:11px 12px;
-    margin:4px 0;
-    border:1px solid transparent;
-    border-radius:9px;
-    background:transparent;
-    color:#d0d0d0;
-    font:700 10px/1.4 Arial,Helvetica,sans-serif;
-    letter-spacing:1.4px;
-    text-align:left;
-    text-decoration:none;
-    cursor:pointer;
-    transition:background .18s ease,border-color .18s ease,color .18s ease;
-}
-.side-menu-section>button span,
-.side-menu-section>a span{
-    display:inline-flex;
-    align-items:center;
-    justify-content:center;
-    width:20px;
-    flex:0 0 20px;
-    color:#d4af37;
-    font-size:15px;
-}
-.side-menu-section>button:hover,
-.side-menu-section>a:hover{
-    background:rgba(212,175,55,.08);
-    border-color:rgba(212,175,55,.25);
-    color:#fff;
-}
-.side-menu-section.side-social{
-    border-bottom:0;
-}
-@media(max-width:600px){
-    .side-menu{
-        width:min(340px,90vw);
-        padding:18px 15px 24px;
-    }
-}
-
 </style>
 
 <style id="akkino-banner-v44">
@@ -4537,7 +4431,10 @@ RESULTADO:
 
 <section id="landingPage" class="landing-page" aria-label="Portada AKKINO Privé">
     <div class="akkino-portada-artboard">
-        <img src="portada-akkino.png" alt="AKKINO Privé — Inspiraciones en 60 ml" class="akkino-portada-img">
+        <picture class="akkino-portada-picture">
+            <source media="(max-width: 700px)" srcset="portada-akkino-mobile.png">
+            <img src="portada-akkino.png" alt="AKKINO Privé — Inspiraciones en 60 ml" class="akkino-portada-img">
+        </picture>
         <!-- Zonas transparentes alineadas sobre la botonera incluida en la imagen -->
         <button class="portada-hotspot portada-particular" type="button"
             aria-label="Ingresar a Particular" onclick="entrarDesdePortada('particular')"></button>
