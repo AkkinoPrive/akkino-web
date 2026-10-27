@@ -38,450 +38,71 @@ body{
 }
 
 /* =========================================================
-   LANDING / HOME
+   PORTADA AKKINO PRIVÉ — BANNER CON BOTONERA FUNCIONAL
    ========================================================= */
-
-html{
-    scroll-behavior:smooth;
-}
-
-body{
-    overflow-x:hidden;
-}
-
+html{scroll-behavior:smooth;}
+body{overflow-x:hidden;}
 .landing-page{
-    display:none !important;
     position:fixed;
     inset:0;
     z-index:9000;
     min-height:100vh;
-    overflow:hidden;
-    background:linear-gradient(135deg, #050505 0%, #111111 50%, #070707 100%);
+    overflow:auto;
+    background:#050505;
     display:flex;
-    flex-direction:column;
-    transition:
-        opacity .45s ease,
-        visibility .45s ease,
-        transform .45s ease;
+    align-items:center;
+    justify-content:center;
+    opacity:1;
+    visibility:visible;
+    pointer-events:auto;
+    transition:opacity .35s ease,visibility .35s ease;
 }
-
 .landing-page.oculto{
     opacity:0;
     visibility:hidden;
     pointer-events:none;
-    transform:scale(1.025);
 }
-
-.landing-page:before{
-    content:"";
-    position:absolute;
-    inset:5%;
-    border:1px solid rgba(212,175,55,.12);
-    pointer-events:none;
-}
-
-.landing-noise{
-    position:absolute;
-    inset:0;
-    opacity:.035;
-    pointer-events:none;
-    background-image:
-        repeating-linear-gradient(
-            0deg,
-            #fff 0,
-            #fff 1px,
-            transparent 1px,
-            transparent 4px
-        );
-    mix-blend-mode:soft-light;
-}
-
-.landing-topbar{
+.akkino-portada-artboard{
     position:relative;
-    z-index:3;
-    width:100%;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    padding:28px 38px;
+    width:min(100vw,177.7vh);
+    aspect-ratio:1672 / 941;
+    flex:0 0 auto;
+    line-height:0;
 }
-
-.menu-trigger,
-.landing-cart{
-    width:48px;
-    height:48px;
-    border-radius:50%;
-    border:1px solid rgba(212,175,55,.30);
-    background:rgba(12,12,12,.72);
-    color:#d4af37;
-    cursor:pointer;
-    backdrop-filter:blur(10px);
-}
-
-.menu-trigger{
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    gap:5px;
-    padding:0 14px;
-}
-
-.menu-trigger span{
-    width:19px;
-    height:1px;
-    background:#d4af37;
+.akkino-portada-img{
     display:block;
+    width:100%;
+    height:100%;
+    object-fit:contain;
 }
-
-.landing-cart{
-    font-size:18px;
-}
-
-.landing-mini-logo{
-    text-align:center;
-}
-
-.landing-logo{
-    font-family:
-        Georgia,
-        "Times New Roman",
-        serif;
-    color:#d4af37;
-    font-size:28px;
-    letter-spacing:8px;
-}
-
-.landing-logo-sub{
-    margin-top:4px;
-    color:#777;
-    font-size:9px;
-    letter-spacing:5px;
-}
-
-.landing-center{
-    position:relative;
+.portada-hotspot{
+    position:absolute;
+    top:61.2%;
+    height:15.9%;
+    width:26.8%;
+    border:0;
+    border-radius:18px;
+    background:transparent;
+    cursor:pointer;
     z-index:2;
-    width:min(820px, 90%);
-    margin:auto;
-    text-align:center;
-    transform:translateY(-2%);
+    padding:0;
+    line-height:normal;
+    -webkit-tap-highlight-color:transparent;
 }
-
-.landing-eyebrow{
-    color:#d4af37;
-    font-size:10px;
-    letter-spacing:6px;
-    margin-bottom:22px;
+.portada-particular{left:22.0%;}
+.portada-mayorista{left:49.9%;}
+.portada-hotspot:focus-visible{
+    outline:3px solid #f3d16b;
+    outline-offset:3px;
 }
-
-.landing-center h1{
-    font-family:
-        Georgia,
-        "Times New Roman",
-        serif;
-    font-size:clamp(48px, 7vw, 92px);
-    line-height:.93;
-    font-weight:400;
-    letter-spacing:-2px;
-    color:#f5f5f5;
+.portada-hotspot:hover{
+    background:rgba(255,255,255,.035);
+    box-shadow:inset 0 0 0 2px rgba(255,220,125,.45),0 0 22px rgba(255,190,60,.18);
 }
-
-.landing-center h1 span{
-    color:#d4af37;
-    font-style:italic;
+@media(max-aspect-ratio: 4/5){
+    .landing-page{align-items:flex-start;}
+    .akkino-portada-artboard{width:100vw;}
 }
-
-.landing-center p{
-    max-width:610px;
-    margin:28px auto 0;
-    color:#9b9b9b;
-    font-size:14px;
-    line-height:1.8;
-}
-
-.landing-divider{
-    width:250px;
-    margin:28px auto 14px;
-    display:flex;
-    align-items:center;
-    gap:12px;
-    color:#d4af37;
-}
-
-.landing-divider span{
-    flex:1;
-    height:1px;
-    background:
-        linear-gradient(
-            90deg,
-            transparent,
-            rgba(212,175,55,.55)
-        );
-}
-
-.landing-divider span:last-child{
-    background:
-        linear-gradient(
-            90deg,
-            rgba(212,175,55,.55),
-            transparent
-        );
-}
-
-.landing-divider b{
-    font-family:Georgia,serif;
-    font-weight:400;
-    font-size:12px;
-    letter-spacing:2px;
-}
-
-.landing-meta{
-    display:none;
-    color:#777;
-    font-size:9px;
-    letter-spacing:3px;
-}
-
-.landing-meta i{
-    color:#d4af37;
-    font-style:normal;
-    margin:0 8px;
-}
-
-.landing-cta{
-    margin-top:30px;
-    border:1px solid #d4af37;
-    background:#d4af37;
-    color:#0b0b0b;
-    padding:15px 26px;
-    min-width:240px;
-    border-radius:2px;
-    font-weight:bold;
-    letter-spacing:1px;
-    cursor:pointer;
-    transition:.25s;
-}
-
-.landing-cta span{
-    margin-left:12px;
-    font-size:17px;
-}
-
-.landing-cta:hover{
-    background:#efd36b;
-    transform:translateY(-2px);
-}
-
-.landing-secondary{
-    display:block;
-    margin:14px auto 0;
-    border:0;
-    background:transparent;
-    color:#777;
-    font-size:10px;
-    letter-spacing:2px;
-    cursor:pointer;
-}
-
-.landing-secondary:hover{
-    color:#d4af37;
-}
-
-.landing-bottom{
-    position:relative;
-    z-index:3;
-    display:flex;
-    justify-content:space-between;
-    align-items:end;
-    padding:26px 38px;
-    color:#777;
-}
-
-.landing-bottom small{
-    display:block;
-    font-size:8px;
-    letter-spacing:3px;
-    margin-bottom:5px;
-}
-
-.landing-bottom strong{
-    color:#aaa;
-    font-size:10px;
-    letter-spacing:3px;
-}
-
-.landing-socials{
-    display:flex;
-    gap:18px;
-}
-
-.landing-socials a{
-    color:#888;
-    text-decoration:none;
-    font-size:9px;
-    letter-spacing:2px;
-}
-
-.landing-socials a:hover{
-    color:#d4af37;
-}
-
-.landing-glow{
-    position:absolute;
-    border-radius:50%;
-    pointer-events:none;
-    filter:blur(1px);
-}
-
-.glow-one{
-    width:520px;
-    height:520px;
-    right:-280px;
-    top:18%;
-    border:1px solid rgba(212,175,55,.16);
-    box-shadow:
-        0 0 0 45px rgba(212,175,55,.025),
-        0 0 0 90px rgba(212,175,55,.015);
-}
-
-.glow-two{
-    width:360px;
-    height:360px;
-    left:-240px;
-    bottom:-170px;
-    border:1px solid rgba(212,175,55,.10);
-}
-
-
-/* =========================================================
-   MENÚ LATERAL
-   ========================================================= */
-
-.menu-backdrop{
-    position:fixed;
-    inset:0;
-    z-index:9500;
-    background:rgba(0,0,0,.65);
-    backdrop-filter:blur(4px);
-    opacity:0;
-    visibility:hidden;
-    transition:.3s;
-}
-
-.menu-backdrop.abierto{
-    opacity:1;
-    visibility:visible;
-}
-
-.side-menu{
-    position:fixed;
-    z-index:9600;
-    left:0;
-    top:0;
-    bottom:0;
-    width:min(360px, 88vw);
-    padding:28px 24px;
-    background:
-        linear-gradient(
-            180deg,
-            #111 0%,
-            #070707 100%
-        );
-    border-right:1px solid rgba(212,175,55,.20);
-    box-shadow:25px 0 70px rgba(0,0,0,.65);
-    transform:translateX(-105%);
-    transition:transform .35s cubic-bezier(.22,.61,.36,1);
-    overflow-y:auto;
-}
-
-.side-menu.abierto{
-    transform:translateX(0);
-}
-
-.side-menu-head{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    padding-bottom:24px;
-    margin-bottom:22px;
-    border-bottom:1px solid #222;
-}
-
-.side-menu-head small{
-    display:block;
-    color:#777;
-    font-size:8px;
-    letter-spacing:3px;
-}
-
-.side-menu-head strong{
-    display:block;
-    margin-top:5px;
-    color:#d4af37;
-    font-family:Georgia,serif;
-    letter-spacing:5px;
-}
-
-.menu-close{
-    width:38px;
-    height:38px;
-    border-radius:50%;
-    border:1px solid #333;
-    background:#151515;
-    color:#aaa;
-    font-size:25px;
-    cursor:pointer;
-}
-
-.side-menu-section{
-    margin-bottom:26px;
-}
-
-.side-menu-section > small{
-    display:block;
-    margin-bottom:10px;
-    color:#666;
-    font-size:8px;
-    letter-spacing:3px;
-}
-
-.side-menu-section button,
-.side-menu-section a{
-    width:100%;
-    display:flex;
-    align-items:center;
-    gap:13px;
-    padding:12px 10px;
-    margin:3px 0;
-    border:0;
-    border-radius:6px;
-    background:transparent;
-    color:#aaa;
-    text-decoration:none;
-    text-align:left;
-    font-size:11px;
-    letter-spacing:.5px;
-    cursor:pointer;
-}
-
-.side-menu-section button:hover,
-.side-menu-section a:hover{
-    background:#171717;
-    color:#d4af37;
-}
-
-.side-menu-section button span,
-.side-menu-section a span{
-    width:22px;
-    color:#d4af37;
-    text-align:center;
-}
-
-.side-social{
-    padding-top:8px;
-    border-top:1px solid #222;
-}
-
 
 /* =========================================================
    CATÁLOGO COMO "SEGUNDA PÁGINA"
@@ -4760,18 +4381,6 @@ RESULTADO:
 </style>
 
 
-<style id="akkino-fix-catalogo-directo">
-/* FIX: entrar directamente al catálogo, sin la portada intermedia */
-#landingPage.landing-page {
-    display: none !important;
-}
-#catalogPage.catalog-page {
-    opacity: 1 !important;
-    visibility: visible !important;
-    pointer-events: auto !important;
-    transform: none !important;
-}
-</style>
 
 </head>
 
@@ -4782,90 +4391,16 @@ RESULTADO:
      AKKINO LANDING / PÁGINA PRINCIPAL
      ========================================================= -->
 
-<section id="landingPage" class="landing-page">
-
-    <div class="landing-noise"></div>
-
-    <header class="landing-topbar">
-
-        <button
-            class="menu-trigger"
-            onclick="abrirMenu()"
-            aria-label="Abrir menú">
-            <span></span>
-            <span></span>
-            <span></span>
-        </button>
-
-        </div>
-
-        </div>
-
-        <button
-            class="landing-cart"
-            onclick="mostrarCatalogo()"
-            aria-label="Ver catálogo">
-            🛍
-        </button>
-
-    </header>
-
-
-    <div class="landing-center">
-
-        <div class="landing-eyebrow">
-            AKKINO PRIVÉ
-        </div>
-
-        <h1>
-            Fragancias<br>
-            <span>que dejan huella.</span>
-        </h1>
-<button
-            class="landing-cta"
-            onclick="mostrarCatalogo()">
-            INGRESAR AL CATÁLOGO
-            <span>→</span>
-        </button>
-
-        <button
-            class="landing-secondary"
-            onclick="abrirMenu()">
-            EXPLORAR SECCIONES
-        </button>
-
+<section id="landingPage" class="landing-page" aria-label="Portada AKKINO Privé">
+    <div class="akkino-portada-artboard">
+        <img src="portada-akkino.png" alt="AKKINO Privé — Inspiraciones en 60 ml" class="akkino-portada-img">
+        <!-- Zonas transparentes alineadas sobre la botonera incluida en la imagen -->
+        <button class="portada-hotspot portada-particular" type="button"
+            aria-label="Ingresar a Particular" onclick="entrarDesdePortada('particular')"></button>
+        <button class="portada-hotspot portada-mayorista" type="button"
+            aria-label="Ingresar a Mayorista" onclick="entrarDesdePortada('mayorista')"></button>
     </div>
-
-
-    <div class="landing-bottom">
-
-
-        <div class="landing-socials">
-            <a
-                id="landingWhatsapp"
-                href="#"
-                target="_blank"
-                rel="noopener">
-                WhatsApp
-            </a>
-
-            <a
-                id="landingInstagram"
-                href="#"
-                target="_blank"
-                rel="noopener">
-                Instagram
-            </a>
-        </div>
-
-    </div>
-
-
-    <div class="landing-glow glow-one"></div>
-    <div class="landing-glow glow-two"></div>
-
 </section>
-
 
 <!-- =========================================================
      MENÚ LATERAL
@@ -10033,6 +9568,11 @@ function cambiarModoDesdeMenu(modo){
     mostrarCatalogo();
     cerrarMenu();
     window.scrollTo(0, 0);
+}
+
+function entrarDesdePortada(modo){
+    cambiarModo(modo);
+    mostrarCatalogo();
 }
 
 function mostrarCatalogo(){
