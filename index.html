@@ -4759,6 +4759,20 @@ RESULTADO:
 }
 </style>
 
+
+<style id="akkino-fix-catalogo-directo">
+/* FIX: entrar directamente al catálogo, sin la portada intermedia */
+#landingPage.landing-page {
+    display: none !important;
+}
+#catalogPage.catalog-page {
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+    transform: none !important;
+}
+</style>
+
 </head>
 
 
