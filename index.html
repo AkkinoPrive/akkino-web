@@ -50,6 +50,7 @@ body{
 }
 
 .landing-page{
+    display:none !important;
     position:fixed;
     inset:0;
     z-index:9000;
@@ -487,6 +488,10 @@ body{
    ========================================================= */
 
 .catalog-page{
+    opacity:1;
+    visibility:visible;
+    pointer-events:auto;
+    transform:none;
     min-height:100vh;
     opacity:0;
     visibility:hidden;
@@ -4880,24 +4885,14 @@ RESULTADO:
 
         <small>SECCIONES</small>
 
-        <button onclick="irSeccion('inicio')">
-            <span>⌂</span>
-            INICIO
-        </button>
-
-        <button onclick="irSeccion('catalogo')">
+        <button onclick="cambiarModoDesdeMenu('particular')">
             <span>◈</span>
-            CATÁLOGO
+            PARTICULAR
         </button>
 
-        <button onclick="irSeccion('destacados')">
-            <span>✦</span>
-            DESTACADOS
-        </button>
-
-        <button onclick="irSeccion('nuevos')">
-            <span>✧</span>
-            NUEVOS INGRESOS
+        <button onclick="cambiarModoDesdeMenu('mayorista')">
+            <span>▣</span>
+            MAYORISTA
         </button>
 
     </div>
@@ -10017,6 +10012,13 @@ function configurarRedes(){
         }
     );
 
+}
+
+function cambiarModoDesdeMenu(modo){
+    cambiarModo(modo);
+    mostrarCatalogo();
+    cerrarMenu();
+    window.scrollTo(0, 0);
 }
 
 function mostrarCatalogo(){
