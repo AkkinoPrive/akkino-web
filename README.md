@@ -1,2 +1,2 @@
-# neros-catalogo
-Catálogo oficial de NERÓS
+# Akkinoprive-catalogo
+Catálogo oficial de AkkinoPrive
