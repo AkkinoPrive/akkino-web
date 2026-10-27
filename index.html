@@ -4526,7 +4526,7 @@ RESULTADO:
    ========================================================= */
 .categorias-principales{
     display:grid !important;
-    grid-template-columns:repeat(2,minmax(0,1fr));
+    grid-template-columns:minmax(0,1fr);
     gap:12px !important;
     width:min(680px,100%);
     margin:0 auto 18px !important;
@@ -4927,13 +4927,6 @@ RESULTADO:
             STOCK INSPIRACIONES
         </button>
 
-        <button
-            id="menuOriginales"
-            onclick="irOriginales()">
-            <span>◆</span>
-            PERFUMES ORIGINALES
-        </button>
-
     </div>
 
 
@@ -5016,11 +5009,11 @@ RESULTADO:
     <div class="akkino-banner-track">
         <div class="akkino-banner-item">🚚 ENVÍO GRATIS · PUERTO GENERAL SAN MARTÍN + SAN LORENZO · SIN MÍNIMO</div>
         <div class="akkino-banner-item">💳 2 CUOTAS SIN INTERÉS</div>
-        <div class="akkino-banner-item">✨ PERFUMES ORIGINALES E INSPIRACIONES</div>
+        <div class="akkino-banner-item">✨ EXTRACTOS DE 60 ML</div>
         <div class="akkino-banner-item">📦 ENVÍO GRATIS A PARTIR DE $180.000</div>
         <div class="akkino-banner-item">🚚 ENVÍO GRATIS · PUERTO GENERAL SAN MARTÍN + SAN LORENZO · SIN MÍNIMO</div>
         <div class="akkino-banner-item">💳 2 CUOTAS SIN INTERÉS</div>
-        <div class="akkino-banner-item">✨ PERFUMES ORIGINALES E INSPIRACIONES</div>
+        <div class="akkino-banner-item">✨ EXTRACTOS DE 60 ML</div>
         <div class="akkino-banner-item">📦 ENVÍO GRATIS A PARTIR DE $180.000</div>
     </div>
 </div>
@@ -5946,8 +5939,15 @@ function cargarPerfumes(){
             }
 
 
-            perfumes =
-                data;
+            // Esta versión del sitio muestra únicamente extractos de 60 ml.
+            // Los perfumes originales se comercializan en la tienda separada.
+            perfumes = data.filter(
+                producto =>
+                    normalizar(producto.tipo).includes("INSPIRACION")
+            );
+
+            // Evita que quede seleccionada una categoría anterior guardada en la sesión.
+            tipoActual = "INSPIRACIONES 60ML";
 
 
             renderHomeShowcasesV11();
@@ -6044,20 +6044,6 @@ function crearCategorias(){
 
             </button>
 
-
-            <button
-            class="categoria-btn
-            ${tipoActual === "ORIGINALES" ? "activa" : ""}"
-            data-tipo="ORIGINALES"
-            onclick="
-                seleccionarTipo(
-                    'ORIGINALES'
-                )
-            ">
-
-                ORIGINALES
-
-            </button>
 
         </div>
 
@@ -7254,25 +7240,11 @@ function renderHomeShowcasesV11(){
     }
 
 
-    const disponibles =
+    const productosBase =
         perfumes.filter(
             p =>
-                normalizar(
-                    p.tipo
-                ).includes("ORIGINAL")
-                ||
-                normalizar(
-                    p.tipo
-                ).includes("INSPIRACION")
+                normalizar(p.tipo).includes("INSPIRACION")
         );
-
-
-    const productosBase =
-        disponibles.length
-        ?
-        disponibles
-        :
-        perfumes;
 
 
     const destacados =
