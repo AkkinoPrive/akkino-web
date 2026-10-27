@@ -5267,14 +5267,14 @@ class="modal">
 
                 <button type="button" class="metodo-pago" data-forma="MERCADO_PAGO_1_PAGO" onclick="cambiarFormaPago('MERCADO_PAGO_1_PAGO')">
                     <span class="metodo-icono">💳</span>
-                    <span class="metodo-titulo">DÉBITO</span>
-                    <span class="metodo-subtitulo">20% OFF · PRECIO DE LISTA</span>
+                    <span class="metodo-titulo">DÉBITO / DINERO EN CUENTA</span>
+                    <span class="metodo-subtitulo">RECARGO 8,5% · 1 PAGO</span>
                 </button>
 
                 <button type="button" class="metodo-pago" data-forma="TARJETA_2_CUOTAS" onclick="cambiarFormaPago('TARJETA_2_CUOTAS')">
                     <span class="metodo-icono">💳</span>
-                    <span class="metodo-titulo">CRÉDITO / TARJETA</span>
-                    <span class="metodo-subtitulo">20% OFF · 2 CUOTAS SIN INTERÉS</span>
+                    <span class="metodo-titulo">TARJETA DE CRÉDITO</span>
+                    <span class="metodo-subtitulo">RECARGO 8,5% · 1 PAGO</span>
                 </button>
 
             </div>
@@ -5734,7 +5734,7 @@ function precioOriginalSegunPago(producto){
     precio de lista menos 20%.
     La diferencia es solamente la forma de pago:
     DÉBITO = 1 pago.
-    CRÉDITO = 2 cuotas sin interés.
+    CRÉDITO = un pago con recargo de Mercado Pago.
     */
     if(
         formaPagoActual === "MERCADO_PAGO_1_PAGO" ||
@@ -7166,24 +7166,33 @@ function calcularCarritoParticular(){
     );
 
 
-    const totalFinal =
+    const totalBase =
         totalOriginales +
         mejorTotalPromos;
 
+    // Efectivo/transferencia no tienen recargo. Los pagos por Mercado Pago
+    // llevan 8,5% para cubrir aproximadamente comisión + IVA según simulador.
+    const aplicaRecargoMP =
+        formaPagoActual === "MERCADO_PAGO_1_PAGO" ||
+        formaPagoActual === "TARJETA_2_CUOTAS";
+
+    const recargoMP = aplicaRecargoMP
+        ? Math.round(totalBase * 0.085)
+        : 0;
+
+    const totalFinal = totalBase + recargoMP;
 
     return {
-
-        precioNormal:
-            precioNormal,
-
-        totalFinal:
-            totalFinal,
+        precioNormal: precioNormal,
+        totalBase: totalBase,
+        recargoMP: recargoMP,
+        totalFinal: totalFinal,
 
         ahorro:
             Math.max(
                 0,
                 precioNormal -
-                totalFinal
+                totalBase
             ),
 
         detallePromos:
@@ -7572,7 +7581,7 @@ function mostrarProductos(
                                     <div
                                     class="original-cuotas-label">
 
-                                        2 CUOTAS SIN INTERÉS DE
+                                        CRÉDITO EN 1 PAGO DE
                                         <span class="cuota-monto">
                                             ${dinero(
                                                 precios.valorCuota
@@ -8808,8 +8817,8 @@ function renderizarCarrito(){
                                 20% OFF · Crédito / tarjeta
                             </div>
                             <div class="pedido-precio-cuotas">
-                                <span>2 CUOTAS SIN INTERÉS</span>
-                                <strong>2 × ${dinero(preciosOriginal.valorCuota)}</strong>
+                                <span>CRÉDITO EN 1 PAGO</span>
+                                <strong>${dinero(preciosOriginal.valorCuota)}</strong>
                             </div>
                         `;
                     }
@@ -9025,55 +9034,35 @@ function actualizarOpcionesPago(){
     const selector = document.getElementById("formaPagoPedido");
     if(!selector){ return; }
 
-    const todosOriginalesDisponibles =
+    const puedePagoTarjeta =
         carrito.length > 0 &&
-        carrito.every(item =>
-            tipoPrincipalProducto(item.producto) === "ORIGINALES" &&
-            obtenerEstado(item.producto) === "DISPONIBLE"
-        );
+        modoActual === "particular" &&
+        !hayProductosAPedido();
 
-    const hayInspiraciones = carrito.some(
-        item => tipoPrincipalProducto(item.producto) === "INSPIRACIONES 60ML"
-    );
-
-    const puedePagoTarjeta = modoActual === "particular" && !hayProductosAPedido();
     const botones = document.querySelectorAll("#metodosPagoAkkino .metodo-pago");
 
     botones.forEach(boton => {
         const forma = boton.dataset.forma;
-        let permitido = puedePagoTarjeta;
         const esTarjeta =
             forma === "MERCADO_PAGO_1_PAGO" ||
             forma === "TARJETA_2_CUOTAS";
 
         boton.classList.remove("solo-originales", "bloqueado-mayorista");
+        const permitido = !esTarjeta || puedePagoTarjeta;
 
-        if(esTarjeta){
-            permitido = puedePagoTarjeta && todosOriginalesDisponibles;
-
-            if(modoActual === "mayorista"){
-                boton.classList.add("bloqueado-mayorista");
-            }
-            else if(!permitido && puedePagoTarjeta && !todosOriginalesDisponibles){
-                boton.classList.add("solo-originales");
-            }
+        if(esTarjeta && modoActual === "mayorista"){
+            boton.classList.add("bloqueado-mayorista");
         }
 
-        // Los métodos de tarjeta permanecen visibles cuando hay Extractos,
-        // pero quedan bloqueados y marcados como exclusivos para Originales.
         boton.hidden = false;
         boton.disabled = !permitido;
-
-        boton.classList.toggle(
-            "activo",
-            formaPagoActual === forma && permitido
-        );
+        boton.classList.toggle("activo", formaPagoActual === forma && permitido);
     });
 
     if(
         (formaPagoActual === "MERCADO_PAGO_1_PAGO" ||
          formaPagoActual === "TARJETA_2_CUOTAS") &&
-        !todosOriginalesDisponibles
+        !puedePagoTarjeta
     ){
         formaPagoActual = "EFECTIVO";
     }
@@ -9084,7 +9073,6 @@ function actualizarOpcionesPago(){
 
     selector.value = formaPagoActual;
 }
-
 
 function actualizarEstadoBotonPedido(){
 
@@ -9123,8 +9111,8 @@ function actualizarEstadoBotonPedido(){
         botonMP.style.display = puedePagar ? "block" : "none";
         botonMP.textContent =
             formaPagoActual === "TARJETA_2_CUOTAS"
-            ? "CONTINUAR CON CRÉDITO — 2 CUOTAS"
-            : "CONTINUAR CON DÉBITO — 1 PAGO";
+            ? "CONTINUAR CON CRÉDITO — 1 PAGO"
+            : "CONTINUAR CON DÉBITO / DINERO EN CUENTA";
     }
 }
 
@@ -9144,17 +9132,6 @@ function cambiarFormaPago(
         modoActual === "mayorista" &&
         (forma === "MERCADO_PAGO_1_PAGO" || forma === "TARJETA_2_CUOTAS")
     ){
-        formaPagoActual = "EFECTIVO";
-        actualizarOpcionesPago();
-        actualizarResumenCarrito();
-        return;
-    }
-
-    const hayInspiraciones = carrito.some(
-        item => tipoPrincipalProducto(item.producto) === "INSPIRACIONES 60ML"
-    );
-
-    if((forma === "TARJETA_2_CUOTAS" || forma === "MERCADO_PAGO_1_PAGO") && hayInspiraciones){
         formaPagoActual = "EFECTIVO";
         actualizarOpcionesPago();
         actualizarResumenCarrito();
@@ -9382,6 +9359,17 @@ function actualizarResumenCarrito(){
 
 
         ${
+            calculo.recargoMP > 0
+            ? `
+            <div class="resumen-linea">
+                <span>Recargo de Mercado Pago (8,5%)</span>
+                <strong>${dinero(calculo.recargoMP)}</strong>
+            </div>
+            `
+            : ""
+        }
+
+        ${
             (formaPagoActual === "EFECTIVO" || formaPagoActual === "TRANSFERENCIA")
             ?
             `
@@ -9429,7 +9417,7 @@ function actualizarResumenCarrito(){
 
             <strong>
                 ${formaPagoActual === "TARJETA_2_CUOTAS"
-                    ? "CRÉDITO / TARJETA — 2 CUOTAS"
+                    ? "CRÉDITO — 1 PAGO"
                     : formaPagoActual === "MERCADO_PAGO_1_PAGO"
                     ? "DÉBITO — 1 PAGO"
                     : "TRANSFERENCIA / EFECTIVO"}
@@ -9531,8 +9519,8 @@ function pagarMercadoPago(){
             boton.disabled = false;
             boton.classList.remove("mercado-pago-cargando");
             boton.textContent = formaPagoActual === "TARJETA_2_CUOTAS"
-                ? "CONTINUAR CON CRÉDITO — 2 CUOTAS"
-                : "CONTINUAR CON DÉBITO — 1 PAGO";
+                ? "CONTINUAR CON CRÉDITO — 1 PAGO"
+                : "CONTINUAR CON DÉBITO / DINERO EN CUENTA";
         }
     }
 
